@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\{AdminController, AuthController};
@@ -37,9 +38,15 @@ Route::controller(PageController::class)->name('pages.')->group(function () {
     // SECRET ROUTE
     Route::get('components', 'components')->name('components');
 
-    Route::view('/sitemap', 'sitemap', [
-        'sitemap' => simplexml_load_file(public_path('sitemap.xml'))
-    ])->name('sitemap');
+    Route::get('/sitemap', function () {
+        if (!file_exists(public_path('sitemap.xml'))) {
+            Artisan::call('app:generate-sitemap');
+        }
+
+        return view('sitemap', [
+            'sitemap' => simplexml_load_file(public_path('sitemap.xml'))
+        ]);
+    })->name('sitemap');
 });
 
 /**
