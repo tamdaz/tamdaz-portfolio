@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt@-5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Inter', sans-serif;
+	font-weight: 500;
+    color: rgba(0, 0, 0, calc(1 - 0.17));
+}
+
+pre {
+    font-family: 'Cousine', monospace;
+}
+
+code {
+	font-family: 'JetBrains Mono', monospace;
+}
+
+@media screen and (max-width: 1024px) {
+	.bg-home {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
+			repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+	}
+
+	.bg-home-dark {
+		background-image:
+				radial-gradient(circle at center center, #f8f8f8, #ddd),
+				repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.bg-home {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
+			repeating-radial-gradient(circle at 71.5% center, #f8f8f8, #f8f8f8 12px, transparent 64px);
+		background-blend-mode: multiply;
+		background-color: #eeeeee;
+	}
+
+	.bg-home-dark {
+		background-image:
+				radial-gradient(circle at center center, #f8f8f8, #ddd),
+				repeating-radial-gradient(circle at 71.5% center, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+		background-color: #222222;
+	}
+}
+
+.bgi {
+	background-color: #e4f6e6;
+	opacity: 0.8;
+	background-image: radial-gradient(#216f39 0.8500000000000001px, #e4f6e6 0.8500000000000001px);
+	background-size: 17px 17px;
+}
+
+@layer components {
+	input, textarea {
+		@apply dark:bg-neutral-900 border dark:border-neutral-800 dark:hover:border-neutral-700
+		dark:active:border-neutral-600 outline-none;
+	}
+
+	input::placeholder, textarea::placeholder {
+		@apply opacity-40;
+	}
+
+	ol {
+		list-style-type: decimal;
+		list-style-position: inside;
+	}
+
+	ul {
+		list-style-type: inherit;
+		list-style-position: inside;
+	}
+
+	.editor-preview-side > h1 {
+		@apply text-4xl py-2 font-bold;
+	}
+
+	.editor-preview-side > h2 {
+		@apply text-3xl py-2 font-bold;
+	}
+
+	.editor-preview-side > h3 {
+		@apply text-2xl py-2 font-bold;
+	}
+
+	.editor-preview-side > h4 {
+		@apply text-xl py-2 font-bold;
+	}
+
+	.editor-preview-side > h5 {
+		@apply text-lg py-2 font-bold;
+	}
+
+	.editor-preview-side > h6 {
+		@apply text-lg;
+	}
+
+	.editor-preview-side > table {
+		@apply w-full table-fixed;
+	}
+
+	.editor-preview-side > blockquote {
+		@apply border-l-4 pl-4 py-3 my-4 dark:border-neutral-600 italic;
+	}
+
+	.editor-preview-side > table > thead > tr > th, td {
+		@apply px-4 py-2 border dark:border-neutral-700;
+	}
+
+	.editor-preview-side > table > thead > tr > th {
+		@apply border-b-2 dark:border-b-neutral-600;
+	}
+
+	.editor-preview-side > pre {
+		@apply my-6 rounded-lg overflow-hidden;
+	}
+
+	.editor-preview-side > ol {
+		list-style-type: decimal;
+		list-style-position: inside;
+	}
+
+	.editor-preview-side > ul {
+		list-style-type: inherit;
+		list-style-position: inside;
+	}
+
+	.editor-preview-side > i, em {
+		font-style: oblique 5deg;
+	}
+
+	.markdown > h1 {
+		@apply text-4xl py-2 font-bold;
+	}
+
+	.markdown > h2 {
+		@apply text-3xl py-2 font-bold;
+	}
+
+	.markdown > h3 {
+		@apply text-2xl font-bold;
+	}
+
+	.markdown > h4 {
+		@apply text-xl font-bold;
+	}
+
+	.markdown > h5 {
+		@apply text-lg font-bold;
+	}
+
+	.markdown > h6 {
+		@apply text-lg;
+	}
+
+	.markdown > table {
+		@apply w-full table-fixed;
+	}
+
+	.markdown > blockquote {
+		@apply border-l-4 pl-4 py-3 my-4 dark:border-neutral-600 italic;
+	}
+
+	.markdown > table > thead > tr > th, td {
+		@apply px-4 py-2 border dark:border-neutral-700;
+	}
+
+	.markdown > table > thead > tr > th {
+		@apply border-b-2 dark:border-b-neutral-600;
+	}
+
+	.markdown > pre {
+		@apply my-4 rounded-lg overflow-hidden;
+	}
+
+	.markdown > ol {
+		list-style-type: decimal;
+		list-style-position: inside;
+	}
+
+	.markdown > ul {
+		list-style-type: inherit;
+		list-style-position: inside;
+	}
+
+	.markdown > i, em {
+		font-style: oblique 5deg;
+	}
+
+	.markdown > p, ol, ul {
+		@apply py-2
+	}
+}
