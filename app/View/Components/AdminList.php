@@ -15,7 +15,7 @@ class AdminList extends Component
         public mixed $lists,
         public string $type,
         public string $primaryName,
-        public string $secondaryName,
+        public string $secondaryName = "",
         public bool $showStatus = true
     ) {}
 

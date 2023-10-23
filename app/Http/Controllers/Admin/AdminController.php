@@ -13,10 +13,7 @@ class AdminController extends Controller
     public function index(): View
     {
         return view('admin.index', [
-            'counts' => [
-                'projects' => Project::all()->only(['id'])->count(),
-                'blogs' => Blog::all()->only(['id'])->count()
-            ]
+            'count_blogs' => Blog::count()
         ]);
     }
 }

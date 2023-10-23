@@ -18,11 +18,11 @@
 			'name' => 'Expériences',
 			'route' => 'admin.experiences.index'
 		], [
-			'name' => 'Projets',
-			'route' => 'admin.projects.index'
-		], [
 			'name' => 'Blogs',
 			'route' => 'admin.blogs.index'
+		], [
+			'name' => 'Catégories',
+			'route' => 'admin.categories.index'
 		]
 	];
 @endphp
@@ -44,10 +44,8 @@
 		</aside>
 		<div class="col-span-4 relative">
 			<header class="absolute w-full flex border-b dark:border-neutral-800 px-8 py-4">
+				<a href="{{ route('pages.home') }}" data-turbolinks="false" class="font-bold">tamdaz</a>
 				<div class="flex flex-1"></div>
-				<div class="flex flex-none">
-					<a href="{{ route('admin.auth.logout') }}">Se déconnecter</a>
-				</div>
 			</header>
 			<section class="px-8 overflow-y-scroll h-full">
 				<div class="invisible w-full px-8 py-10"></div>
