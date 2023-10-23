@@ -6,5 +6,5 @@
     <x-alert
         type="debug"
         primary="Environnement de développement"
-        secondary="Projets: {{ $counts['projects'] }} Blogs: {{ $counts['blogs'] }}" />
+        secondary="{{ $count_blogs }} blogs" />
 @endsection

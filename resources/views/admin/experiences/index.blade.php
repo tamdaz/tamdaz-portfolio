@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', "Ensemble d'expériences")
+@section('title', "Ensemble de catégories")
 
 @section('content')
-    <h1 class="text-5xl font-bold mb-4">Ensemble d'expériences</h1>
+    <h1 class="text-5xl font-bold mb-4">Ensemble de catégories</h1>
     <div class="flex flex-col items-end">
-        <x-button route="{{ route('admin.experiences.create') }}">Ajouter une expérience</x-button>
+        <x-button route="{{ route('admin.experiences.create') }}">Ajouter une catégorie</x-button>
     </div>
 
     @if (session('success'))
@@ -13,7 +13,7 @@
     @endif
 
     <x-admin-list
-        type="experience"
+        type="categorie"
         :lists="$experiences"
         :showStatus="false"
         primaryName="fulldate"
