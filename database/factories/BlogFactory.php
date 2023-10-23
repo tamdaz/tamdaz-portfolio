@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
+ * @extends Factory<\App\Models\Blog>
  */
 class BlogFactory extends Factory
 {
@@ -16,12 +18,18 @@ class BlogFactory extends Factory
      */
     public function definition(): array
     {
+        $image = fake()->image(width: 1280, height: 720);
+        $uploadedFile = new UploadedFile($image, 'thumbnail.jpg', 'image/jpeg');
+        $path = $uploadedFile->store('public/thumbnail');
+        $url = Storage::url($path);
+
         return [
             'is_published' => fake()->boolean(50),
-            'blog_thumb' => fake()->imageUrl(1280, 720),
+            'blog_thumb' => $url,
             'title' => fake()->text(30),
             'description' => fake()->text(50),
-            'content' => fake()->text(2048)
+            'content' => fake()->text(2048),
+            'category_id' => rand(1, 3)
         ];
     }
 }

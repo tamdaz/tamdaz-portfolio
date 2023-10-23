@@ -32,6 +32,15 @@
             <input name="is_published" type="checkbox" value="true" />
         </div>
         <div class="flex flex-col mt-3">
+            <label class="mb-2" for="description">Catégorie</label>
+            <select name="category">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category') <span class="py-2 text-red-500">{{ $message }}</span> @enderror
+        </div>
+        <div class="flex flex-col mt-3">
             <label class="mb-2" for="content">Contenu</label>
             <textarea class="px-4 py-2 border h-[250px]" name="content" type="text" id="mdEditor">{{ old('content') }}</textarea>
             @error('content') <span class="py-2 text-red-500">{{ $message }}</span> @enderror

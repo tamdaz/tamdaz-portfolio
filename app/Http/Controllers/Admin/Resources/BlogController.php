@@ -6,6 +6,7 @@ use File;
 use Storage;
 use Exception;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogFormRequest;
@@ -19,7 +20,7 @@ class BlogController extends Controller
     public function index(): View
     {
         return view('admin.blogs.index', [
-            'blogs' => Blog::all()->except(['created_at', 'updated_at'])
+            'blogs' => Blog::with('category')->get()
         ]);
     }
 
@@ -28,7 +29,9 @@ class BlogController extends Controller
      */
     public function create(): View
     {
-        return view('admin.blogs.create');
+        return view('admin.blogs.create', [
+            'categories' => Category::select('id', 'name')->get()
+        ]);
     }
 
     /**
@@ -61,7 +64,8 @@ class BlogController extends Controller
     public function edit(string $id): View
     {
         return view('admin.blogs.edit', [
-            'blog' => Blog::findOrFail($id)
+            'blog' => Blog::with('category')->find($id),
+            'categories' => Category::select('id', 'name')->get()
         ]);
     }
 
@@ -96,7 +100,7 @@ class BlogController extends Controller
             dd($e);
         }
 
-        return redirect()->route('admin.blogs.index')->with('success', "Le blog a bien été mis à jour");
+        return redirect()->route('admin.blogs.index')->with('success', "Ce blog a bien été mis à jour");
     }
 
     /**

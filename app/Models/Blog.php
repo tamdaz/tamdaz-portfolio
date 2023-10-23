@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Model, Builder, Factories\HasFactory};
+use Illuminate\Database\Eloquent\{Model, Builder, Factories\HasFactory, Relations\BelongsTo, Relations\HasMany};
 
 class Blog extends Model
 {
@@ -20,5 +20,10 @@ class Blog extends Model
     public function scopePublished(Builder $query): void
     {
         $query->where('is_published', true);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

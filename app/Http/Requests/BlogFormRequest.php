@@ -24,8 +24,9 @@ class BlogFormRequest extends FormRequest
     {
         $rules = [
             'title' => [ 'required', 'max:255' ],
+            'category' => [ 'required' ],
             'description' => [ 'required', 'max:255' ],
-            'content' => [ 'required' ]
+            'content' => [ 'required', 'max:10000' ]
         ];
 
         if ($this->method() === 'POST') {
