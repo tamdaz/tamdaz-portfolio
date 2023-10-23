@@ -30,12 +30,6 @@ class GenerateSitemap extends Command
         $sitemap = Sitemap::create();
         $sitemap->add('/');
         $sitemap->add('/profile');
-        $sitemap->add('/skills');
-        $sitemap->add('/experiences');
-
-        foreach (Project::all()->where('is_published', '=', true) as $project) {
-            $sitemap->add("/projects/{$project->id}");
-        }
 
         foreach (Blog::all()->where('is_published', '=', true) as $blog) {
             $sitemap->add("/blogs/{$blog->id}");
