@@ -14,6 +14,11 @@
                 <div class="flex flex-col w-full">
                     <span class="font-bold text-xl mb-1">{{ htmlspecialchars_decode($title) }}</span>
                     <span>{{ htmlspecialchars_decode($description) }}</span>
+                    @if($category !== "")
+                        <div class="pt-4 mb-2">
+                            <span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $category }}</span>
+                        </div>
+                    @endif
                 </div>
                 <a href="{{ $route }}" class="pr-6 transition-all hover:translate-x-2 active:scale-75 flex items-center justify-center">
                     <i class="material-symbols-outlined scale-150">arrow_forward</i>
