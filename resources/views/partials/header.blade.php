@@ -4,10 +4,7 @@
 <div class="fixed z-30 w-screen h-screen backdrop-blur-lg hidden transition-all" id="menu_mobile">
     <button id="btn_close_menu" class="material-symbols-outlined scale-150 absolute top-10 right-10">close</button>
     <div class="flex flex-col justify-center items-center h-full">
-        <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.profile') }}">Profil</a>
-        <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.skills') }}">Compétences</a>
-        <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.experiences') }}">Expériences</a>
-        <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.projects') }}">Projets</a>
+        <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.profile') }}">A propos de moi</a>
         <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.blogs') }}">Blogs</a>
         <a class="py-4 text-3xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.contact') }}">Contact</a>
     </div>
@@ -18,12 +15,8 @@
     <a href="{{ route('pages.home') }}" data-turbolinks="false" class="font-bold text-xl">tamdaz</a>
     <div class="flex grow"></div>
     <div class="hidden lg:block">
-        <a href="{{ route('pages.profile') }}" class="px-8">Profil</a>
-        <a href="{{ route('pages.skills') }}" class="px-8">Compétences</a>
-        <a href="{{ route('pages.experiences') }}" class="px-8">Expériences</a>
-        <a href="{{ route('pages.projects') }}" class="px-8">Projets</a>
+        <a href="{{ route('pages.profile') }}" class="px-8">A propos de moi</a>
         <a href="{{ route('pages.blogs') }}" class="px-8">Blogs</a>
-
         <x-button route="{{ route('pages.contact') }}" type="contained">Contact</x-button>
     </div>
     <button class="lg:hidden border hover:bg-gray-50 active:bg-gray-100 p-1" id="btn_open_menu">
