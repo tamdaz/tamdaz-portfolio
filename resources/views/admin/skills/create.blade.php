@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('title', "Ajouter une expérience")
+@section('title', "Ajouter une compétence")
 
 @section('content')
-    <h1 class="text-5xl font-bold">Ajouter une expérience</h1>
+    <h1 class="text-5xl font-bold">Ajouter une compétence</h1>
     <form class="mt-4" action="{{ route('admin.skills.store') }}" enctype="multipart/form-data" method="post">
         @csrf
         <div class="grid grid-cols-2 gap-4">
