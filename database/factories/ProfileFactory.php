@@ -22,12 +22,12 @@ class ProfileFactory extends Factory
         $uploadedFile = new UploadedFile($image, 'profile.jpg', 'image/jpeg');
         $path = $uploadedFile->store('public/profiles');
         $url = Storage::url($path);
-    
+
         return [
             'name' => fake()->name(),
             'job' => fake()->jobTitle(),
             'content' => fake()->text(512),
-            'img_profile' => $url
+            'img_profile' => $url,
         ];
     }
 }

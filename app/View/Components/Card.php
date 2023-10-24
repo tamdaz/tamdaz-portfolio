@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class Card extends Component
 {
@@ -15,10 +15,11 @@ class Card extends Component
         public string $type,
         public string $title,
         public string $description,
-        public string $src="",
-        public string $route="",
-        public string $category=""
-    ) { }
+        public string $src = '',
+        public string $route = '',
+        public string $category = ''
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.

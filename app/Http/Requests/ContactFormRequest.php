@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ContactFormRequest extends FormRequest
 {
@@ -23,9 +23,9 @@ class ContactFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [ 'required' ],
-            'email' => [ 'required', 'email' ],
-            'message' => [ 'required', 'max:5000' ]
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'message' => ['required', 'max:5000'],
         ];
     }
 }

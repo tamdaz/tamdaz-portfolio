@@ -26,11 +26,11 @@ class AddAdminIp extends Command
      */
     public function handle(): void
     {
-        $ip_ask = $this->ask("What is the IPv4 address ?");
+        $ip_ask = $this->ask('What is the IPv4 address ?');
 
-        $admin_ip = AdminIP::create([ 'ip' => $ip_ask ]);
+        $admin_ip = AdminIP::create(['ip' => $ip_ask]);
         $admin_ip->save();
 
-        $this->info("IP has been successfully added to database");
+        $this->info('IP has been successfully added to database');
     }
 }

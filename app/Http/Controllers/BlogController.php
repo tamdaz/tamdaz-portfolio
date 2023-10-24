@@ -15,7 +15,7 @@ class BlogController extends Controller
     public function show(string $id): View
     {
         return view('blogs.show', [
-            'blog' => Blog::published()->findOrFail($id)
+            'blog' => Blog::published()->findOrFail($id),
         ]);
     }
 }

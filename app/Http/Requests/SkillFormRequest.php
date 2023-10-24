@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class SkillFormRequest extends FormRequest
 {
@@ -23,12 +23,12 @@ class SkillFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'text_primary' => [ 'required', 'string' ],
-            'text_secondary' => [ 'required', 'string' ],
+            'text_primary' => ['required', 'string'],
+            'text_secondary' => ['required', 'string'],
         ];
 
         if ($this->method() == 'POST') {
-            $rules['img_skill'] = [ 'required', 'image', 'dimensions:ratio=1/1' ];
+            $rules['img_skill'] = ['required', 'image', 'dimensions:ratio=1/1'];
         }
 
         return $rules;

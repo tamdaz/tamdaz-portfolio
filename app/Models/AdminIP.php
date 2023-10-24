@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin IdeHelperAdminIP
@@ -14,5 +14,5 @@ class AdminIP extends Model
 
     protected $table = 'admin_ip';
 
-    protected $fillable = [ 'ip' ];
+    protected $fillable = ['ip'];
 }

@@ -10,7 +10,8 @@ class FileUploader
 {
     public function __construct(
         protected Request $request
-    ) { }
+    ) {
+    }
 
     public function upload(string $key, string $dir): void
     {
@@ -33,13 +34,13 @@ class FileUploader
 
                 $blog->update([
                     ...$this->request->all(),
-                    'blog_thumb' => Storage::url('thumbnail/' . basename($file_store)),
-                    'is_published' => $this->request->boolean('is_published')
+                    'blog_thumb' => Storage::url('thumbnail/'.basename($file_store)),
+                    'is_published' => $this->request->boolean('is_published'),
                 ]);
             } else {
                 $blog->update([
                     ...$this->request->all(),
-                    'is_published' => $this->request->boolean('is_published')
+                    'is_published' => $this->request->boolean('is_published'),
                 ]);
             }
         } catch (Exception $e) {

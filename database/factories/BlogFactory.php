@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends Factory<\App\Models\Blog>
@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'title' => fake()->text(30),
             'description' => fake()->text(50),
             'content' => fake()->text(2048),
-            'category_id' => rand(1, 3)
+            'category_id' => rand(1, 3),
         ];
     }
 }

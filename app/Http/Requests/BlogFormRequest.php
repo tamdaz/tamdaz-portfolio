@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class BlogFormRequest extends FormRequest
 {
@@ -23,10 +23,10 @@ class BlogFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'title' => [ 'required', 'max:255' ],
-            'category' => [ 'required' ],
-            'description' => [ 'required', 'max:255' ],
-            'content' => [ 'required', 'max:10000' ]
+            'title' => ['required', 'max:255'],
+            'category' => ['required'],
+            'description' => ['required', 'max:255'],
+            'content' => ['required', 'max:10000'],
         ];
 
         if ($this->method() === 'POST') {

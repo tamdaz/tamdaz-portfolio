@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\ContactFormRequest;
-use App\Models\{Experience, Profile, Skill};
+use App\Mail\ContactMail;
+use App\Models\Experience;
+use App\Models\Profile;
+use App\Models\Skill;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
     public function index(): View
     {
         return view('index', [
-            'profile' => Profile::findOrFail(1)
+            'profile' => Profile::findOrFail(1),
         ]);
     }
 
@@ -23,7 +25,7 @@ class PageController extends Controller
         return view('pages.profile', [
             'profile' => Profile::findOrFail(1),
             'skills' => Skill::all(),
-            'periods' => Experience::all()
+            'periods' => Experience::all(),
         ]);
     }
 

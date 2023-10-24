@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ExperienceFormRequest extends FormRequest
 {
@@ -23,9 +23,9 @@ class ExperienceFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_start' => [ 'required', 'date' ],
-            'date_end' => [ 'required', 'date' ],
-            'description' => [ 'required', 'string' ]
+            'date_start' => ['required', 'date'],
+            'date_end' => ['required', 'date'],
+            'description' => ['required', 'string'],
         ];
     }
 }

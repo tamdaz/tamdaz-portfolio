@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
-use App\Models\{Blog, Category, Profile};
 
 class DatabaseSeeder extends Seeder
 {

@@ -2,11 +2,14 @@
 
 namespace App\Mail;
 
+use App\Http\Requests\ContactFormRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Http\Requests\ContactFormRequest;
-use Illuminate\Mail\Mailables\{Address, Attachment, Content, Envelope};
 
 class ContactMail extends Mailable
 {
@@ -17,7 +20,8 @@ class ContactMail extends Mailable
      */
     public function __construct(
         protected ContactFormRequest $request
-    ) { }
+    ) {
+    }
 
     /**
      * Get the message envelope.

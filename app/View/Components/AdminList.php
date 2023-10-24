@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class AdminList extends Component
 {
@@ -15,9 +15,10 @@ class AdminList extends Component
         public mixed $lists,
         public string $type,
         public string $primaryName,
-        public string $secondaryName = "",
+        public string $secondaryName = '',
         public bool $showStatus = true
-    ) {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.

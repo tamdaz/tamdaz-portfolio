@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Resources;
 
-use File;
-use Exception;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SkillFormRequest;
 use App\Models\Skill;
+use Exception;
+use File;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Contracts\View\View;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\SkillFormRequest;
 
 class SkillController extends Controller
 {
@@ -21,7 +21,7 @@ class SkillController extends Controller
     public function index(): View
     {
         return view('admin.skills.index', [
-            'skills' => Skill::all()->except(['created_at', 'updated_at'])
+            'skills' => Skill::all()->except(['created_at', 'updated_at']),
         ]);
     }
 
@@ -46,10 +46,10 @@ class SkillController extends Controller
 
             Skill::create([
                 ...$request->all(),
-                'img_skill' => Storage::url('img_skills/' . basename($img_skill))
+                'img_skill' => Storage::url('img_skills/'.basename($img_skill)),
             ]);
 
-			return redirect()->route('admin.skills.index')->with('success', "Votre compétence a bien été créé");
+            return redirect()->route('admin.skills.index')->with('success', 'Votre compétence a bien été créé');
         } catch (Exception $e) {
             dd($e);
         }
@@ -61,7 +61,7 @@ class SkillController extends Controller
     public function edit(string $id): View
     {
         return view('admin.skills.edit', [
-            'skill' => Skill::findOrFail($id)
+            'skill' => Skill::findOrFail($id),
         ]);
     }
 
@@ -83,13 +83,13 @@ class SkillController extends Controller
 
                 $skill->update([
                     ...$request->all(),
-                    'img_skill' => Storage::url('img_skills/' . basename($file_store))
+                    'img_skill' => Storage::url('img_skills/'.basename($file_store)),
                 ]);
             } else {
                 $skill->update($request->all());
             }
 
-			return redirect()->route('admin.blogs.index')->with('success', "Votre compétence a bien été mis à jour");
+            return redirect()->route('admin.blogs.index')->with('success', 'Votre compétence a bien été mis à jour');
         } catch (Exception $e) {
             dd($e);
         }
@@ -101,16 +101,16 @@ class SkillController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         try {
-			$skill = Skill::findOrFail($id);
+            $skill = Skill::findOrFail($id);
 
-			if (File::exists(substr($skill->img_skill, 1))) {
-				File::delete(substr($skill->img_skill, 1));
-			}
+            if (File::exists(substr($skill->img_skill, 1))) {
+                File::delete(substr($skill->img_skill, 1));
+            }
 
-			$skill->delete();
-		} catch (Exception $e) {
-			dd($e);
-		}
+            $skill->delete();
+        } catch (Exception $e) {
+            dd($e);
+        }
 
         return redirect()->back();
     }

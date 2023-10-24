@@ -12,5 +12,5 @@ return [
     'September' => 'Septembre',
     'October' => 'Octobre',
     'November' => 'Novembre',
-    'December' => 'Décembre'
+    'December' => 'Décembre',
 ];

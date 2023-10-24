@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin IdeHelperExperience
@@ -14,18 +14,17 @@ class Experience extends Model
 
     protected $fillable = [
         'date_start', 'date_end',
-        'description'
+        'description',
     ];
 
     protected $casts = [
         'date_start' => 'date',
         'date_end' => 'date',
-        'description' => 'string'
+        'description' => 'string',
     ];
-
 
     public function getFullDateAttribute(): string
     {
-        return $this->date_start->format('M Y') . " - " . $this->date_end->format('M Y');
+        return $this->date_start->format('M Y').' - '.$this->date_end->format('M Y');
     }
 }

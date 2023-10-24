@@ -12,11 +12,11 @@ class AdministratorIP
     /**
      * Handle an incoming request.
      *
-     * @param Closure(Request): (Response) $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!AdminIP::where('ip', '=', $request->ip())->first()) {
+        if (! AdminIP::where('ip', '=', $request->ip())->first()) {
             return redirect('/');
         }
 

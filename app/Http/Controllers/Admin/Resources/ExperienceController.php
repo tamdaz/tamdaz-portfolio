@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Resources;
 
-use App\Models\Experience;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExperienceFormRequest;
+use App\Models\Experience;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -16,7 +16,7 @@ class ExperienceController extends Controller
     public function index(): View
     {
         return view('admin.experiences.index', [
-            'experiences' => Experience::all()->except(['created_at', 'updated_at'])
+            'experiences' => Experience::all()->except(['created_at', 'updated_at']),
         ]);
     }
 
@@ -35,7 +35,7 @@ class ExperienceController extends Controller
     {
         Experience::create($request->all());
 
-        return redirect()->route('admin.experiences.index')->with('success', "Votre expérience a bien été ajoutée");
+        return redirect()->route('admin.experiences.index')->with('success', 'Votre expérience a bien été ajoutée');
     }
 
     /**
@@ -44,7 +44,7 @@ class ExperienceController extends Controller
     public function edit(string $id): View
     {
         return view('admin.experiences.edit', [
-            'experience' => Experience::findOrFail($id)
+            'experience' => Experience::findOrFail($id),
         ]);
     }
 
@@ -55,7 +55,7 @@ class ExperienceController extends Controller
     {
         Experience::findOrFail($id)->update($request->all());
 
-        return redirect()->route('admin.experiences.index')->with('success', "Votre expérience a bien été mis à jour");
+        return redirect()->route('admin.experiences.index')->with('success', 'Votre expérience a bien été mis à jour');
     }
 
     /**

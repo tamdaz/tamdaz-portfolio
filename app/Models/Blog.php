@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Model, Builder, Factories\HasFactory, Relations\BelongsTo};
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @mixin IdeHelperBlog
@@ -13,11 +16,12 @@ class Blog extends Model
 
     protected $fillable = [
         'is_published', 'blog_thumb',
-        'title', 'description', 'content'
+        'title', 'description', 'content',
+        'category_id'
     ];
 
     protected $casts = [
-        'is_published' => 'boolean'
+        'is_published' => 'boolean',
     ];
 
     public function scopePublished(Builder $query): void

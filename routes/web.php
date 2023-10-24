@@ -1,17 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Resources\CategoryController;
+use App\Http\Controllers\Admin\Resources\ExperienceController;
+use App\Http\Controllers\Admin\Resources\ProfileController;
+use App\Http\Controllers\Admin\Resources\SkillController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PageController;
 use App\Http\Middleware\AdministratorIP;
-use App\Http\Controllers\{Admin\Resources\CategoryController,
-    PageController,
-    SitemapController,
-    BlogController,
-    Admin\AuthController,
-    Admin\AdminController,
-    Admin\Resources\SkillController,
-    Admin\Resources\ProfileController,
-    Admin\Resources\ExperienceController};
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,12 +39,12 @@ Route::name('pages.')->group(function () {
     Route::get('components', [PageController::class, 'components'])->name('components');
 
     Route::get('/sitemap', function () {
-        if (!file_exists(public_path('sitemap.xml'))) {
+        if (! file_exists(public_path('sitemap.xml'))) {
             Artisan::call('app:generate-sitemap');
         }
 
         return view('sitemap', [
-            'sitemap' => simplexml_load_file(public_path('sitemap.xml'))
+            'sitemap' => simplexml_load_file(public_path('sitemap.xml')),
         ]);
     })->name('sitemap');
 });
@@ -55,7 +53,7 @@ Route::name('pages.')->group(function () {
  * This route group is reserved for administrators
  */
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::middleware(AdministratorIP::class)->group(function() {
+    Route::middleware(AdministratorIP::class)->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
 
         /**
@@ -66,7 +64,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('blogs', \App\Http\Controllers\Admin\Resources\BlogController::class)
             ->except(['show']);
         Route::resource('categories', CategoryController::class)->except(['show']);
-
 
         /**
          * Profile

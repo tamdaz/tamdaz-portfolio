@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class CardSkill extends Component
 {
@@ -15,7 +15,8 @@ class CardSkill extends Component
         public string $title,
         public string $description,
         public string $src
-    ) { }
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.

@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class Timeline extends Component
 {
@@ -13,7 +13,8 @@ class Timeline extends Component
      */
     public function __construct(
         public string $periods
-    ) { }
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.

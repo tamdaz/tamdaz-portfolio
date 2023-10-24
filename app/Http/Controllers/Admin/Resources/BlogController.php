@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Resources;
 
-use File;
-use Storage;
-use Exception;
-use App\Models\Blog;
-use App\Models\Category;
-use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogFormRequest;
-use Illuminate\Http\{UploadedFile, RedirectResponse};
+use App\Models\Blog;
+use App\Models\Category;
+use Exception;
+use File;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\UploadedFile;
+use Storage;
 
 class BlogController extends Controller
 {
@@ -20,7 +21,7 @@ class BlogController extends Controller
     public function index(): View
     {
         return view('admin.blogs.index', [
-            'blogs' => Blog::with('category')->get()
+            'blogs' => Blog::with('category')->get(),
         ]);
     }
 
@@ -30,7 +31,7 @@ class BlogController extends Controller
     public function create(): View
     {
         return view('admin.blogs.create', [
-            'categories' => Category::select('id', 'name')->get()
+            'categories' => Category::select(['id', 'name'])->get(),
         ]);
     }
 
@@ -47,15 +48,16 @@ class BlogController extends Controller
 
             Blog::create([
                 ...$request->all(),
-                'blog_thumb' => Storage::url('thumbnail/' . basename($thumbnail)),
-                'is_published' => $request->filled('is_published')
+                'blog_thumb' => Storage::url('thumbnail/'.basename($thumbnail)),
+                'is_published' => $request->filled('is_published'),
+                'category_id' => $request->get('category')
             ]);
 
         } catch (Exception $e) {
             dd($e);
         }
 
-        return redirect()->route('admin.blogs.index')->with('success', "Le blog a bien été créé");
+        return redirect()->route('admin.blogs.index')->with('success', 'Le blog a bien été créé');
     }
 
     /**
@@ -65,7 +67,7 @@ class BlogController extends Controller
     {
         return view('admin.blogs.edit', [
             'blog' => Blog::with('category')->find($id),
-            'categories' => Category::select('id', 'name')->get()
+            'categories' => Category::select(['id', 'name'])->get(),
         ]);
     }
 
@@ -87,20 +89,22 @@ class BlogController extends Controller
 
                 $blog->update([
                     ...$request->all(),
-                    'blog_thumb' => Storage::url('thumbnail/' . basename($file_store)),
-                    'is_published' => $request->boolean('is_published')
+                    'blog_thumb' => Storage::url('thumbnail/'.basename($file_store)),
+                    'is_published' => $request->boolean('is_published'),
+                    'category_id' => $request->get('category')
                 ]);
             } else {
                 $blog->update([
                     ...$request->all(),
-                    'is_published' => $request->boolean('is_published')
+                    'is_published' => $request->boolean('is_published'),
+                    'category_id' => $request->get('category')
                 ]);
             }
         } catch (Exception $e) {
             dd($e);
         }
 
-        return redirect()->route('admin.blogs.index')->with('success', "Ce blog a bien été mis à jour");
+        return redirect()->route('admin.blogs.index')->with('success', 'Ce blog a bien été mis à jour');
     }
 
     /**

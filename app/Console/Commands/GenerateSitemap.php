@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Spatie\Sitemap\Sitemap;
+use App\Models\Blog;
 use Illuminate\Console\Command;
-use App\Models\{Blog, Project};
+use Spatie\Sitemap\Sitemap;
 
 class GenerateSitemap extends Command
 {
@@ -38,6 +38,6 @@ class GenerateSitemap extends Command
         $sitemap->add('/contact');
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
-        $this->info("Sitemap has been successfully updated");
+        $this->info('Sitemap has been successfully updated');
     }
 }

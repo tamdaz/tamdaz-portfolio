@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Resources;
 
-use App\Models\Category;
-use Illuminate\View\View;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\CategoryFormRequest;
+use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(): View
     {
         return view('admin.categories.index', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
         ]);
     }
 
@@ -34,11 +34,11 @@ class CategoryController extends Controller
     public function store(CategoryFormRequest $request): RedirectResponse
     {
         Category::create([
-            'name' => $request->get('name')
+            'name' => $request->get('name'),
         ]);
 
         return redirect()->route('admin.categories.index')
-            ->with('success', "Votre catégorie a bien été ajoutée");
+            ->with('success', 'Votre catégorie a bien été ajoutée');
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     public function edit(string $id): View
     {
         return view('admin.categories.edit', [
-            'category' => Category::findOrFail($id)
+            'category' => Category::findOrFail($id),
         ]);
     }
 
@@ -57,11 +57,11 @@ class CategoryController extends Controller
     public function update(CategoryFormRequest $request, string $id): RedirectResponse
     {
         Category::findOrFail($id)->update([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
         ]);
 
         return redirect()->route('admin.categories.index')
-            ->with('success', "Votre catégorie a bien été mis à jour");
+            ->with('success', 'Votre catégorie a bien été mis à jour');
     }
 
     /**
