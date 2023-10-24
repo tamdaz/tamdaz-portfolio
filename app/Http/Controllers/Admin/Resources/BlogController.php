@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogFormRequest;
 use App\Models\Blog;
 use App\Models\Category;
-use Exception;
-use File;
+use App\Services\FileUploader;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\UploadedFile;
 use Storage;
 
 class BlogController extends Controller
@@ -38,24 +36,16 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BlogFormRequest $request): RedirectResponse|Exception
+    public function store(BlogFormRequest $request, FileUploader $fileUploader): RedirectResponse
     {
-        try {
-            /**
-             * @var UploadedFile $thumbnail
-             */
-            $thumbnail = $request->file('blog_thumb')->store('thumbnail', 'public');
-
+        $fileUploader->upload('blog_thumb', 'thumbnail', function ($thumbnail) use ($request) {
             Blog::create([
                 ...$request->all(),
                 'blog_thumb' => Storage::url('thumbnail/'.basename($thumbnail)),
                 'is_published' => $request->filled('is_published'),
-                'category_id' => $request->get('category')
+                'category_id' => $request->get('category'),
             ]);
-
-        } catch (Exception $e) {
-            dd($e);
-        }
+        });
 
         return redirect()->route('admin.blogs.index')->with('success', 'Le blog a bien été créé');
     }
@@ -74,35 +64,21 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BlogFormRequest $request, string $id): RedirectResponse
+    public function update(BlogFormRequest $request, FileUploader $fileUploader, string $id): RedirectResponse
     {
-        try {
-            /**
-             * @var UploadedFile $thumbnail
-             */
-            $thumbnail = $request->file('blog_thumb');
-            $blog = Blog::find($id);
+        $blog = Blog::find($id);
+        $thumb = $blog->blog_thumb;
 
-            if ($thumbnail !== null) {
-                File::delete(substr($blog->blog_thumb, 1));
-                $file_store = $thumbnail->store('thumbnail', 'public');
+        $fileUploader->update('blog_thumb', $thumb, 'thumbnail', function ($canStore, $thumbnail) use ($blog, $request) {
+            $thumb_img = $canStore === true ? Storage::url('thumbnail/'.basename($thumbnail)) : $blog->blog_thumb;
 
-                $blog->update([
-                    ...$request->all(),
-                    'blog_thumb' => Storage::url('thumbnail/'.basename($file_store)),
-                    'is_published' => $request->boolean('is_published'),
-                    'category_id' => $request->get('category')
-                ]);
-            } else {
-                $blog->update([
-                    ...$request->all(),
-                    'is_published' => $request->boolean('is_published'),
-                    'category_id' => $request->get('category')
-                ]);
-            }
-        } catch (Exception $e) {
-            dd($e);
-        }
+            $blog->update([
+                ...$request->all(),
+                'blog_thumb' => $thumb_img,
+                'is_published' => $request->boolean('is_published'),
+                'category_id' => $request->get('category'),
+            ]);
+        });
 
         return redirect()->route('admin.blogs.index')->with('success', 'Ce blog a bien été mis à jour');
     }
@@ -110,14 +86,11 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy(string $id, FileUploader $fileUploader): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
 
-        if (File::exists(substr($blog->blog_thumb, 1))) {
-            File::delete(substr($blog->blog_thumb, 1));
-        }
-
+        $fileUploader->delete($blog->blog_thumb);
         $blog->delete();
 
         return redirect()->back();

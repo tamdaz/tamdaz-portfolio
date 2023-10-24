@@ -2,49 +2,43 @@
 
 namespace App\Services;
 
-use App\Models\Blog;
+use Closure;
+use File;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Http\UploadedFile;
 
 class FileUploader
 {
-    public function __construct(
-        protected Request $request
-    ) {
+    public function __construct(protected Request $request)
+    {
     }
 
-    public function upload(string $key, string $dir): void
+    public function upload(string $key, string $path, Closure $closure): ?Closure
     {
-        /** @var UploadedFile $image */
-        $image = $this->request->file($key)->store($dir, 'public');
+        $file = $this->request->file($key)->store($path, 'public');
+
+        return $closure($file);
     }
 
-    public function update(int $id, string $key, string $dir): void
+    public function update(string $file, string $fileName, string $path, Closure $closure): ?Closure
     {
-        try {
-            /**
-             * @var \Illuminate\Http\UploadedFile $thumbnail
-             */
-            $thumbnail = $this->request->file('blog_thumb');
-            $blog = Blog::find($id);
+        /*** @var UploadedFile $file */
+        $uploadedFile = $this->request->file($file);
 
-            if ($thumbnail !== null) {
-                File::delete(substr($blog->blog_thumb, 1));
-                $file_store = $thumbnail->store('thumbnail', 'public');
+        if ($uploadedFile !== null) {
+            $this->delete($fileName);
+            $file_store = $uploadedFile->store($path, 'public');
 
-                $blog->update([
-                    ...$this->request->all(),
-                    'blog_thumb' => Storage::url('thumbnail/'.basename($file_store)),
-                    'is_published' => $this->request->boolean('is_published'),
-                ]);
-            } else {
-                $blog->update([
-                    ...$this->request->all(),
-                    'is_published' => $this->request->boolean('is_published'),
-                ]);
-            }
-        } catch (Exception $e) {
-            dd($e);
+            return $closure(true, $file_store);
+        } else {
+            return $closure(false, null);
+        }
+    }
+
+    public function delete(string $file): void
+    {
+        if (File::exists(substr($file, 1))) {
+            File::delete(substr($file, 1));
         }
     }
 }

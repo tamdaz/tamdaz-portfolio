@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin\Resources;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SkillFormRequest;
 use App\Models\Skill;
+use App\Services\FileUploader;
 use Exception;
 use File;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 class SkillController extends Controller
@@ -36,23 +36,16 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SkillFormRequest $request): RedirectResponse
+    public function store(SkillFormRequest $request, FileUploader $fileUploader): RedirectResponse
     {
-        try {
-            /**
-             * @var UploadedFile $img_skill
-             */
-            $img_skill = $request->file('img_skill')->store('img_skills', 'public');
-
+        $fileUploader->upload('img_skill', 'img_skills', function ($img_skill) use ($request) {
             Skill::create([
                 ...$request->all(),
                 'img_skill' => Storage::url('img_skills/'.basename($img_skill)),
             ]);
+        });
 
-            return redirect()->route('admin.skills.index')->with('success', 'Votre compétence a bien été créé');
-        } catch (Exception $e) {
-            dd($e);
-        }
+        return redirect()->route('admin.skills.index')->with('success', 'Votre compétence a bien été créé');
     }
 
     /**
@@ -68,31 +61,21 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, string $id, FileUploader $fileUploader): RedirectResponse
     {
-        try {
-            /**
-             * @var UploadedFile $img_skill_uf
-             */
-            $img_skill_uf = $request->file('img_skill');
-            $skill = Skill::find($id);
+        $skill = Skill::find($id);
+        $skill_img = $skill->img_skill;
 
-            if ($img_skill_uf !== null) {
-                File::delete(substr($skill->img_skill, 1));
-                $file_store = $img_skill_uf->store('img_skills', 'public');
+        $fileUploader->update('img_skill', $skill_img, 'img_skill', function ($canStore, $img_skill) use ($skill, $request) {
+            $img = $canStore === true ? Storage::url('img_skill/'.basename($img_skill)) : $skill->img_skill;
 
-                $skill->update([
-                    ...$request->all(),
-                    'img_skill' => Storage::url('img_skills/'.basename($file_store)),
-                ]);
-            } else {
-                $skill->update($request->all());
-            }
+            $skill->update([
+                ...$request->all(),
+                'img_skill' => $img,
+            ]);
+        });
 
-            return redirect()->route('admin.blogs.index')->with('success', 'Votre compétence a bien été mis à jour');
-        } catch (Exception $e) {
-            dd($e);
-        }
+        return redirect()->route('admin.blogs.index')->with('success', 'Votre compétence a bien été mis à jour');
     }
 
     /**
