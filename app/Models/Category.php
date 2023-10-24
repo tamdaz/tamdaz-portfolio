@@ -21,6 +21,9 @@ class Category extends Model
         'name' => 'string',
     ];
 
+    /**
+     * @return HasMany<Blog>
+     */
     public function blogs(): HasMany
     {
         return $this->hasMany(Blog::class);
