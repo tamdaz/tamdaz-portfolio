@@ -20,16 +20,15 @@
             <x-card
                 type="media"
                 :title="$item->title"
-                :src="$item->$thumbName"
+                :src="$item->blog_thumb"
                 :category="$item->category->name ?? ''"
                 :description="$item->description"
-                route="{{ route($routePrefix . '.show', ['id' => $item['id']]) }}" />
+                route="{{ route('pages.blogs.show', ['id' => $item['id']]) }}" />
         @empty
-            @if(!empty($query))
-                <span class="text-center col-span-2">Recherche non trouvée</span>
-            @endif
-            @if(!empty($search))
-                <span class="text-center col-span-2">Recherche non trouvée</span>
+            @if($search !== "")
+                <span class="text-center col-span-2">Pas de résultats</span>
+            @else
+                <span class="text-center col-span-2">Saisir la recherche</span>
             @endif
         @endforelse
     </div>
