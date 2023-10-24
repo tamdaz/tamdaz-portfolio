@@ -7,7 +7,6 @@
 
 	@livewire('blog-search', [
 		'model' => \App\Models\Blog::class,
-		'thumbName' => 'blog_thumb',
-		'routePrefix' => 'pages.blogs'
+		'thumbName' => 'blog_thumb'
 	])
 @endsection
