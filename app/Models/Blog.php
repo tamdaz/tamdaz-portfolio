@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Model, Builder, Factories\HasFactory, Relations\BelongsTo, Relations\HasMany};
+use Illuminate\Database\Eloquent\{Model, Builder, Factories\HasFactory, Relations\BelongsTo};
 
+/**
+ * @mixin IdeHelperBlog
+ */
 class Blog extends Model
 {
     use HasFactory;
