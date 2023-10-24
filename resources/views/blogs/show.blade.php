@@ -16,8 +16,11 @@
 				<h1 class="block font-bold text-5xl">
 					{{ $blog['title'] }}
 				</h1>
-				<span class="block mt-3 mb-4">
+				<span class="flex flex-cols gap-4 items-center mt-4 mb-6">
 					Publié {{ $blog['created_at']->diffForHumans() }}
+					<span>
+						<span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $blog->category->name }}</span>
+					</span>
 				</span>
 
 				<img class="mb-4 rounded-lg" src="{{ $blog['project_thumb'] ?? $blog['blog_thumb'] }}" width="100%" alt="thumbnail" />
