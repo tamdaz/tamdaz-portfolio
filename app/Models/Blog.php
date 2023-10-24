@@ -17,18 +17,24 @@ class Blog extends Model
     protected $fillable = [
         'is_published', 'blog_thumb',
         'title', 'description', 'content',
-        'category_id'
+        'category_id',
     ];
 
     protected $casts = [
         'is_published' => 'boolean',
     ];
 
+    /**
+     * @param  Builder<Blog>  $query
+     */
     public function scopePublished(Builder $query): void
     {
         $query->where('is_published', true);
     }
 
+    /**
+     * @return BelongsTo<Category, Blog>
+     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
