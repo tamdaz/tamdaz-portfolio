@@ -25,7 +25,7 @@ class BlogSearch extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'category' => ['except' => '']
+        'category' => ['except' => ''],
     ];
 
     public function updatingSearch(): void
@@ -47,7 +47,7 @@ class BlogSearch extends Component
     {
         return view('livewire.blog-search', [
             'items' => $this->model::published()->where(
-                'title', 'like', '%' . $this->search . '%'
+                'title', 'like', '%'.$this->search.'%'
             )->where(
                 'category_id', '=', $this->category ?? Category::select('id')->first()->id
             )->orderBy(
