@@ -31,7 +31,7 @@ class GenerateSitemap extends Command
         $sitemap->add('/');
         $sitemap->add('/profile');
 
-        foreach (Blog::all()->where('is_published', '=', true) as $blog) {
+        foreach (Blog::published()->get() as $blog) {
             $sitemap->add("/blogs/{$blog->id}");
         }
 
