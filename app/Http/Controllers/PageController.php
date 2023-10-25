@@ -36,9 +36,10 @@ class PageController extends Controller
 
     public function contact_send(ContactFormRequest $request): RedirectResponse
     {
-        Mail::to('contact@tamdaz.fr')->send(new ContactMail($request));
+        Mail::to($request->get('email'))->send(new ContactMail($request));
 
-        return redirect()->route('pages.contact')->with('success');
+        return redirect()->route('pages.contact')
+            ->with('success', 'Je vous répondrai dans les plus brefs délais');
     }
 
     public function components(): View
