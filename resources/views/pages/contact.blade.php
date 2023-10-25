@@ -3,7 +3,7 @@
 @section('title', 'Contact')
 
 @section('container')
-    <h1 class="text-4xl md:text-7xl mt-4 mb-8">Contact</h1>
+    <h1 class="text-4xl md:text-7xl mb-8">Contact</h1>
     <div class="w-full flex flex-col md:grid md:grid-cols-2 gap-4 mt-6">
         <iframe
             width="100%" height="100%"
@@ -24,7 +24,7 @@
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('name') {{ $message }} @enderror</span>
                 <div class="flex flex-col">
-                    <label class="mb-2" for="email">Votre adresse mail</label>
+                    <label class="mb-2" for="email">Votre adresse email</label>
                     <input class="px-4 py-2" name="email" type="text" value="{{ old('email') }}" />
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('email') {{ $message }} @enderror</span>
