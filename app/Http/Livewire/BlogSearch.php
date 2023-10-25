@@ -12,8 +12,11 @@ class BlogSearch extends Component
     use WithPagination;
 
     public mixed $model;
-    public string $search = "";
+
+    public string $search = '';
+
     public $category;
+
     public string $dateOrder = 'DESC';
 
     protected $queryString = [
