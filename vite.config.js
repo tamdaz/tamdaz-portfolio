@@ -10,10 +10,11 @@ export default defineConfig({
                 'resources/js/bootstrap.js',
                 'resources/js/header.js',
                 'resources/js/observer.js',
+                'resources/js/theme.js',
                 'resources/js/md/markdown-editor.js',
                 'resources/js/md/markdown-parse.js',
             ],
-            refresh: true,
+            refresh: true
         }),
     ],
 });

@@ -46,8 +46,9 @@
 			<header class="absolute w-full flex border-b dark:border-neutral-800 px-8 py-4">
 				<a href="{{ route('pages.home') }}" data-turbolinks="false" class="font-bold">tamdaz</a>
 				<div class="flex flex-1"></div>
+				<a class="hover:underline hover:cursor-pointer" id="changeTheme">Changer de thème</a>
 			</header>
-			<section class="px-8 overflow-y-scroll h-full">
+			<section class="px-8 pb-10 overflow-y-scroll h-full">
 				<div class="invisible w-full px-8 py-10"></div>
 				@yield('content')
 			</section>

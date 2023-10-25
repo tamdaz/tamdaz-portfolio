@@ -14,6 +14,6 @@
     <body class="w-full h-screen flex flex-col overflow-x-hidden dark:bg-neutral-900 dark:text-white">
         @yield('body')
         @livewireScripts
-		<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+		@vite('resources/js/theme.js')
     </body>
 </html>
