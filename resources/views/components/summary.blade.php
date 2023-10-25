@@ -1,4 +1,4 @@
-<section class="w-2/6 ml-12 relative">
+<section class="relative">
     <div class="sticky top-16 left-0 right-0">
         <h6 class="text-3xl mb-2 font-bold">Sommaire</h6>
         <ul class="hover:[&>li]:underline" id="summary"></ul>
