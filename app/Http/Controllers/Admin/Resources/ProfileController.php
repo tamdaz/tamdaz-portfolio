@@ -30,12 +30,16 @@ class ProfileController extends Controller
         $profile = Profile::firstOrFail();
 
         $fileUploader->update('img_profile', $profile->img_profile, 'profiles', function ($canStore, $img_profile) use ($profile, $request) {
-            $thumb_img = $canStore === true ? Storage::url('profiles/'.basename($img_profile)) : $profile->$img_profile;
+            $thumb_img = $canStore === true ? Storage::url('profiles/' . basename($img_profile)) : $profile->$img_profile;
 
-            $profile->update([
-                ...$request->all(),
-                'img_profile' => $thumb_img,
-            ]);
+            if ($thumb_img !== null) {
+                $profile->update([
+                    ...$request->all(),
+                    'img_profile' => $thumb_img,
+                ]);
+            } else {
+                $profile->update([...$request->all()]);
+            }
         });
 
         return redirect()->route('admin.profile.edit')->with('success', 'Votre profil a bien été mis à jour');
