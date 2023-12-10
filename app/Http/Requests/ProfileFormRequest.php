@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Profile;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,18 +22,10 @@ class ProfileFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
+        return [
             'name' => ['required', 'string'],
             'job' => ['required', 'string'],
-            'content' => ['required', 'string'],
+            'img_profile' => ['required'],
         ];
-
-        if (Profile::find(1)->img_profile === null) {
-            $rules['img_profile'] = ['required', 'image', 'dimensions:ratio=1/1'];
-        } else {
-            $rules['img_profile'] = ['image', 'dimensions:ratio=1/1'];
-        }
-
-        return $rules;
     }
 }
