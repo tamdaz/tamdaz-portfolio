@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import {defineConfig, splitVendorChunkPlugin} from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
@@ -10,11 +10,13 @@ export default defineConfig({
                 'resources/js/bootstrap.js',
                 'resources/js/header.js',
                 'resources/js/observer.js',
-                'resources/js/theme.js',
-                'resources/js/md/markdown-editor.js',
                 'resources/js/md/markdown-parse.js',
             ],
             refresh: true
         }),
+        splitVendorChunkPlugin()
     ],
+    optimizeDeps: {
+        include: ['highlight.js', 'highlightjs-copy']
+    },
 });

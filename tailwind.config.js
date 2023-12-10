@@ -13,8 +13,9 @@ module.exports = {
         'menu-slide': 'down 500ms cubic-bezier(0,.47,.27,.99)',
         'line': 'down 750ms linear forwards',
         'point': 'point 150ms linear forwards',
-        'zoom': 'zoom 250ms ease-out forwards',
-		'pickaxe': 'pickaxe 1.5s ease-in-out infinite'
+        'zoom': 'zoom 200ms steps(4, end) forwards',
+		'pickaxe': 'pickaxe 1.5s ease-in-out infinite',
+        'zoom-avatar': 'zoom 500ms ease-out forwards'
       },
       keyframes: {
         down: {
@@ -35,7 +36,7 @@ module.exports = {
         },
         zoom: {
           'from': {
-            transform: 'scale(0.85)'
+            transform: 'scale(0)'
           },
           'to': {
             transform: 'scale(1)'
