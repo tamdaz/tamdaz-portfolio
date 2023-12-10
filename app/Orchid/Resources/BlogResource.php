@@ -1,0 +1,124 @@
+<?php
+
+namespace App\Orchid\Resources;
+
+use App\Models\Blog;
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Crud\Resource;
+use Orchid\Screen\Components\Cells\Boolean;
+use Orchid\Screen\Fields\CheckBox;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\SimpleMDE;
+use Orchid\Screen\Sight;
+use Orchid\Screen\TD;
+
+class BlogResource extends Resource
+{
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = Blog::class;
+
+    /**
+     * Preload relations
+     */
+    public function with(): array
+    {
+        return ['category'];
+    }
+
+    public function rules(Model $model): array
+    {
+        return [
+            'title' => ['required'],
+            'description' => ['required'],
+            'category_id' => ['required'],
+            'content' => ['required'],
+            'blog_thumb' => ['required'],
+        ];
+    }
+
+    /**
+     * Get the fields displayed by the resource.
+     */
+    public function fields(): array
+    {
+        return [
+            Input::make('title')
+                ->title('Titre'),
+            Input::make('description')
+                ->title('Description'),
+            Select::make('category_id')
+                ->title('Catégorie')
+                ->fromModel(Category::class, 'name'),
+            SimpleMDE::make('content')
+                ->title('Contenu'),
+            Picture::make('blog_thumb')
+                ->title('Miniature')
+                ->targetRelativeUrl(),
+            CheckBox::make('is_published')
+                ->title('Est publié ?')
+                ->sendTrueOrFalse(),
+        ];
+    }
+
+    /**
+     * Get the columns displayed by the resource.
+     *
+     * @return TD[]
+     *
+     * @throws \ReflectionException
+     */
+    public function columns(): array
+    {
+        return [
+            TD::make('id', 'ID'),
+            TD::make('is_published', 'Est publié ?')
+                ->usingComponent(Boolean::class, true: ' Oui', false: ' Non'),
+            TD::make('title'),
+            TD::make('category_id', 'Catégorie')
+                ->render(fn (Blog $model) => $model->category->name ?? "<b style='color: red'>Catégorie non associée</b>"),
+            TD::make('created_at', 'Date de création')
+                ->render(fn (Blog $model) => $model->created_at->toDateTimeString()),
+        ];
+    }
+
+    /**
+     * Get the sights displayed by the resource.
+     *
+     * @return Sight[]
+     *
+     * @throws \ReflectionException
+     */
+    public function legend(): array
+    {
+        return [
+            Sight::make('id', 'ID'),
+            Sight::make('is_published', 'Est publié ?')
+                ->usingComponent(Boolean::class, true: ' Oui', false: ' Non'),
+            Sight::make('title', 'Titre'),
+            Sight::make('description', 'Description'),
+            Sight::make('content', 'Contenu'),
+            Sight::make('blog_thumb', 'Miniature')->render(function (Blog $blog) {
+                return <<<HTML
+                    <img src='$blog->blog_thumb' alt='img' width='100%' />
+                HTML;
+            }),
+            Sight::make('created_at', 'Date de création')
+                ->render(fn (Blog $blog) => $blog->created_at->toDateTimeString()),
+        ];
+    }
+
+    /**
+     * Get the filters available for the resource.
+     */
+    public function filters(): array
+    {
+        return [];
+    }
+}
