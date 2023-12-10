@@ -12,10 +12,17 @@ class BlogController extends Controller
         return view('blogs.index');
     }
 
-    public function show(string $id): View
+    public function btssio(): View
     {
-        return view('blogs.show', [
-            'blog' => Blog::published()->findOrFail($id),
-        ]);
+        return view('pages.bts-sio');
+    }
+
+    public function show(Blog $blog): View
+    {
+        if (! $blog->is_published) {
+            abort(404);
+        }
+
+        return view('blogs.show', compact('blog'));
     }
 }

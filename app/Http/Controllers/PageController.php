@@ -16,14 +16,14 @@ class PageController extends Controller
     public function index(): View
     {
         return view('index', [
-            'profile' => Profile::findOrFail(1),
+            'profile' => Profile::firstOrFail(),
         ]);
     }
 
     public function profile(): View
     {
         return view('pages.profile', [
-            'profile' => Profile::findOrFail(1),
+            'profile' => Profile::firstOrFail(),
             'skills' => Skill::all(),
             'periods' => Experience::all(),
         ]);
