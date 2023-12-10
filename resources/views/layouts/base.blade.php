@@ -10,10 +10,31 @@
         @yield('head')
         @livewireStyles
 		@vite('resources/css/app.css')
+
+		<script>
+            if (!localStorage.getItem('theme')) {
+                localStorage.setItem('theme', 'dark')
+            } else {
+                if (localStorage.getItem('theme') === "dark") {
+                    document.documentElement.classList.add("dark")
+                }
+            }
+		</script>
 	</head>
     <body class="w-full h-screen flex flex-col overflow-x-hidden dark:bg-neutral-900 dark:text-white">
         @yield('body')
         @livewireScripts
-		@vite('resources/js/theme.js')
+
+		<script>
+            document.querySelector('#changeTheme').addEventListener('click', () => {
+                if (localStorage.getItem('theme') === "dark") {
+                    localStorage.setItem('theme', 'light')
+                } else {
+                    localStorage.setItem('theme', 'dark')
+                }
+
+                document.documentElement.classList.toggle("dark")
+            })
+		</script>
     </body>
 </html>

@@ -4,9 +4,6 @@
 
 @section('head')
 	@vite('resources/js/md/markdown-parse.js')
-
-	<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" />
-	<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 @endsection
 
 @section('container')

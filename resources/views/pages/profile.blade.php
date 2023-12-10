@@ -4,10 +4,10 @@
 
 @section('container')
     <h1 class="text-4xl md:text-7xl mb-8">A propos de moi</h1>
-    <article class="block w-full mt-2 mb-6 text-justify leading-relaxed text-lg markdown">
-        <p class="text-justify leading-8 mt-6 text-xl">
-            @php echo (new ParsedownExtra())->text($profile['content']) @endphp
-        </p>
+    <article class="block w-full mt-2 mb-6 markdown">
+        @php
+            echo (new ParsedownExtra())->text(file_get_contents(public_path('md/profile.md')))
+        @endphp
     </article>
     <h1 class="text-2xl md:text-4xl mt-4 mb-8">Mes compétences</h1>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

@@ -23,7 +23,7 @@
 					<p class="inline-block my-3" id="desc"></p>
 				</div>
 			</div>
-			<div class="flex py-8 lg:flex-col justify-center items-center" style="perspective: 25pc">
+			<div class="flex py-8 lg:flex-col justify-center items-center animate-zoom-avatar" style="perspective: 25pc">
 				<img
 					class="transition-transform duration-75 rounded-full border-8 border-black m-auto w-[250px] lg:w-[350px] xl:w-[400px]"
 					src="{{ $profile['img_profile'] }}" id="img_profile" alt="img_profile" />

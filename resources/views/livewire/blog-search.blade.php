@@ -27,7 +27,7 @@
                 :src="$item->blog_thumb"
                 :category="$item->category->name ?? ''"
                 :description="$item->description"
-                route="{{ route('pages.blogs.show', ['id' => $item['id']]) }}" />
+                route="{{ route('pages.blogs.show', ['blog' => $item]) }}" />
         @empty
             <span class="text-center col-span-2">Pas de résultats</span>
         @endforelse
