@@ -2,14 +2,16 @@
 
 namespace App\Services;
 
-use File;
 use Closure;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class FileUploader
 {
-    public function __construct(protected Request $request) {}
+    public function __construct(protected Request $request)
+    {
+    }
 
     public function upload(string $key, string $path, Closure $closure): ?Closure
     {
