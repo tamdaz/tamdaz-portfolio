@@ -6,13 +6,16 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @mixin IdeHelperBlog
  */
 class Blog extends Model
 {
-    use HasFactory;
+    use HasFactory, AsSource, Attachable, Filterable;
 
     protected $fillable = [
         'is_published', 'blog_thumb',
