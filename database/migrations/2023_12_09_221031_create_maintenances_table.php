@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_published')->default(false);
-            $table->string('project_thumb');
-            $table->string('title');
-            $table->string('description');
-            $table->longText('content');
-            $table->string('project_url');
+            $table->text("message")->nullable();
+            $table->dateTime("end_maintenance");
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('maintenances');
     }
 };

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_ip', function (Blueprint $table) {
-            $table->id();
-            $table->ipAddress('ip')->unique();
+        Schema::create('roles', function (Blueprint $table): void {
+            $table->increments('id');
+            $table->string('slug')->unique();
+            $table->string('name');
+            $table->jsonb('permissions')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin_ip');
+        Schema::dropIfExists('roles');
     }
 };

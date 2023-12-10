@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('job');
-            $table->string('img_profile');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->jsonb('permissions')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['permissions']);
+        });
     }
 };
