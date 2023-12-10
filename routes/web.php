@@ -1,14 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\Resources\CategoryController;
-use App\Http\Controllers\Admin\Resources\ExperienceController;
-use App\Http\Controllers\Admin\Resources\ProfileController;
-use App\Http\Controllers\Admin\Resources\SkillController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
-use App\Http\Middleware\AdministratorIP;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +22,10 @@ Route::name('pages.')->group(function () {
     Route::get('/', [PageController::class, 'index'])->name('home');
     Route::get('profile', [PageController::class, 'profile'])->name('profile');
 
+    Route::get('bts-sio', [BlogController::class, 'btssio'])->name('bts-sio');
+
     Route::get('blogs', [BlogController::class, 'index'])->name('blogs');
-    Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
+    Route::get('blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
     Route::get('contact', [PageController::class, 'contact'])->name('contact');
     Route::post('contact', [PageController::class, 'contact_send'])->name('contact_send');
@@ -39,36 +34,8 @@ Route::name('pages.')->group(function () {
     Route::get('components', [PageController::class, 'components'])->name('components');
 
     Route::get('/sitemap', function () {
-        if (! file_exists(public_path('sitemap.xml'))) {
-            Artisan::call('app:generate-sitemap');
-        }
+        $categories = \App\Models\Category::with('blogs')->get();
 
-        return view('sitemap', [
-            'sitemap' => simplexml_load_file(public_path('sitemap.xml')),
-        ]);
+        return view('sitemap', compact("categories"));
     })->name('sitemap');
-});
-
-/**
- * This route group is reserved for administrators
- */
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::middleware(AdministratorIP::class)->group(function () {
-        Route::get('/', [AdminController::class, 'index'])->name('index');
-
-        /**
-         * Admin Resources
-         */
-        Route::resource('skills', SkillController::class)->except(['show']);
-        Route::resource('experiences', ExperienceController::class)->except(['show']);
-        Route::resource('blogs', \App\Http\Controllers\Admin\Resources\BlogController::class)
-            ->except(['show']);
-        Route::resource('categories', CategoryController::class)->except(['show']);
-
-        /**
-         * Profile
-         */
-        Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-    });
 });
