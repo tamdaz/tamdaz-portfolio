@@ -17,13 +17,6 @@ class PageController extends Controller
     {
         return view('index', [
             'profile' => Profile::firstOrFail(),
-        ]);
-    }
-
-    public function profile(): View
-    {
-        return view('pages.profile', [
-            'profile' => Profile::firstOrFail(),
             'skills' => Skill::all(),
             'periods' => Experience::all(),
         ]);
