@@ -9,9 +9,9 @@ use Illuminate\Http\UploadedFile;
 
 class FileUploader
 {
-    public function __construct(protected Request $request)
-    {
-    }
+    public function __construct(
+        protected Request $request
+    ) {}
 
     public function upload(string $key, string $path, Closure $closure): ?Closure
     {
@@ -20,13 +20,13 @@ class FileUploader
         return $closure($file);
     }
 
-    public function update(string $file, string $fileName, string $path, Closure $closure): ?Closure
+    public function update(string $fileToUpload, string $fileToDelete, string $path, Closure $closure): ?Closure
     {
-        /*** @var UploadedFile $file */
-        $uploadedFile = $this->request->file($file);
+        /*** @var UploadedFile $fileToUpload */
+        $uploadedFile = $this->request->file($fileToUpload);
 
         if ($uploadedFile !== null) {
-            $this->delete($fileName);
+            $this->delete($fileToDelete);
             $file_store = $uploadedFile->store($path, 'public');
 
             return $closure(true, $file_store);
