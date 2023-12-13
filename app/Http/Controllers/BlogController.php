@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 
 class BlogController extends Controller
@@ -19,7 +20,7 @@ class BlogController extends Controller
 
     public function show(Blog $blog): View
     {
-        if (! $blog->is_published) {
+        if (!$blog->is_published) {
             abort(404);
         }
 
