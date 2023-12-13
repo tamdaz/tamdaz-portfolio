@@ -24,7 +24,7 @@
             <x-card
                 type="media"
                 :title="$item->title"
-                :src="$item->blog_thumb"
+                :src="$item->attachment()->first()->url"
                 :category="$item->category->name ?? ''"
                 :description="$item->description"
                 route="{{ route('pages.blogs.show', ['blog' => $item]) }}" />
