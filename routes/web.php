@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
  */
 Route::name('pages.')->group(function () {
     Route::get('/', [PageController::class, 'index'])->name('home');
-    Route::get('profile', [PageController::class, 'profile'])->name('profile');
 
     Route::get('bts-sio', [BlogController::class, 'btssio'])->name('bts-sio');
 
