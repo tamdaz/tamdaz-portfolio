@@ -15,7 +15,9 @@ module.exports = {
         'point': 'point 150ms linear forwards',
         'zoom': 'zoom 200ms steps(4, end) forwards',
 		'pickaxe': 'pickaxe 1.5s ease-in-out infinite',
-        'zoom-avatar': 'zoom 500ms ease-out forwards'
+        'zoom-avatar': 'zoom 500ms ease-out forwards',
+        'title-anim': 'titleAnim 250ms ease-out forwards',
+        'light': 'light 1.5s ease-out forwards'
       },
       keyframes: {
         down: {
@@ -52,7 +54,29 @@ module.exports = {
 		  '100%': {
 			transform: 'rotate(0deg)'
 		  },
-		}
+		},
+        titleAnim: {
+          '0%': {
+            transform: 'translateY(-30px)',
+            opacity: 0
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: 1
+          },
+        },
+        light: {
+          '0%': {
+            transform: 'scale(0)',
+            filter: 'brightness(2) hue-rotate(180deg)',
+            opacity: 1
+          },
+          '100%': {
+            transform: 'scale(2)',
+            filter: 'brightness(0) hue-rotate(180deg)',
+            opacity: 0
+          },
+        }
       }
     },
   },
