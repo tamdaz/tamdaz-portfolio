@@ -21,4 +21,13 @@
 	<div class="absolute bottom-10 text-xl w-full text-center animate-pulse">
 		&#8595; Molette vers le bas pour descendre
 	</div>
+	@if(App::isLocal() === true)
+		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom">
+			<x-alert
+				type="warn"
+				primary="Site portfolio en développement"
+				secondary="Pour le moment, le site portfolio est en cours de développement, il sera bientôt opérationnel."
+			/>
+		</div>
+	@endif
 </section>

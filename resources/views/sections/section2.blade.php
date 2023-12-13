@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="flex py-8 lg:flex-col justify-center items-center">
-			<img class="animate-zoom-avatar" src="{{ Vite::asset('resources/img/home/code.svg') }}" width="400px" alt="code" />
+			<img class="animate-zoom-avatar" src="{{ asset('img/home/code.svg') }}" width="400px" alt="code" />
 		</div>
 	</div>
 </section>
