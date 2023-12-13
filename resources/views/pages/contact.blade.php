@@ -3,7 +3,17 @@
 @section('title', 'Contact')
 
 @section('container')
-    <h1 class="text-4xl md:text-7xl mb-8">Contact</h1>
+    <h1 class="text-4xl md:text-7xl mb-8 animate-title-anim">Contact</h1>
+    <x-alert
+        type="info"
+        primary="Page de contact"
+        secondary="Si la page de contact ne fonctionne pas, vous pouvez envoyer votre message via mon adresse email : tamda.zohir.pro@gmail.com" />
+    @if (session('success'))
+        <x-alert
+            type="success"
+            primary="Message envoyé avec succès"
+            secondary="Vous recevrez la réponse dans les plus brefs délais" />
+    @endif
     <div class="w-full flex flex-col md:grid md:grid-cols-2 gap-4 mt-6">
         <iframe
             width="100%" height="100%"
@@ -11,12 +21,6 @@
         </iframe>
         <div class="p-4 border dark:border-neutral-800 bg-white dark:bg-black rounded-lg">
             <form action="{{ route('pages.contact_send') }}" method="post">
-                @if (session('success'))
-                    <x-alert
-                        type="success"
-                        primary="Message envoyé avec succès"
-                        secondary="Vous recevrez la réponse dans les plus brefs délais" />
-                @endif
                 @csrf
                 <div class="flex flex-col">
                     <label class="mb-2" for="name">Votre nom</label>

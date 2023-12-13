@@ -10,13 +10,13 @@
             </div>
             <div class="flex flex-cols gap-4 pl-4">
                 <a href="https://github.com/tamdaz">
-                    <img class="dark:invert" width="30px" src="/img/social_networks/github.svg" alt="github" />
+                    <img class="dark:invert" width="30px" src="{{ Vite::asset('resources/img/social_networks/github.svg') }}" alt="github" />
                 </a>
                 <a href="https://linkedin.com">
-                    <img width="30px" src="/img/social_networks/linkedin.svg" alt="linkedin" />
+                    <img class="dark" width="30px" src="{{ Vite::asset('resources/img/social_networks/linkedin.svg') }}" alt="github" />
                 </a>
                 <a href="https://youtube.com/@nexovitality">
-                    <img width="30px" src="/img/social_networks/youtube.svg" alt="youtube" />
+                    <img class="dark" width="30px" src="{{ Vite::asset('resources/img/social_networks/youtube.svg') }}" alt="github" />
                 </a>
             </div>
         </div>

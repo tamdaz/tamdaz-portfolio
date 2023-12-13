@@ -17,17 +17,9 @@
 				<span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $blog->category->name }}</span>
 			</span>
 		</span>
-		<img class="mb-4 rounded-lg" src="{{ $blog['project_thumb'] ?? $blog['blog_thumb'] }}" width="100%" alt="thumbnail" />
-		@if(isset($blog['project_thumb']))
-			<span>
-			Lien du projet:
-				<a class="text-blue-600 hover:underline" href="{{ $blog['project_url'] }}">
-					{{ $blog['project_url'] }}
-				</a>
-			</span>
-		@endif
+		<img class="mb-4 rounded-lg" src="{{ $blog->attachment()->first()->url() }}" width="100%" alt="thumbnail" />
 	</header>
-	<div class="flex flex-col-reverse">
+	<div class="flex flex-row">
 		<article class="block w-full mt-2 mb-6 text-justify leading-relaxed text-lg markdown" id="article">
 			@php echo (new ParsedownExtra())->text($blog['content']) @endphp
 		</article>
