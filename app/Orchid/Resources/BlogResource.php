@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Components\Cells\Boolean;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
@@ -20,7 +21,7 @@ class BlogResource extends Resource
     /**
      * The model the resource corresponds to.
      *
-     * @var string
+     * @var Blog $model
      */
     public static $model = Blog::class;
 
@@ -29,10 +30,10 @@ class BlogResource extends Resource
      */
     public function with(): array
     {
-        return ['category'];
+        return ['category', 'attachment'];
     }
 
-    public function rules(Model $model): array
+    public function rules(Blog|Model $blog): array
     {
         return [
             'title' => ['required'],
@@ -60,7 +61,7 @@ class BlogResource extends Resource
                 ->title('Contenu'),
             Picture::make('blog_thumb')
                 ->title('Miniature')
-                ->targetRelativeUrl(),
+                ->targetId(),
             CheckBox::make('is_published')
                 ->title('Est publié ?')
                 ->sendTrueOrFalse(),
@@ -106,7 +107,7 @@ class BlogResource extends Resource
             Sight::make('content', 'Contenu'),
             Sight::make('blog_thumb', 'Miniature')->render(function (Blog $blog) {
                 return <<<HTML
-                    <img src='$blog->blog_thumb' alt='img' width='100%' />
+                    <img src="{$blog->attachment()->first()}" alt='img' width='100%' />
                 HTML;
             }),
             Sight::make('created_at', 'Date de création')
@@ -120,5 +121,14 @@ class BlogResource extends Resource
     public function filters(): array
     {
         return [];
+    }
+
+    public function save(ResourceRequest $request, Model $model): void
+    {
+        $model->fill($request->all())->save();
+
+        $model->attachment()->sync(
+            $request->input('blog_thumb', [])
+        );
     }
 }

@@ -2,21 +2,16 @@
 
 namespace App\Orchid\Screens;
 
-use App\Http\Requests\ProfileFormRequest;
 use App\Models\Profile;
-use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Picture;
-use Orchid\Screen\Fields\SimpleMDE;
-use Orchid\Screen\Layout;
-use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Alert;
+use App\Http\Requests\ProfileFormRequest;
+use Orchid\Screen\{Actions\Button, Layout, Screen, Fields\Input, Fields\Picture};
 
 class ProfileScreen extends Screen
 {
     /**
-     * @var Profile
+     * @var Profile $profile
      */
     public $profile;
 
@@ -64,9 +59,9 @@ class ProfileScreen extends Screen
     {
         return [
             \Orchid\Support\Facades\Layout::rows([
-                Input::make('name')->title('Nom')->value($this->profile->name ?? null),
-                Input::make('job')->title('Travail / Rôle')->value($this->profile->job ?? null),
-                Picture::make('img_profile')->title('Avatar')->value($this->profile->img_profile ?? null)->targetRelativeUrl(),
+                Input::make('name')->title('Nom')->value($this->profile->name),
+                Input::make('job')->title('Travail / Rôle')->value($this->profile->job),
+                Picture::make('img_profile')->title('Avatar')->value($this->profile->img_profile)->targetId(),
                 Button::make('Submit')->type(Color::BASIC)->method('submitForm'),
             ]),
         ];
@@ -74,7 +69,12 @@ class ProfileScreen extends Screen
 
     public function submitForm(ProfileFormRequest $request): void
     {
-        Profile::find(1)->update($request->all());
+        $this->profile->fill($request->all())->save();
+
+        $this->profile->attachment()->sync(
+            $request->input('img_profile', [])
+        );
+
         Alert::success('Votre profile a bien été mis à jour');
     }
 }
