@@ -30,6 +30,10 @@ class ContactMail extends Mailable
     {
         return new Envelope(
             from: new Address(getenv('MAIL_FROM_ADDRESS')),
+            to: [
+                new Address($this->request->input('email')),
+                new Address(getenv('MAIL_FROM_ADDRESS'))
+            ],
             subject: 'Envoi de message'
         );
     }
