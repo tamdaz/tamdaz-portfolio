@@ -2,11 +2,11 @@
 	<div class="bg-home bg-white dark:bg-neutral-900 absolute -z-10 w-screen h-screen"></div>
 	<div class="w-full h-screen lg:grid lg:grid-cols-2 lg:px-16 xl:px-32 select-none flex flex-col justify-center">
 		<div class="flex flex-col justify-center items-center lg:items-start lg:w-full lg:h-full">
-			<div class="text-4xl sm:text-6xl">
+			<div class="text-4xl sm:text-7xl">
 				<div id="typed_name">
 					<p>{{ $profile['name'] }}</p>
 				</div>
-				<pre class="font-bold inline" id="name"></pre>
+				<span class="font-bold inline" id="name"></span>
 			</div>
 			<div class="text-xl sm:text-3xl">
 				<p class="inline-block my-3" id="desc"></p>
@@ -21,8 +21,8 @@
 	<div class="absolute bottom-10 text-xl w-full text-center animate-pulse">
 		&#8595; Molette vers le bas pour descendre
 	</div>
-	@if(App::isLocal() === true)
-		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom">
+	@if(App::isLocal() && App::hasDebugModeEnabled())
+		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
 			<x-alert
 				type="warn"
 				primary="Site portfolio en développement"
