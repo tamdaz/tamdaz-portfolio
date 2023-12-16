@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use Orchid\Screen\AsSource;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Illuminate\Database\Eloquent\{Factories\HasFactory, Model, Relations\HasOne};
+use Orchid\Screen\AsSource;
 
 /**
  * @mixin IdeHelperProfile
  */
 class Profile extends Model
 {
-    use HasFactory, AsSource, Attachable;
+    use AsSource, Attachable, HasFactory;
 
     protected $fillable = [
         'name', 'job', 'img_profile',

@@ -14,7 +14,7 @@ use Orchid\Screen\AsSource;
  */
 class Category extends Model
 {
-    use HasFactory, AsSource, Attachable, Filterable;
+    use AsSource, Attachable, Filterable, HasFactory;
 
     protected $fillable = [
         'name',

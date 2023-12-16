@@ -13,7 +13,7 @@ use Orchid\Screen\AsSource;
  */
 class Experience extends Model
 {
-    use HasFactory, AsSource, Attachable, Filterable;
+    use AsSource, Attachable, Filterable, HasFactory;
 
     protected $fillable = [
         'date_start', 'date_end',

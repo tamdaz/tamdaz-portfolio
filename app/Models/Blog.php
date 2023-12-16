@@ -15,7 +15,7 @@ use Orchid\Screen\AsSource;
  */
 class Blog extends Model
 {
-    use HasFactory, AsSource, Filterable, Attachable;
+    use AsSource, Attachable, Filterable, HasFactory;
 
     protected $fillable = [
         'is_published', 'blog_thumb',
@@ -28,7 +28,7 @@ class Blog extends Model
     ];
 
     /**
-     * @param Builder<Blog> $query
+     * @param  Builder<Blog>  $query
      */
     public function scopePublished(Builder $query): void
     {

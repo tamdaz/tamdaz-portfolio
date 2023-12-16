@@ -8,13 +8,13 @@ use Orchid\Screen\AsSource;
 
 class Maintenance extends Model
 {
-    use HasFactory, AsSource;
+    use AsSource, HasFactory;
 
     protected $fillable = [
-        'message', 'end_maintenance'
+        'message', 'end_maintenance',
     ];
 
     protected $casts = [
-        'end_maintenance' => 'datetime'
+        'end_maintenance' => 'datetime',
     ];
 }
