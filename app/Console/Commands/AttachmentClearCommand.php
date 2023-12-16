@@ -26,12 +26,12 @@ class AttachmentClearCommand extends Command
      */
     public function handle(): int
     {
-        $this->line("Deleting unused attachments...");
+        $this->line('Deleting unused attachments...');
 
         $unrelatedAttachments = (new Attachment())->doesntHave('relationships')->get();
         $unrelatedAttachments->each->delete();
 
-        $this->info("Successfully deleted unused file/image attachments");
+        $this->info('Successfully deleted unused file/image attachments');
 
         return Command::SUCCESS;
     }

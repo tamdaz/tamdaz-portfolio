@@ -16,9 +16,9 @@ class PageController extends Controller
     public function index(): View
     {
         return view('index', [
-            'profile' => Profile::first()->load('attachment'),
-            'skills' => Skill::all(),
-            'periods' => Experience::all(),
+            'profile' => Profile::with('attachment')->first(),
+            'skills' => Skill::with('attachment')->get(),
+            'experiences' => Experience::all(),
         ]);
     }
 

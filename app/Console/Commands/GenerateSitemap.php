@@ -29,7 +29,8 @@ class GenerateSitemap extends Command
     {
         $sitemap = Sitemap::create();
         $sitemap->add('/');
-        $sitemap->add('/profile');
+        $sitemap->add('/bts-sio');
+        $sitemap->add('/blogs');
 
         foreach (Blog::published()->get() as $blog) {
             $sitemap->add("/blogs/{$blog->id}");

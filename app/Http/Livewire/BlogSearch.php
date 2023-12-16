@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -11,10 +12,16 @@ class BlogSearch extends Component
 {
     use WithPagination;
 
-    public mixed $model;
+    /**
+     * @var Blog
+     */
+    public $model;
 
     public string $search = '';
 
+    /**
+     * @var Category
+     */
     public $category;
 
     public string $dateOrder = 'DESC';

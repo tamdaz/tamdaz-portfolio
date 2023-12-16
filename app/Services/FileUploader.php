@@ -11,7 +11,8 @@ class FileUploader
 {
     public function __construct(
         protected Request $request
-    ) {}
+    ) {
+    }
 
     public function upload(string $key, string $path, Closure $closure): ?Closure
     {
