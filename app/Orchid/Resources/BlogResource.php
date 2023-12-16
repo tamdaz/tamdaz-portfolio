@@ -21,7 +21,7 @@ class BlogResource extends Resource
     /**
      * The model the resource corresponds to.
      *
-     * @var Blog $model
+     * @var Blog
      */
     public static $model = Blog::class;
 

@@ -2,16 +2,20 @@
 
 namespace App\Orchid\Screens;
 
+use App\Http\Requests\ProfileFormRequest;
 use App\Models\Profile;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Layout;
+use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Alert;
-use App\Http\Requests\ProfileFormRequest;
-use Orchid\Screen\{Actions\Button, Layout, Screen, Fields\Input, Fields\Picture};
 
 class ProfileScreen extends Screen
 {
     /**
-     * @var Profile $profile
+     * @var Profile
      */
     public $profile;
 
@@ -23,7 +27,7 @@ class ProfileScreen extends Screen
     public function query(): iterable
     {
         return [
-            'profile' => Profile::first()
+            'profile' => Profile::first(),
         ];
     }
 

@@ -29,7 +29,7 @@ class MaintenanceScreen extends Screen
     public function query(): iterable
     {
         return [
-            'maintenance' => Maintenance::first()
+            'maintenance' => Maintenance::first(),
         ];
     }
 
@@ -78,7 +78,7 @@ class MaintenanceScreen extends Screen
     public function submitForm(Request $request): void
     {
         $validator = Validator::make($request->all(), [
-            'end_maintenance' => ['required']
+            'end_maintenance' => ['required'],
         ]);
 
         $validator->validated();
