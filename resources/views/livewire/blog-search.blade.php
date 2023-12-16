@@ -2,7 +2,7 @@
     <div class="my-4">
         <div class="mb-1">
             <input
-                placeholder="Rechercher du contenu"
+                placeholder="Rechercher..."
                 wire:model="search" type="search"
                 class="w-full outline-none px-4 py-2" />
         </div>

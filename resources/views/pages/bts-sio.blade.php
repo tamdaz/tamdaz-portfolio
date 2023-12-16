@@ -1,6 +1,6 @@
 @extends('layouts.classic')
 
-@section('title', 'BTS SIO')
+@section('title', 'BTS SIO - Tamda Zohir')
 
 @section('container')
 	<h1 class="text-4xl md:text-7xl mb-8 animate-title-anim">BTS SIO</h1>

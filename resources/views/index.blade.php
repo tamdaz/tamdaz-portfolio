@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', 'Accueil')
+@section('title', 'Accueil - Tamda Zohir')
 
 @section('head')
 	@vite('resources/js/app.js')
@@ -9,10 +9,11 @@
 @section('body')
 	@include('partials.header')
 
-	@include('sections.section1')
-	@include('sections.section2')
-	@include('sections.section3')
-	@include('sections.section4')
+	@include('sections.hero')
+	@include('sections.presentation')
+	@include('sections.bts-sio')
+	@include('sections.skills')
+	@include('sections.experiences')
 
 	@include("partials.footer")
 @endsection

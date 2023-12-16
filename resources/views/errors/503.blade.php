@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', "Maintenance")
+@section('title', "Maintenance - Tamda Zohir")
 
 @section('body')
     <div class="w-screen h-screen flex flex-col justify-center items-center bg-black text-white z-0">

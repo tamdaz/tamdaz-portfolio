@@ -1,6 +1,6 @@
-<section class="relative">
+<section class="relative w-[200px]">
     <div class="sticky top-16 left-0 right-0">
-        <h6 class="text-3xl mb-2 font-bold">Sommaire</h6>
+        <h6 class="text-3xl mb-2 font-bold">Sommaire: </h6>
         <ul class="hover:[&>li]:underline" id="summary"></ul>
         <script>
             for (const summary of document.getElementById("{{ $id }}").children) {

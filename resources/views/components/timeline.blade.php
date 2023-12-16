@@ -8,7 +8,7 @@
     @foreach ($json as $k => $v)
         <div class="flex flex-row m-auto h-[250px] relative">
             <div class="hidden md:block {{ $k % 2 !== 0 ? 'md:invisible' : null }} -translate-x-full intersect:translate-x-0 duration-1000 transition ease-out border dark:border-neutral-700 dark:bg-black md:flex-1 rounded-xl p-4 my-4 h-fit -z-20">
-                <span class="font-bold text-3xl">{{ date('F Y', strtotime($v->date_start)) . ' - ' . date('F Y', strtotime($v->date_end)) }}</span>
+                <span class="font-bold text-3xl">{{ date('j/m/Y', strtotime($v->date_start)) . ' - ' . date('j/m/Y', strtotime($v->date_end)) }}</span>
                 <p class="mt-1">{{ $v->description }}</p>
             </div>
 
@@ -37,7 +37,7 @@
             @endif
 
             <div class="md:block w-full {{ $k % 2 === 0 ? 'md:invisible' : null }} translate-x-full intersect:translate-x-0 duration-1000 transition ease-out border dark:border-neutral-700 dark:bg-black md:flex-1 rounded-xl p-4 my-4 h-fit -z-20">
-                <span class="font-bold text-3xl">{{ date('F Y', strtotime($v->date_start)) . ' - ' . date('F Y', strtotime($v->date_end)) }}</span>
+                <span class="font-bold text-3xl">{{ date('j/m/Y', strtotime($v->date_start)) . ' - ' . date('j/m/Y', strtotime($v->date_end)) }}</span>
                 <p class="mt-1">{{ $v->description }}</p>
             </div>
         </div>
