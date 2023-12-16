@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
-            $table->text("message")->nullable();
-            $table->dateTime("end_maintenance");
+            $table->text('message')->nullable();
+            $table->dateTime('end_maintenance');
             $table->timestamps();
         });
     }
