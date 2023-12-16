@@ -5,6 +5,9 @@ migrate:
 rollback:
 	@php artisan migrate:fresh --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
 
+test:
+	@php artisan test
+
 format:
 	@./vendor/bin/pint
 
