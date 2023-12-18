@@ -7,6 +7,9 @@ module.exports = {
     "./resources/**/*.vue",
     './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
   ],
+  safelist: [
+    'dark:invert'
+  ],
   theme: {
     extend: {
       animation: {
@@ -17,7 +20,7 @@ module.exports = {
 		'pickaxe': 'pickaxe 1.5s ease-in-out infinite',
         'zoom-avatar': 'zoom 500ms ease-out forwards',
         'title-anim': 'titleAnim 250ms ease-out forwards',
-        'light': 'light 1.5s ease-out forwards'
+        'light': 'light 1.5s ease-out'
       },
       keyframes: {
         down: {
@@ -38,7 +41,7 @@ module.exports = {
         },
         zoom: {
           'from': {
-            transform: 'scale(0)',
+            transform: 'scale(0.2)',
             opacity: 1
           },
           'to': {

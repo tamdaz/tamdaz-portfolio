@@ -2,14 +2,15 @@
 migrate:
 	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
 
-rollback:
-	@php artisan migrate:fresh --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
-
-test:
-	@php artisan test
-
 format:
 	@./vendor/bin/pint
 
 check:
 	@./vendor/bin/phpstan
+
+test:
+	@php artisan test
+
+# DON'T USE IN PRODUCTION MODE
+rollback:
+	@php artisan migrate:fresh --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid

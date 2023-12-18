@@ -27,7 +27,9 @@ Route::name('pages.')->group(function () {
     Route::get('blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
     Route::get('contact', [PageController::class, 'contact'])->name('contact');
-    Route::post('contact', [PageController::class, 'contact_send'])->name('contact_send');
+    Route::post('contact', [PageController::class, 'contact_send'])
+        ->name('contact_send')
+        ->middleware('throttle:contact');
 
     // SECRET ROUTE
     Route::get('components', [PageController::class, 'components'])->name('components');
