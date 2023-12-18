@@ -20,7 +20,7 @@ btn_close_menu.addEventListener('click', () => {
 })
 
 window.onscroll = () => {
-    if (lastScrollY < window.scrollY || window.scrollY !== 0) {
+    if (lastScrollY < window.scrollY) {
         isMenuHidden = true;
 
         header.classList.remove('translate-y-0')
