@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('img_skill');
             $table->string('text_primary');
             $table->string('text_secondary');
+            $table->boolean('has_no_colors')->default(false);
             $table->timestamps();
         });
     }
