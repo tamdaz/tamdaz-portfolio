@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Http\Requests\ContactFormRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -19,7 +18,7 @@ class ContactMail extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        protected ContactFormRequest $request
+        protected array $request
     ) {
     }
 
@@ -31,7 +30,7 @@ class ContactMail extends Mailable
         return new Envelope(
             from: new Address(getenv('MAIL_FROM_ADDRESS')),
             to: [
-                new Address($this->request->input('email')),
+                new Address($this->request['email']),
                 new Address(getenv('MAIL_FROM_ADDRESS')),
             ],
             subject: 'Envoi de message'
@@ -46,9 +45,9 @@ class ContactMail extends Mailable
         return new Content(
             view: 'emails.contact',
             with: [
-                'email' => $this->request->input('email'),
-                'name' => $this->request->input('name'),
-                'msg' => $this->request->input('message'),
+                'email' => $this->request['email'],
+                'name' => $this->request['name'],
+                'msg' => $this->request['message'],
             ]
         );
     }
