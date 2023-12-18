@@ -6,8 +6,9 @@ use App\Models\Skill;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
+use Orchid\Screen\Fields\CheckBox;
+use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Sight;
 use Orchid\Screen\TD;
 
@@ -37,7 +38,12 @@ class SkillResource extends Resource
         return [
             Input::make('text_primary')->title('Texte primaire'),
             Input::make('text_secondary')->title('Texte secondaire'),
-            Picture::make('img_skill')->title('Image')->targetId(),
+            CheckBox::make('has_no_colors')->title("N'a pas de couleur ?")->sendTrueOrFalse(),
+            Cropper::make('img_skill')
+                ->title('Image')
+                ->width(512)
+                ->height(512)
+                ->targetId(),
         ];
     }
 
@@ -57,6 +63,7 @@ class SkillResource extends Resource
             }),
             TD::make('text_primary', 'Texte primaire'),
             TD::make('text_secondary', 'Texte secondary'),
+            TD::make('has_no_colors', "N'a pas de couleurs"),
             TD::make('created_at', 'Date de création')
                 ->render(fn ($model) => $model->created_at->toDateTimeString()),
         ];
@@ -78,6 +85,7 @@ class SkillResource extends Resource
             }),
             Sight::make('text_primary', 'Texte primaire'),
             Sight::make('text_secondary', 'Texte secondary'),
+            Sight::make('has_no_colors', "N'a pas de couleurs ?"),
             Sight::make('created_at', 'Date de création')
                 ->render(fn (Skill $skill) => $skill->created_at->toDateTimeString()),
         ];
@@ -91,11 +99,11 @@ class SkillResource extends Resource
         return [];
     }
 
-    public function save(ResourceRequest $request, Model|Skill $model): void
+    public function save(ResourceRequest $request, Skill|Model $model): void
     {
         $model->fill($request->all())->save();
 
-        $model->attachment()->sync(
+        $model->attachment()->syncWithoutDetaching(
             $request->input('img_skill', [])
         );
     }

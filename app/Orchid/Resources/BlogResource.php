@@ -9,8 +9,8 @@ use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Components\Cells\Boolean;
 use Orchid\Screen\Fields\CheckBox;
+use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\SimpleMDE;
 use Orchid\Screen\Sight;
@@ -59,8 +59,11 @@ class BlogResource extends Resource
                 ->fromModel(Category::class, 'name'),
             SimpleMDE::make('content')
                 ->title('Contenu'),
-            Picture::make('blog_thumb')
+            Cropper::make('blog_thumb')
                 ->title('Miniature')
+                ->width(1280)
+                ->height(720)
+                ->maxFileSize(2)
                 ->targetId(),
             CheckBox::make('is_published')
                 ->title('Est publié ?')
