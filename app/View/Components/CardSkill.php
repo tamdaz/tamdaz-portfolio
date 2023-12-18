@@ -14,7 +14,8 @@ class CardSkill extends Component
     public function __construct(
         public string $title,
         public string $description,
-        public string $src
+        public string $src,
+        public bool $hasNoColor = false
     ) {
     }
 
