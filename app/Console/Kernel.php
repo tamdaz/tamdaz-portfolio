@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('app:attachment-clear')->everyOddHour();
+        $schedule->command('app:generate-sitemap')->everyOddHour();
     }
 
     /**
