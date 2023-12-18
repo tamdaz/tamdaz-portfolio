@@ -11,6 +11,8 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.css"/>
 		<script src="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.js"></script>
 
+		<link rel="shortcut icon" href="/avatar.jpg" type="image/jpg" />
+
         @yield('head')
         @livewireStyles
 

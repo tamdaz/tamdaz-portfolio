@@ -8,29 +8,35 @@
         type="info"
         primary="Page de contact"
         secondary="Si la page de contact ne fonctionne pas, vous pouvez envoyer votre message via mon adresse email : tamda.zohir.pro@gmail.com" />
-    @if (session('success'))
+    @if (session()->has('success'))
         <x-alert
             type="success"
             primary="Message envoyé avec succès"
-            secondary="Vous recevrez la réponse dans les plus brefs délais" />
+            :secondary="session('success')" />
+    @endif
+    @if (session()->has('error'))
+        <x-alert
+            type="error"
+            primary="Une erreur est survenue lors de l'envoi du message..."
+            :secondary="session('error')" />
     @endif
     <div class="w-full flex flex-col gap-4 mt-6">
         <div class="p-4 border dark:border-neutral-800 bg-white dark:bg-black rounded-lg">
             <form action="{{ route('pages.contact_send') }}" method="post">
                 @csrf
                 <div class="flex flex-col">
-                    <label class="mb-2" for="name">Votre nom</label>
-                    <input class="px-4 py-2" name="name" type="text" value="{{ old('name') }}" />
+                    <label class="mb-2" for="name">Votre nom :</label>
+                    <input class="px-4 py-2" id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" />
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('name') {{ $message }} @enderror</span>
                 <div class="flex flex-col">
                     <label class="mb-2" for="email">Votre adresse email</label>
-                    <input class="px-4 py-2" name="email" type="text" value="{{ old('email') }}" />
+                    <input class="px-4 py-2" id="email" name="email" type="text" value="{{ old('email') }}" autocomplete="email" />
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('email') {{ $message }} @enderror</span>
                 <div class="flex flex-col">
-                    <label class="mb-2" for="message">Votre message</label>
-                    <textarea class="px-4 py-2 h-40" name="message">{{ old('message') }}</textarea>
+                    <label class="mb-2" for="message">Votre message: </label>
+                    <textarea class="px-4 py-2 h-40" id="message" name="message">{{ old('message') }}</textarea>
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('message') {{ $message }} @enderror</span>
                 <div class="grid grid-cols-1">

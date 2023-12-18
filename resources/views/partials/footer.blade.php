@@ -6,7 +6,7 @@
             <div class="flex flex-cols gap-4 pl-4 py-2 md:border-r dark:border-r-neutral-800 pr-4">
                 <label>
                     Changer de thème :
-                    <input type="checkbox" id="changeTheme" class="slideon slideon-auto">
+                    <input type="checkbox" id="changeThemeFooter" class="slideon slideon-auto">
                 </label>
                 <a class="hover:underline" href="{{ route('pages.contact') }}">Contact</a>
                 <a class="hover:underline" href="{{ route('pages.sitemap') }}">Plan du site</a>
@@ -20,30 +20,22 @@
     </div>
 </footer>
 
-<script>
-    let slideon = new Slideon()
-    slideon.load()
+@vite('resources/js/theme.js')
 
-    let changeTheme = document.getElementById('changeTheme');
+<script>
+    let changeThemeHeader = document.getElementById('changeThemeHeader');
+    let changeThemeFooter = document.getElementById('changeThemeFooter');
 
     if (!localStorage.getItem('theme')) {
-        localStorage.setItem('theme', 'dark')
+        localStorage.setItem('theme', 'light')
     } else {
         if (localStorage.getItem('theme') === "dark") {
+            changeThemeHeader.checked = true;
+            changeThemeFooter.checked = true;
             document.documentElement.classList.add("dark")
-            changeTheme.checked = true;
         } else {
-            changeTheme.checked = false;
+            changeThemeHeader.checked = false;
+            changeThemeFooter.checked = false;
         }
     }
-
-    changeTheme.addEventListener('change', () => {
-        if (localStorage.getItem('theme') === "light") {
-            localStorage.setItem('theme', 'dark')
-        } else {
-            localStorage.setItem('theme', 'light')
-        }
-
-        document.documentElement.classList.toggle("dark")
-    })
 </script>
