@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
-use App\Mail\ContactMail;
+use App\Jobs\SendEmail;
 use App\Models\Experience;
 use App\Models\Profile;
 use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -29,9 +28,10 @@ class PageController extends Controller
 
     public function contact_send(ContactFormRequest $request): RedirectResponse
     {
-        Mail::to($request->get('email'))->send(new ContactMail($request));
+        SendEmail::dispatch($request->all());
 
-        return redirect()->route('pages.contact')
+        return redirect()
+            ->route('pages.contact')
             ->with('success', 'Je vous répondrai dans les plus brefs délais');
     }
 
