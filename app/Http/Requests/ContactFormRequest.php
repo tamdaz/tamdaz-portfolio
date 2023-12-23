@@ -18,7 +18,11 @@ class ContactFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, ValidationRule|array|string>
+     * @return array{
+     *     name: array<ValidationRule|string>,
+     *     email: array<ValidationRule|string>,
+     *     message: array<ValidationRule|string>
+     * }
      */
     public function rules(): array
     {
