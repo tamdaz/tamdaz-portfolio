@@ -1,10 +1,11 @@
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/larastan/larastan/extension.neon
 
 parameters:
-    level: 8
+    level: 9
     paths:
         - app/Models
+        - app/View
     scanFiles:
         - ./.phpstorm.meta.php
         - ./_ide_helper.php

@@ -14,9 +14,6 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "highlight.js": "^11.9.0",
-        "highlightjs-copy": "^1.0.5",
-        "maildev": "^2.1.0",
         "typed.js": "^2.0.15"
     }
 }
