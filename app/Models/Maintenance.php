@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
 
+/**
+ * @mixin IdeHelperMaintenance
+ */
 class Maintenance extends Model
 {
     use AsSource, HasFactory;

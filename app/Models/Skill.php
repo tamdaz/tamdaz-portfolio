@@ -15,6 +15,9 @@ class Skill extends Model
 {
     use AsSource, Attachable, Filterable, HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'img_skill', 'text_primary',
         'text_secondary', 'has_no_colors',

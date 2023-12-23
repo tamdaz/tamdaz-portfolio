@@ -17,12 +17,16 @@ class Blog extends Model
 {
     use AsSource, Attachable, Filterable, HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
-        'is_published', 'blog_thumb',
-        'title', 'description', 'content',
-        'category_id',
+        'is_published', 'blog_thumb', 'title', 'description', 'content', 'category_id',
     ];
 
+    /**
+     * @var array<string, string>
+     */
     protected $casts = [
         'is_published' => 'boolean',
     ];

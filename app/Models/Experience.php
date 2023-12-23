@@ -16,8 +16,7 @@ class Experience extends Model
     use AsSource, Attachable, Filterable, HasFactory;
 
     protected $fillable = [
-        'date_start', 'date_end',
-        'description',
+        'date_start', 'date_end', 'description',
     ];
 
     protected $casts = [

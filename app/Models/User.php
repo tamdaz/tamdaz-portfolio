@@ -15,7 +15,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<string>
+     * @var string[]
      */
     protected $fillable = [
         'name',
@@ -27,7 +27,7 @@ class User extends Authenticatable
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array<string>
+     * @var string[]
      */
     protected $hidden = [
         'password',
@@ -38,7 +38,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast to native types.
      *
-     * @var array<string>
+     * @var string[]
      */
     protected $casts = [
         'permissions' => 'array',
@@ -48,7 +48,7 @@ class User extends Authenticatable
     /**
      * The attributes for which you can use filters in url.
      *
-     * @var array<string>
+     * @var string[]
      */
     protected $allowedFilters = [
         'id' => Where::class,
@@ -61,7 +61,7 @@ class User extends Authenticatable
     /**
      * The attributes for which can use sort in url.
      *
-     * @var array<string>
+     * @var string[]
      */
     protected $allowedSorts = [
         'id',
