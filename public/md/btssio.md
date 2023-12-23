@@ -7,15 +7,12 @@ web ainsi que les réseaux informatiques. Elle dure 2 ans.
 Dans ce BTS SIO, on a le choix entre 2 spécialités :
 
 - SLAM (Solutions Logicielles et Applications métiers)
-- SISR (Solutions d'infrastructure, systèmes et réseaux)
+- SISR (Solutions d'infrastructure, Systèmes et Réseaux)
 
-## SISR
-Cette spécialité s'oriente vers la mise en place des réseaux informatiques.
+L'option SISR s'oriente vers la mise en place des réseaux informatiques tandis que l'option SLAM s'oriente
+sur le développement de sites web.
 
-## SLAM
-Cette option s'oriente sur le développement web avec des langages de programmation.
-
-# Ensemble de cours
+# Examens
 
 | Examens                                                      | Coefficient | Durée | Forme          |
 |--------------------------------------------------------------|-------------|-------|----------------|
@@ -33,3 +30,13 @@ Cette option s'oriente sur le développement web avec des langages de programmat
 # Les débouchés
 Après le BTS SIO, on peut faire une poursuite d'études ou directement aller dans le monde du
 travail
+
+| SISR                                              | SLAM                                     |
+|---------------------------------------------------|------------------------------------------|
+| Pilote d’exploitation                             | Développeur informatique                 |
+| Administrateur systèmes et réseaux                | Programmeur                              |
+| Gestionnaire du parc informatique de l’entreprise | Analyste programmeur                     |
+| Analyste d’exploitation informatique              | Technicien informatique                  |
+| Technicien des réseaux de télécommunications      | Responsable des services applicatifs     |
+| Technicien d’infrastructure                       | Informaticien d’études                   |
+| Technicien systèmes et réseaux                    | Développeur d’applications informatiques |

@@ -31,5 +31,11 @@ window.onscroll = () => {
         isMenuHidden = false;
     }
 
+    if (window.scrollY > 100) {
+        header.classList.add('backdrop-blur-xl')
+    } else {
+        header.classList.remove('backdrop-blur-xl')
+    }
+
     lastScrollY = window.scrollY;
 }
