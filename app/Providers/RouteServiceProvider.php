@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
                         ->route('pages.contact')
                         ->with(
                             'error',
-                            'Vous avez envoyé trop de messages en ce moment, veuillez ne pas en abuser !'
+                            'Vous avez dépassé le nombre maximal de messages, veuillez ne pas abuser de cette fonctionnalité.'
                         );
                 });
         });
