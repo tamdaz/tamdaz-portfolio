@@ -3,3 +3,6 @@ Disallow: /admin/
 Disallow: /admin/*
 Disallow: /components
 Disallow: /contact-send/
+Disallow: /_debugbar/*
+Disallow: /_ignition/*
+Disallow: /sanctum/
