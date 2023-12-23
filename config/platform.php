@@ -45,7 +45,7 @@ return [
      */
 
     'middleware' => [
-        'public' => ['web', 'cache.headers:private;must_revalidate;etag'],
+        'public' => ['web', 'cache.headers:private;must_revalidate;etag', 'auth.admin'],
         'private' => ['web', 'platform', 'cache.headers:private;must_revalidate;etag'],
     ],
 
@@ -204,7 +204,6 @@ return [
 
     'icons' => [
         'bs' => \Orchid\Support\BootstrapIconsPath::getFolder(),
-        'orc' => \Orchid\IconPack\Path::getFolder(),
     ],
 
     /*

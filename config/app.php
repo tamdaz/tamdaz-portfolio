@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Davmixcool\MetaManager\MetaServiceProvider::class,
 
         /*
          * Application Service Providers...
