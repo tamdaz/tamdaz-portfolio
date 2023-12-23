@@ -12,6 +12,9 @@ use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
 {
+    /**
+     * Home page
+     */
     public function index(): View
     {
         return view('index', [
@@ -21,11 +24,17 @@ class PageController extends Controller
         ]);
     }
 
+    /**
+     * Contact page
+     */
     public function contact(): View
     {
         return view('pages.contact');
     }
 
+    /**
+     * Send a email message
+     */
     public function contact_send(ContactFormRequest $request): RedirectResponse
     {
         SendEmail::dispatch($request->all());
@@ -35,6 +44,9 @@ class PageController extends Controller
             ->with('success', 'Je vous répondrai dans les plus brefs délais');
     }
 
+    /**
+     * SECRET PAGE: components page
+     */
     public function components(): View
     {
         return view('pages.components');
