@@ -1,4 +1,4 @@
 /sitemap.xml
-/vendor
-/storage
-/build
+/vendor/*
+/storage/*
+/build/*
