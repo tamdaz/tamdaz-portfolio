@@ -28,11 +28,11 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             Menu::make('Profil')
-                ->icon('orc.user')
+                ->icon('bs.person')
                 ->route('platform.profile'),
 
             Menu::make('Maintenance')
-                ->icon('orc.clock')
+                ->icon('bs.clock')
                 ->route('platform.maintenance')
                 ->divider(),
 
