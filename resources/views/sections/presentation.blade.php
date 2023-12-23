@@ -4,14 +4,14 @@
 			<h1 class="text-4xl sm:text-6xl font-bold pb-4">Présentation</h1>
 			<p class="text-xl leading-9">
 				Actuellement en première année de BTS SIO (Services Informatiques aux Organisations),
-				je me suis spécialisé dans le développement web en autodidacte.
+				je me suis spécialisé en autodidacte dans le développement web.
 			</p>
 			<div class="mt-4">
 				<x-button route="/docs/Tamda Zohir - CV.pdf" type="contained">Télécharger mon CV</x-button>
 			</div>
 		</div>
 		<div class="flex lg:flex-col justify-center items-center">
-			<img src="img/home/code.svg" class="intersect:animate-title-anim" width="50%" alt="code" />
+			<img src="img/home/code.svg" class="intersect:animate-title-anim" style="animation-delay: 100ms; opacity: 0;" width="50%" alt="code" />
 		</div>
 	</div>
 </section>

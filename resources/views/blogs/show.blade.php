@@ -3,7 +3,12 @@
 @section('title', $blog['title'] . " - Tamda Zohir")
 
 @section('head')
-	@vite('resources/js/md/markdown-parse.js')
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+	<script>
+        hljs.highlightAll()
+	</script>
 @endsection
 
 @section('container')

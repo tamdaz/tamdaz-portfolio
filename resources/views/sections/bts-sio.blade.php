@@ -1,7 +1,7 @@
 <section>
 	<div class="w-full h-screen lg:grid lg:grid-cols-2 px-8 lg:px-16 xl:px-32 flex flex-col justify-center">
 		<div class="flex py-8 lg:flex-col justify-center items-center">
-			<img class="intersect:animate-title-anim" src="img/bts-sio.png" width="50%" alt="code" />
+			<img class="intersect:animate-title-anim" style="animation-delay: 100ms; opacity: 0;" src="img/bts-sio.png" width="50%" alt="code" />
 		</div>
 		<div class="flex flex-col justify-center items-center lg:items-center text-center lg:w-full lg:h-full">
 			<h1 class="text-6xl font-bold pb-4">BTS SIO</h1>

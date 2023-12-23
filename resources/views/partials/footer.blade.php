@@ -1,4 +1,4 @@
-<footer class="bg-neutral-50 dark:bg-neutral-950 border-t dark:border-neutral-800 mt-10 py-8 select-none">
+<footer class="bg-neutral-50 dark:bg-neutral-950 border-t dark:border-neutral-800 py-8">
     <div class="flex flex-col md:flex-row items-center justify-end dark:divide-neutral-700 px-16 lg:w-[1100px] m-auto">
         <span>Tamda Zohir - {{ date("Y") }}</span>
         <div class="flex-grow"></div>
@@ -19,23 +19,3 @@
         </div>
     </div>
 </footer>
-
-@vite('resources/js/theme.js')
-
-<script>
-    let changeThemeHeader = document.getElementById('changeThemeHeader');
-    let changeThemeFooter = document.getElementById('changeThemeFooter');
-
-    if (!localStorage.getItem('theme')) {
-        localStorage.setItem('theme', 'light')
-    } else {
-        if (localStorage.getItem('theme') === "dark") {
-            changeThemeHeader.checked = true;
-            changeThemeFooter.checked = true;
-            document.documentElement.classList.add("dark")
-        } else {
-            changeThemeHeader.checked = false;
-            changeThemeFooter.checked = false;
-        }
-    }
-</script>

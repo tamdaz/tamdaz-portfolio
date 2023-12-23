@@ -1,19 +1,25 @@
 <div>
     <div class="my-4">
         <div class="mb-1">
-            <input
-                placeholder="Rechercher..."
-                wire:model="search" type="search"
-                class="w-full outline-none px-4 py-2" />
+            <label>
+                <input
+                    placeholder="Rechercher..."
+                    wire:model="search" type="search"
+                    name="search"
+                    class="w-full outline-none px-4 py-2" />
+            </label>
         </div>
         <div class="flex gap-1">
-            @if(count($categories) !== 0)
                 <select class="flex-grow px-4" wire:model="category">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
+                    <option value="0">Tous les catégories</option>
+                    @if(count($categories) !== 0)
+                        @if (!empty($categories))
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        @endif
+                    @endif
                 </select>
-            @endif
             <button wire:click="toggleButtonDate" class="px-12 border dark:border-neutral-800 bg-white active:bg-neutral-100 dark:bg-neutral-900 active:dark:bg-neutral-800">
                 {{ $dateOrder === "DESC" ? "Les plus récents" : "Les plus anciens" }}
             </button>
