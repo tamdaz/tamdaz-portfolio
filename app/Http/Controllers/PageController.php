@@ -18,8 +18,8 @@ class PageController extends Controller
     public function index(): View
     {
         return view('index', [
-            'profile' => Profile::with('attachment')->first(),
-            'skills' => Skill::with('attachment')->get(),
+            'profile' => Profile::with('avatar')->without('attachment')->first(),
+            'skills' => Skill::with('icon')->without('attachment')->get(),
             'experiences' => Experience::all(),
         ]);
     }

@@ -28,7 +28,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog): View
     {
-        if (! $blog->is_published) {
+        if (!$blog->is_published) {
             abort(404);
         }
 
