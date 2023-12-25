@@ -21,7 +21,7 @@ class ProfileFormRequest extends FormRequest
      * @return array{
      *     name: array<ValidationRule|string>,
      *     job: array<ValidationRule|string>,
-     *     img_profile: array<ValidationRule|string>,
+     *     avatar_id: array<ValidationRule|string>,
      * }
      */
     public function rules(): array
@@ -29,7 +29,7 @@ class ProfileFormRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'job' => ['required', 'string'],
-            'img_profile' => ['required'],
+            'avatar_id' => ['required'],
         ];
     }
 }
