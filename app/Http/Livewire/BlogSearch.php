@@ -8,6 +8,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Orchid\Attachment\Models\Attachment;
 
 class BlogSearch extends Component
 {
@@ -29,7 +30,7 @@ class BlogSearch extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'category' => ['except' => ''],
+        'category' => ['except' => '0'],
     ];
 
     public function updatingSearch(): void
@@ -42,20 +43,25 @@ class BlogSearch extends Component
         $this->resetPage();
     }
 
-    public function toggleButtonDate(): string
+    public function toggleButtonDate(): void
     {
-        return ($this->dateOrder === 'DESC') ? $this->dateOrder = 'ASC' : $this->dateOrder = 'DESC';
+         $this->dateOrder === 'DESC' ? $this->dateOrder = 'ASC' : $this->dateOrder = 'DESC';
     }
 
     private function filterItems(): LengthAwarePaginator
     {
-        $query = $this->blog::published()->where('title', 'like', '%'.$this->search.'%');
+        $query = $this->blog::published()
+            ->with(['thumbnail', 'category'])
+            ->where('title', 'like', '%' . $this->search . '%');
 
-        if ($this->category === 0) {
-            $query->where('category_id', $this->category ?? Category::select('id')->value('id'));
+        if ($this->category !== null && $this->category != "0") {
+            $query
+                ->where('category_id', $this->category)
+                ->orderBy('created_at', $this->dateOrder)
+            ;
         }
 
-        return $query->orderBy('created_at', $this->dateOrder)->paginate(6);
+        return $query->paginate(6);
     }
 
     public function render(): View
