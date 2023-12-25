@@ -17,10 +17,12 @@ class ProfileFactory extends Factory
      */
     public function definition(): array
     {
+        // 'avatar_id' column is an integer, user can update his profile once seeder has finished generating
+        // data in the admin paneL.
         return [
             'name' => fake()->name(),
             'job' => fake()->jobTitle(),
-            'img_profile' => fake()->image(width: 512, height: 512),
+            'avatar_id' => 0,
         ];
     }
 }
