@@ -26,7 +26,7 @@ class SkillResource extends Resource
         return [
             'text_primary' => ['required', 'max:50'],
             'text_secondary' => ['required', 'max:255'],
-            'img_skill' => ['required'],
+            'skill_id' => ['required'],
         ];
     }
 
@@ -39,7 +39,7 @@ class SkillResource extends Resource
             Input::make('text_primary')->title('Texte primaire'),
             Input::make('text_secondary')->title('Texte secondaire'),
             CheckBox::make('has_no_colors')->title("N'a pas de couleur ?")->sendTrueOrFalse(),
-            Cropper::make('img_skill')
+            Cropper::make('skill_id')
                 ->title('Image')
                 ->width(512)
                 ->height(512)
@@ -56,9 +56,9 @@ class SkillResource extends Resource
     {
         return [
             TD::make('id', 'ID'),
-            TD::make('img_skill', 'Image (ratio: 1/1)')->render(function (Skill $skill) {
+            TD::make('skill_id', 'Image (ratio: 1/1)')->render(function (Skill $skill) {
                 return <<<HTML
-                    <img src="{$skill->attachment()->first()->url()}" alt="img_skill" width="64px" />                
+                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />                
                 HTML;
             }),
             TD::make('text_primary', 'Texte primaire'),
@@ -78,9 +78,9 @@ class SkillResource extends Resource
     {
         return [
             Sight::make('id', 'ID'),
-            Sight::make('img_skill', 'Image')->render(function (Skill $skill) {
+            Sight::make('skill_id', 'Image')->render(function (Skill $skill) {
                 return <<<HTML
-                    <img src="{$skill->attachment()->first()->url()}" alt="img_skill" width="64px" />                
+                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />                
                 HTML;
             }),
             Sight::make('text_primary', 'Texte primaire'),
@@ -104,7 +104,13 @@ class SkillResource extends Resource
         $model->fill($request->all())->save();
 
         $model->attachment()->syncWithoutDetaching(
-            $request->input('img_skill', [])
+            $request->input('skill_id', [])
         );
+    }
+
+    public function delete(Model|Skill $model): void
+    {
+        $model->delete();
+        $model->attachment()->delete();
     }
 }

@@ -33,14 +33,14 @@ class BlogResource extends Resource
         return ['category', 'attachment'];
     }
 
-    public function rules(Blog|Model $blog): array
+    public function rules(Blog|Model $model): array
     {
         return [
             'title' => ['required'],
             'description' => ['required'],
             'category_id' => ['required'],
             'content' => ['required'],
-            'blog_thumb' => ['required'],
+            'thumbnail_id' => ['required'],
         ];
     }
 
@@ -59,7 +59,7 @@ class BlogResource extends Resource
                 ->fromModel(Category::class, 'name'),
             SimpleMDE::make('content')
                 ->title('Contenu'),
-            Cropper::make('blog_thumb')
+            Cropper::make('thumbnail_id')
                 ->title('Miniature')
                 ->width(1280)
                 ->height(720)
@@ -108,7 +108,7 @@ class BlogResource extends Resource
             Sight::make('title', 'Titre'),
             Sight::make('description', 'Description'),
             Sight::make('content', 'Contenu'),
-            Sight::make('blog_thumb', 'Miniature')->render(function (Blog $blog) {
+            Sight::make('thumbnail_id', 'Miniature')->render(function (Blog $blog) {
                 return <<<HTML
                     <img src="{$blog->attachment()->first()}" alt='img' width='100%' />
                 HTML;
@@ -126,12 +126,12 @@ class BlogResource extends Resource
         return [];
     }
 
-    public function save(ResourceRequest $request, Model $model): void
+    public function save(ResourceRequest $request, Model|Blog $model): void
     {
         $model->fill($request->all())->save();
 
-        $model->attachment()->sync(
-            $request->input('blog_thumb', [])
+        $model->attachment()->syncWithoutDetaching(
+            $request->input('thumbnail_id', [])
         );
     }
 }

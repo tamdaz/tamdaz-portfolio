@@ -65,7 +65,7 @@ class ProfileScreen extends Screen
             \Orchid\Support\Facades\Layout::rows([
                 Input::make('name')->title('Nom')->value($this->profile->name),
                 Input::make('job')->title('Travail / Rôle')->value($this->profile->job),
-                Picture::make('img_profile')->title('Avatar')->value($this->profile->img_profile)->targetId(),
+                Picture::make('avatar_id')->title('Avatar')->value($this->profile->img_profile)->targetId(),
                 Button::make('Submit')->type(Color::BASIC)->method('submitForm'),
             ]),
         ];
@@ -75,8 +75,8 @@ class ProfileScreen extends Screen
     {
         $this->profile->fill($request->all())->save();
 
-        $this->profile->attachment()->sync(
-            $request->input('img_profile', [])
+        $this->profile->attachment()->syncWithoutDetaching(
+            $request->input('avatar_id', [])
         );
 
         Alert::success('Votre profile a bien été mis à jour');
