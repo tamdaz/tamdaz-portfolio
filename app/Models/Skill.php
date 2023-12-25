@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -19,7 +21,14 @@ class Skill extends Model
      * @var string[]
      */
     protected $fillable = [
-        'img_skill', 'text_primary',
-        'text_secondary', 'has_no_colors',
+        'skill_id', 'text_primary', 'text_secondary', 'has_no_colors',
     ];
+
+    /**
+     * @return HasOne<Attachment>
+     */
+    public function icon(): HasOne
+    {
+        return $this->hasOne(Attachment::class, 'id', 'skill_id');
+    }
 }
