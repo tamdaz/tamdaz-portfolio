@@ -10,7 +10,8 @@
             </label>
         </div>
         <div class="flex gap-1">
-                <select class="flex-grow px-4" wire:model="category">
+            <label class="flex-grow">
+                <select name="category" class="w-full" wire:model="category">
                     <option value="0">Tous les catégories</option>
                     @if(count($categories) !== 0)
                         @if (!empty($categories))
@@ -20,6 +21,7 @@
                         @endif
                     @endif
                 </select>
+            </label>
             <button wire:click="toggleButtonDate" class="px-12 border dark:border-neutral-800 bg-white active:bg-neutral-100 dark:bg-neutral-900 active:dark:bg-neutral-800">
                 {{ $dateOrder === "DESC" ? "Les plus récents" : "Les plus anciens" }}
             </button>
@@ -30,7 +32,7 @@
             <x-card
                 type="media"
                 :title="$item->title"
-                :src="$item->attachment()->first()->url"
+                :src="optional($item->thumbnail)->url"
                 :category="$item->category->name ?? ''"
                 :description="$item->description"
                 route="{{ route('pages.blogs.show', ['blog' => $item]) }}" />

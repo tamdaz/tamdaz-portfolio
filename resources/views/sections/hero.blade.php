@@ -15,7 +15,7 @@
 		<div class="flex py-8 lg:flex-col justify-center items-center animate-zoom-avatar" style="perspective: 25pc">
 			<img
 				class="transition-transform duration-75 rounded-full border-8 border-black m-auto w-[250px] lg:w-[350px] xl:w-[400px]"
-				src="{{ $profile->attachment()->first()->url() }}" id="img_profile" alt="img_profile" />
+				src="{{ optional($profile->avatar)->url }}" id="img_profile" alt="img_profile" />
 		</div>
 	</div>
 	<div class="absolute bottom-10 sm:text-xl w-full text-center animate-pulse">

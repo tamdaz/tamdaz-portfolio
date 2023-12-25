@@ -20,7 +20,7 @@
 					<span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $blog->category->name }}</span>
 					<span>Publié {{ $blog['created_at']->diffForHumans() }}</span>
 				</span>
-				<img class="mb-4 rounded-lg" src="{{ $blog->attachment()->first()->url() }}" width="100%" alt="thumbnail" />
+				<img class="mb-4 rounded-lg" src="{{ optional($blog->thumbnail)->url }}" width="100%" alt="thumbnail" />
 			</header>
 			<div class="flex flex-row">
 				<article class="blocks w-full mt-2 mb-6 text-justify leading-relaxed markdown" id="article">
