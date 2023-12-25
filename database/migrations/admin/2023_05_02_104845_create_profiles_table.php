@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('job');
-            $table->string('img_profile');
+            $table->integer('avatar_id');
             $table->timestamps();
         });
     }

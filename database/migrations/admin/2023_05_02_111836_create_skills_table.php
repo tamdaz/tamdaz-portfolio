@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('img_skill');
+            $table->integer('skill_id');
             $table->string('text_primary');
             $table->string('text_secondary');
             $table->boolean('has_no_colors')->default(false);
