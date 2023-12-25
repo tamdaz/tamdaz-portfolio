@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::get('/blogs', function () {
+    return \App\Http\Resources\BlogResource::collection(\App\Models\Blog::published()->get());
+});
