@@ -18,8 +18,7 @@
         "livewire/livewire": "^2.12",
         "orchid/crud": "^4.1",
         "orchid/platform": "^14.15",
-        "spatie/laravel-sitemap": "^6.4",
-        "vormkracht10/laravel-seo-scanner": "^3.5"
+        "spatie/laravel-sitemap": "^6.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
