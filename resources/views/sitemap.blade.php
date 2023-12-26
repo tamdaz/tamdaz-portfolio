@@ -1,6 +1,6 @@
 @extends('layouts.classic')
 
-@section('title', "Plan du site - Tamda Zohir")
+@section('title', "Tamda Zohir - Portfolio BTS SIO SLAM - Plan du site")
 
 @section('container')
 	<h1 class="text-4xl md:text-7xl mt-4 mb-8">Plan du site</h1>

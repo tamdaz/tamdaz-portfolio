@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', 'Accueil - Tamda Zohir')
+@section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM')
 
 @section('head')
 	@vite('resources/js/app.js')

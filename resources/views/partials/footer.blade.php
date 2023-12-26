@@ -1,4 +1,4 @@
-<footer class="bg-neutral-50 dark:bg-neutral-950 border-t dark:border-neutral-800 py-8">
+<footer class="bg-neutral-50 dark:bg-neutral-950 border-t dark:border-neutral-800 py-6">
     <div class="flex flex-col md:flex-row items-center justify-end dark:divide-neutral-700 px-16 lg:w-[1100px] m-auto">
         <span>Tamda Zohir - {{ date("Y") }}</span>
         <div class="flex-grow"></div>

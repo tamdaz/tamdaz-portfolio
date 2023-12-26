@@ -1,6 +1,6 @@
 @extends('layouts.classic')
 
-@section('title', $blog['title'] . " - Tamda Zohir")
+@section('title', $blog['title'] . " - Tamda Zohir Portfolio")
 
 @section('head')
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" />
@@ -13,7 +13,7 @@
 
 @section('container')
 	<div class="flex flex-row">
-		<div class="mr-8">
+		<div>
 			<header>
 				<h1 class="block font-bold text-5xl">{{ $blog['title'] }}</h1>
 				<span class="flex flex-cols gap-4 items-center mt-4 mb-6">

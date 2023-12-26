@@ -1,6 +1,6 @@
 @extends('layouts.classic-full')
 
-@section('title', 'Contact - Tamda Zohir')
+@section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM - Contact')
 
 @section('container')
     <div class="w-screen h-full lg:h-screen lg:grid md:grid-cols-2 xl:flex xl:flex-row">
@@ -42,9 +42,10 @@
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('message') {{ $message }} @enderror</span>
                 <p class="mb-6 opacity-75 text-sm">
-                    En cliquant sur 'Envoyer', vous acceptez que les données saisies vont être
-                    temporairement stockées dans une file d'attente pour optimiser le
-                    processus d'envoi des messages.
+                    En cliquant sur 'Envoyer', vous acceptez que les données saisies dans ce formulaire
+                    vont être temporairement stockées dans une file d'attente pour optimiser le
+                    processus d'envoi de messages. Une fois ce processus terminé, ces données vont être
+                    supprimées de cette file d'attente.
                 </p>
                 <div class="grid grid-cols-1">
                     <x-button type="contained" type_form="submit" class="w-full">Envoyer</x-button>

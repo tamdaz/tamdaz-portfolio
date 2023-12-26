@@ -1,7 +1,7 @@
-<section class="relative w-[200px]">
-    <div class="sticky top-16 left-0 right-0">
-        <h6 class="text-3xl mb-2 font-bold">Sommaire: </h6>
-        <ul class="hover:[&>li]:underline" id="summary"></ul>
+<aside class="relative hidden lg:inline-block ml-8">
+    <div class="sticky top-24 left-0 right-0">
+        <h6 class="text-3xl mb-2 font-bold">Sommaire : </h6>
+        <ul class="hover:[&>li]:underline w-[250px]" id="summary"></ul>
         <script>
             for (const summary of document.getElementById("{{ $id }}").children) {
                 if (
@@ -22,4 +22,4 @@
             }
         </script>
     </div>
-</section>
+</aside>

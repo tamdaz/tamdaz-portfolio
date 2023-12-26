@@ -1,6 +1,6 @@
 @extends('layouts.classic')
 
-@section('title', "Blogs - Tamda Zohir")
+@section('title', "Tamda Zohir - Portfolio BTS SIO SLAM - Blogs")
 
 @section('head')
 	@livewireStyles

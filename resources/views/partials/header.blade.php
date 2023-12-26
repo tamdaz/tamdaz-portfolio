@@ -13,11 +13,12 @@
 </div>
 {{-- End menu for mobile --}}
 
-<header id="header" class="w-screen transition-all duration-200 px-10 py-2 md:py-5 flex flex-row items-center fixed z-20">
+<header id="header" class="w-screen transition-all duration-200 px-10 py-2 md:py-4 flex flex-row items-center fixed z-20">
     <a href="{{ route('pages.home') }}" data-turbolinks="false" class="font-bold text-xl">tamdaz</a>
     <div class="flex grow"></div>
-    <label class="hidden xl:block" for="changeThemeHeader">Changer de thème : </label>
-    <input type="checkbox" id="changeThemeHeader" class="slideon slideon-auto mx-4" />
+    <label>
+        <input type="checkbox" id="changeThemeHeader" class="slideon slideon-auto mx-4" />
+    </label>
     <div class="hidden lg:block">
         <a href="{{ route('pages.bts-sio') }}" class="px-8">BTS SIO</a>
         <a class="px-8 opacity-50" disabled>Certifications</a>

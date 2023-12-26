@@ -1,6 +1,6 @@
 @extends('layouts.classic')
 
-@section('title', 'Ensemble de composants - Tamda Zohir')
+@section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM - Ensemble de composants')
 
 @section('container')
     <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 animate-zoom">Ensemble de composants</h1>
