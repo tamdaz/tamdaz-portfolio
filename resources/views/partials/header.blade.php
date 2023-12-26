@@ -13,7 +13,7 @@
 </div>
 {{-- End menu for mobile --}}
 
-<header id="header" class="w-screen transition-all duration-200 px-10 py-2 md:py-4 flex flex-row items-center fixed z-20">
+<header id="header" class="w-screen transition-all duration-200 px-12 py-2 md:py-5 flex flex-row items-center fixed z-20">
     <a href="{{ route('pages.home') }}" data-turbolinks="false" class="font-bold text-xl">tamdaz</a>
     <div class="flex grow"></div>
     <label>
