@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\API\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/blogs', function () {
-    return \App\Http\Resources\BlogResource::collection(\App\Models\Blog::published()->get());
+Route::name('api.blogs.')->group(function () {
+    Route::get('/blogs', [BlogController::class, 'index'])->name('index');
+    Route::get('/blogs/{blog}', [BlogController::class, 'show'])->name('show');
+});
+
+Route::name('api.categories.')->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('index');
+    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('show');
 });
