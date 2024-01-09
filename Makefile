@@ -33,6 +33,6 @@ build:
 	@rm -rf node_modules/
 	@echo "--> Successfully built !"
 
-# DON'T USE IN PRODUCTION MODE
+# PLEASE ROLLBACK ACCORDING TO YOUR NEEDS
 rollback:
-	@php artisan migrate:fresh --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
+	@php artisan migrate:rollback --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
