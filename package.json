@@ -14,6 +14,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "powerglitch": "^2.3.2",
         "typed.js": "^2.0.15"
     }
 }
