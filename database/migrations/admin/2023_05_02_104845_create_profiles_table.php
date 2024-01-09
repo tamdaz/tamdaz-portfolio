@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        if (App::isLocal()) {
+            Schema::dropIfExists('profiles');
+        }
     }
 };

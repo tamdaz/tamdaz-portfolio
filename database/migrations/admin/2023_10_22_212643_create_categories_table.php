@@ -19,7 +19,7 @@ return new class extends Migration
         });
 
         Schema::table('blogs', function (Blueprint $table) {
-            $table->foreignIdFor(Category::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
         });
     }
 
@@ -28,9 +28,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeignIdFor(Category::class);
-        });
+        if (App::isLocal()) {
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->dropForeignIdFor(Category::class);
+            });
+
+            Schema::dropIfExists('categories');
+        }
     }
 };

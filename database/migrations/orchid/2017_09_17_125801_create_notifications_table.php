@@ -28,6 +28,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notifications');
+        if (App::isLocal()) {
+            Schema::dropIfExists('notifications');
+        }
     }
 };

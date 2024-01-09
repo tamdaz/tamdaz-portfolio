@@ -21,8 +21,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['permissions']);
-        });
+        if (App::isLocal()) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn(['permissions']);
+            });
+        }
     }
 };

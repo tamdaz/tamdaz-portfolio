@@ -50,7 +50,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('attachmentable');
-        Schema::drop('attachments');
+        if (App::isLocal()) {
+            Schema::drop('attachmentable');
+            Schema::drop('attachments');
+        }
     }
 };
