@@ -39,7 +39,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "exclude-from-classmap": [
+            "app/Providers/TelescopeServiceProvider.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
