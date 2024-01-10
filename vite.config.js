@@ -10,7 +10,8 @@ export default defineConfig({
                 'resources/js/bootstrap.js',
                 'resources/js/header.js',
                 'resources/js/observer.js',
-                'resources/js/theme.js'
+                'resources/js/theme.js',
+                'resources/js/glitch.js'
             ],
             refresh: true
         }),
