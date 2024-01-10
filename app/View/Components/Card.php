@@ -15,7 +15,7 @@ class Card extends Component
         public string $title,
         public string $description,
         public string $src = '',
-        public string $route = '',
+        public string $url = '',
         public string $category = ''
     ) {
     }
