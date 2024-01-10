@@ -23,6 +23,9 @@ Route::name('pages.')->group(function () {
 
     Route::get('bts-sio', [BlogController::class, 'btssio'])->name('bts-sio');
 
+    Route::get('certifications', [PageController::class, 'certifications'])->name('certifications');
+    Route::get('technology-watch', [PageController::class, 'technology_watch'])->name('tw');
+
     Route::get('blogs', [BlogController::class, 'index'])->name('blogs');
     Route::get('blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 

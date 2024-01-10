@@ -25,6 +25,21 @@ class PageController extends Controller
     }
 
     /**
+     * Certifications page
+     */
+    public function certifications(): View
+    {
+        return view('pages.certifications', [
+            'certifications' => [] // Certification::with('certificate')->without('attachment')->get()
+        ]);
+    }
+
+    public function technology_watch(): View
+    {
+        return view('pages.technology-watch');
+    }
+
+    /**
      * Contact page
      */
     public function contact(): View
