@@ -23,7 +23,7 @@ class BlogResource extends JsonResource
             'title' => $this->resource->title,
             'description' => $this->resource->description,
             'content' => $this->when($request->routeIs('api.blogs.show'), $this->resource->content),
-            'thumbnail' => $this->resource->attachment()->first()->url(),
+            'thumbnail' => optional($this->resource->thumbnail)->url,
             'category' => $this->when(!$request->routeIs('api.categories.index', 'api.categories.show'), [
                 'id' => $this->resource->category->id,
                 'name' => $this->resource->category->name,

@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        return BlogResource::collection(Blog::published()->get());
+        return BlogResource::collection(Blog::published()->with('thumbnail', 'category')->get());
     }
 
     /**
