@@ -1,7 +1,7 @@
 <section>
 	<div class="w-full min-h-[600px] lg:h-screen flex justify-center items-center px-8">
 		<div class="lg:items-center text-center md:max-w-[1300px]">
-			<h1 class="text-5xl sm:text-6xl font-bold pb-4">Mes compétences</h1>
+			<h2 class="text-5xl sm:text-6xl font-bold pb-4">Mes compétences</h2>
 			<p class="text-xl leading-9 lg:w-2/3 m-auto">
 				Grâce à l'autodidacte, j'ai pu acquérir des compétences dans le développement de sites web
 				en utilisant des outils ainsi que des langages de programmation que je maitrise.

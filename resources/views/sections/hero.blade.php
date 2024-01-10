@@ -4,7 +4,7 @@
 		<div class="flex flex-col justify-center items-center lg:items-start lg:w-full lg:h-full">
 			<div class="text-4xl sm:text-7xl">
 				<div id="typed_name">
-					<p>{{ $profile['name'] }}</p>
+					<h1>{{ $profile['name'] }}</h1>
 				</div>
 				<span class="font-bold inline" id="name"></span>
 			</div>
@@ -18,9 +18,13 @@
 				src="{{ optional($profile->avatar)->url }}" id="img_profile" alt="img_profile" />
 		</div>
 	</div>
-	<div class="absolute bottom-10 sm:text-xl w-full text-center animate-pulse">
+	<div class="absolute hidden lg:block bottom-10 sm:text-xl w-full text-center animate-pulse">
 		&#8595; Molette vers le bas pour descendre
 	</div>
+	<div class="absolute block lg:hidden bottom-10 sm:text-xl w-full text-center animate-pulse">
+		&#8595; Glisser vers le haut pour descendre
+	</div>
+
 	@if(App::isLocal() && App::hasDebugModeEnabled())
 		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
 			<x-alert

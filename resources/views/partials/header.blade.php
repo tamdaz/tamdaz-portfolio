@@ -5,8 +5,8 @@
     <button id="btn_close_menu" class="material-symbols-outlined scale-150 absolute top-10 right-10">close</button>
     <div class="flex flex-col justify-center items-center h-full">
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.bts-sio') }}">BTS SIO</a>
-        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8 opacity-50" disabled>Certifications</a>
-        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8 opacity-50" disabled>Veille technologique</a>
+        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.certifications') }}">Certifications</a>
+        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8 opacity-50">Veille technologique</a>
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.blogs') }}">Blogs</a>
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.contact') }}">Contact</a>
     </div>
@@ -21,8 +21,8 @@
     </label>
     <div class="hidden lg:block">
         <a href="{{ route('pages.bts-sio') }}" class="px-8">BTS SIO</a>
-        <a class="px-8 opacity-50" disabled>Certifications</a>
-        <a class="px-8 opacity-50" disabled>Veille technologique</a>
+        <a href="{{ route('pages.certifications') }}" class="px-8">Certifications</a>
+        <a class="px-8 opacity-50">Veille technologique</a>
         <a href="{{ route('pages.blogs') }}" class="px-8">Blogs</a>
         <x-button route="{{ route('pages.contact') }}" type="contained">Contact</x-button>
     </div>
