@@ -1,4 +1,11 @@
 <div>
+    @if(App::isLocal())
+        <x-alert
+            type="debug"
+            primary="Débug"
+            secondary="Recherche: {{ $search }}"
+        />
+    @endif
     <div class="my-4">
         <div class="mb-1">
             <label>
@@ -35,7 +42,7 @@
                 :src="optional($item->thumbnail)->url"
                 :category="$item->category->name ?? ''"
                 :description="$item->description"
-                route="{{ route('pages.blogs.show', ['blog' => $item]) }}" />
+                :url="route('pages.blogs.show', ['blog' => $item])" />
         @empty
             <span class="text-center col-span-2">Pas de résultats</span>
         @endforelse

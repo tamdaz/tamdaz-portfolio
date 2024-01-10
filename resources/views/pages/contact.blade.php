@@ -26,26 +26,31 @@
             <h1 class="text-4xl md:text-7xl mb-8 animate-title-anim">Contact</h1>
             <form action="{{ route('pages.contact_send') }}" method="post">
                 @csrf
-                <div class="flex flex-col">
-                    <label class="mb-2" for="name">Votre nom :</label>
-                    <input class="px-4 py-2" id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" />
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <div class="flex flex-col">
+                            <label class="mb-2" for="name">Votre nom :</label>
+                            <input class="px-4 py-2" id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" />
+                        </div>
+                        <span class="inline-block py-2 text-red-500">@error('name') {{ $message }} @enderror</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-col">
+                            <label class="mb-2" for="email">Votre adresse email : </label>
+                            <input class="px-4 py-2" id="email" name="email" type="text" value="{{ old('email') }}" autocomplete="email" />
+                        </div>
+                        <span class="inline-block py-2 text-red-500">@error('email') {{ $message }} @enderror</span>
+                    </div>
                 </div>
-                <span class="inline-block py-2 text-red-500">@error('name') {{ $message }} @enderror</span>
                 <div class="flex flex-col">
-                    <label class="mb-2" for="email">Votre adresse email : </label>
-                    <input class="px-4 py-2" id="email" name="email" type="text" value="{{ old('email') }}" autocomplete="email" />
-                </div>
-                <span class="inline-block py-2 text-red-500">@error('email') {{ $message }} @enderror</span>
-                <div class="flex flex-col">
-                    <label class="mb-2" for="message">Votre message (5000 caractères maximum): </label>
-                    <textarea class="px-4 py-2 h-36 min-h-20 max-h-48" id="message" name="message">{{ old('message') }}</textarea>
+                    <label class="mb-2" for="message">Votre message (5000 caractères maximum) : </label>
+                    <textarea class="px-4 py-2 h-32 min-h-20 max-h-48" id="message" name="message">{{ old('message') }}</textarea>
                 </div>
                 <span class="inline-block py-2 text-red-500">@error('message') {{ $message }} @enderror</span>
                 <p class="mb-6 opacity-75 text-sm">
-                    En cliquant sur 'Envoyer', vous acceptez que les données saisies dans ce formulaire
-                    vont être temporairement stockées dans une file d'attente pour optimiser le
-                    processus d'envoi de messages. Une fois ce processus terminé, ces données vont être
-                    supprimées de cette file d'attente.
+                    En cliquant sur "Envoyer", vous acceptez que ces données soient stockées
+                    temporairement dans une file d'attente pour optimiser le processus d'envoi de messages.
+                    Une fois ce processus terminé, ces données vont être supprimées de cette file d'attente.
                 </p>
                 <div class="grid grid-cols-1">
                     <x-button type="contained" type_form="submit" class="w-full">Envoyer</x-button>

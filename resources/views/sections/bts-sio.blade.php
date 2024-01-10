@@ -4,7 +4,7 @@
 			<img class="intersect:animate-title-anim" style="animation-delay: 100ms; opacity: 0;" src="img/bts-sio.png" width="50%" alt="code" />
 		</div>
 		<div class="flex flex-col justify-center items-center lg:items-center text-center lg:w-full lg:h-full">
-			<h1 class="text-6xl font-bold pb-4">BTS SIO</h1>
+			<h2 class="text-6xl font-bold pb-4">BTS SIO</h2>
 			<p class="text-xl leading-9">
 				Le BTS SIO (Services Informatiques aux Organisations) est une spécialité liée à au développement
 				web ainsi que les réseaux informatiques. Elle se fait en 2 ans.
