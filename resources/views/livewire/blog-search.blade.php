@@ -1,5 +1,5 @@
 <div>
-    @if(App::isLocal())
+    @if(App::hasDebugModeEnabled())
         <x-alert
             type="debug"
             primary="Débug"
