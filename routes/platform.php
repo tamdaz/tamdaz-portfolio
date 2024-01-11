@@ -75,5 +75,4 @@ Route::screen('roles', RoleListScreen::class)
         ->parent('platform.index')
         ->push(__('Roles'), route('platform.systems.roles')));
 
-Route::screen('/profile', \App\Orchid\Screens\ProfileScreen::class)->name('platform.profile');
 Route::screen('/maintenance', \App\Orchid\Screens\MaintenanceScreen::class)->name('platform.maintenance');

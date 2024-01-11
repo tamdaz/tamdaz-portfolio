@@ -27,10 +27,6 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
-            Menu::make('Profil')
-                ->icon('bs.person')
-                ->route('platform.profile'),
-
             Menu::make('Maintenance')
                 ->icon('bs.clock')
                 ->route('platform.maintenance')
