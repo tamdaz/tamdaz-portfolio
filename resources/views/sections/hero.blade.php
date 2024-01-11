@@ -4,7 +4,7 @@
 		<div class="flex flex-col justify-center items-center lg:items-start lg:w-full lg:h-full">
 			<div class="text-4xl sm:text-7xl">
 				<div id="typed_name">
-					<h1>{{ $profile['name'] }}</h1>
+					<h1>Tamda Zohir</h1>
 				</div>
 				<span class="font-bold inline" id="name"></span>
 			</div>
@@ -15,7 +15,7 @@
 		<div class="flex py-8 lg:flex-col justify-center items-center animate-zoom-avatar" style="perspective: 25pc">
 			<img
 				class="transition-transform duration-75 rounded-full border-8 border-black m-auto w-[250px] lg:w-[350px] xl:w-[400px]"
-				src="{{ optional($profile->avatar)->url }}" id="img_profile" alt="img_profile" />
+				src="/img/profile.jpg" id="img_profile" alt="img_profile" />
 		</div>
 	</div>
 	<div class="absolute hidden lg:block bottom-10 sm:text-xl w-full text-center animate-pulse">
