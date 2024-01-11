@@ -12,15 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique()->nullable(false);
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('categories') && Schema::hasTable('blogs')) {
+            Schema::create('categories', function (Blueprint $table) {
+                $table->id();
+                $table->string('name')->unique()->nullable(false);
+                $table->timestamps();
+            });
 
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
-        });
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
+            });
+        }
     }
 
     /**

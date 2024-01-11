@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_ips', function (Blueprint $table) {
-            $table->id();
-            $table->ipAddress()->unique();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('admin_ips')) {
+            Schema::create('admin_ips', function (Blueprint $table) {
+                $table->id();
+                $table->ipAddress()->unique();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -23,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (App::isLocal()) {
-            Schema::dropIfExists('admin_ips');
-        }
+        // ...
     }
 };

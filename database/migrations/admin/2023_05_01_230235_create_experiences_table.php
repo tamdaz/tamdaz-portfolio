@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('experiences', function (Blueprint $table) {
-            $table->id();
-            $table->date('date_start');
-            $table->date('date_end');
-            $table->string('description');
+        if (!Schema::hasTable('experiences')) {
+            Schema::create('experiences', function (Blueprint $table) {
+                $table->id();
+                $table->date('date_start');
+                $table->date('date_end');
+                $table->string('description');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**

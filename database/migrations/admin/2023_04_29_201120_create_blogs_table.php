@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
-            $table->boolean('is_published')->default(false);
-            $table->integer('thumbnail_id');
-            $table->string('title');
-            $table->string('description');
-            $table->longText('content');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('blogs')) {
+            Schema::create('blogs', function (Blueprint $table) {
+                $table->id();
+                $table->boolean('is_published')->default(false);
+                $table->integer('thumbnail_id');
+                $table->string('title');
+                $table->string('description');
+                $table->longText('content');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

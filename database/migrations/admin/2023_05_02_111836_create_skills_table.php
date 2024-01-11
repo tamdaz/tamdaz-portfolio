@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('skills', function (Blueprint $table) {
-            $table->id();
-            $table->integer('skill_id');
-            $table->string('text_primary');
-            $table->string('text_secondary');
-            $table->boolean('has_no_colors')->default(false);
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('skills')) {
+            Schema::create('skills', function (Blueprint $table) {
+                $table->id();
+                $table->integer('skill_id');
+                $table->string('text_primary');
+                $table->string('text_secondary');
+                $table->boolean('has_no_colors')->default(false);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

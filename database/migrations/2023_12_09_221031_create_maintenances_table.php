@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maintenances', function (Blueprint $table) {
-            $table->id();
-            $table->text('message')->nullable();
-            $table->dateTime('end_maintenance');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('maintenances')) {
+            Schema::create('maintenances', function (Blueprint $table) {
+                $table->id();
+                $table->text('message')->nullable();
+                $table->dateTime('end_maintenance');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->jsonb('permissions')->nullable();
-        });
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+                if (!Schema::hasColumn('users', 'permissions')) {
+                    $table->jsonb('permissions')->nullable();
+                }
+            });
+        }
     }
 
     /**
@@ -21,10 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (App::isLocal()) {
-            Schema::table('users', function (Blueprint $table) {
-                $table->dropColumn(['permissions']);
-            });
-        }
+        // ...
     }
 };
