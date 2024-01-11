@@ -15,7 +15,7 @@ image_profile.addEventListener('mousemove', (e) => {
   image_profile.style.transform = "rotateX(" + (y / sensitivity) + "deg) rotateY(" + (-x / sensitivity) + "deg) scale(1.05)";
 });
 
-image_profile.addEventListener('mouseout', (e) => {
+image_profile.addEventListener('mouseout', () => {
   image_profile.style.transform = "scale(1)";
 })
 
