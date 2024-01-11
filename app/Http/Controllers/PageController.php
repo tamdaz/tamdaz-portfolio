@@ -9,6 +9,7 @@ use App\Models\Profile;
 use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\App;
 
 class PageController extends Controller
 {
@@ -18,7 +19,6 @@ class PageController extends Controller
     public function index(): View
     {
         return view('index', [
-            'profile' => Profile::with('avatar')->without('attachment')->first(),
             'skills' => Skill::with('icon')->without('attachment')->get(),
             'experiences' => Experience::all(),
         ]);
@@ -27,15 +27,26 @@ class PageController extends Controller
     /**
      * Certifications page
      */
-    public function certifications(): View
+    public function certifications(): RedirectResponse|View
     {
+        if (App::isProduction()) {
+            return redirect()->route('pages.index');
+        }
+
         return view('pages.certifications', [
             'certifications' => [] // Certification::with('certificate')->without('attachment')->get()
         ]);
     }
 
-    public function technology_watch(): View
+    /**
+     * Technology watch
+     */
+    public function technology_watch(): RedirectResponse|View
     {
+        if (App::isProduction()) {
+            return redirect()->route('pages.index');
+        }
+
         return view('pages.technology-watch');
     }
 
@@ -56,7 +67,8 @@ class PageController extends Controller
 
         return redirect()
             ->route('pages.contact')
-            ->with('success', 'Je vous répondrai dans les plus brefs délais');
+            ->with('success', 'Je vous répondrai dans les plus brefs délais')
+        ;
     }
 
     /**
