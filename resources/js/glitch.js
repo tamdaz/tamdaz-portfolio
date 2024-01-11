@@ -1,21 +1,20 @@
 import { PowerGlitch } from "powerglitch"
 
 PowerGlitch.glitch('#rasberry', {
-    "hideOverflow": true,
     "timing": {
-        "duration": 1000,
-        "iterations": 1,
-        "easing": "ease-out"
+        "duration": 500,
+        "iterations": 1
     },
-    "glitchTimeSpan": {
-        "end": 1
-    },
+    "glitchTimeSpan": false,
     "shake": {
-        "velocity": 20,
-        "amplitudeX": 0.05,
-        "amplitudeY": 0.05
+        "amplitudeX": 0.01,
+        "amplitudeY": 0.01
     },
     "slice": {
-        "count": 12
+        "count": 20,
+        "velocity": 25,
+        "minHeight": 0.005,
+        "maxHeight": 0.005,
+        "hueRotate": false
     }
 })
