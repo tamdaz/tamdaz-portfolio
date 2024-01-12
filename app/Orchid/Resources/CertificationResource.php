@@ -40,8 +40,6 @@ class CertificationResource extends Resource
             Input::make('secondary')->title('Texte secondaire'),
             Cropper::make('certificate_id')
                 ->title('Image du certificat / preuve')
-                ->width(1280)
-                ->height(720)
                 ->targetId(),
             CheckBox::make('has_certificate')->title('A un certificat ?')->sendTrueOrFalse(),
         ];
