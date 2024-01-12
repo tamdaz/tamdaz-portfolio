@@ -29,10 +29,6 @@ class PageController extends Controller
      */
     public function certifications(): RedirectResponse|View
     {
-        if (App::isProduction()) {
-            return redirect()->route('pages.index');
-        }
-
         return view('pages.certifications', [
             'certifications' => Certification::with('certificate')->without('attachment')->get(),
         ]);
@@ -44,7 +40,7 @@ class PageController extends Controller
     public function technology_watch(): RedirectResponse|View
     {
         if (App::isProduction()) {
-            return redirect()->route('pages.index');
+            return redirect()->route('pages.home');
         }
 
         return view('pages.technology-watch');
