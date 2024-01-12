@@ -6,8 +6,8 @@ use App\Models\Certification;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Fields\CheckBox;
-use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Sight;
 use Orchid\Screen\TD;
 
@@ -38,7 +38,7 @@ class CertificationResource extends Resource
         return [
             Input::make('primary')->title('Texte primaire'),
             Input::make('secondary')->title('Texte secondaire'),
-            Cropper::make('certificate_id')
+            Upload::make('certificate_id')
                 ->title('Image du certificat / preuve')
                 ->targetId(),
             CheckBox::make('has_certificate')->title('A un certificat ?')->sendTrueOrFalse(),
