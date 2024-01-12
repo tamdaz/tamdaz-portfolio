@@ -35,8 +35,6 @@ class ManageAdminIP extends Command
 
     /**
      * Add an IP address to the database
-     *
-     * @return int
      */
     private function addIP(): int
     {
@@ -61,7 +59,6 @@ class ManageAdminIP extends Command
 
     /**
      * Remove an IP address to the database
-     * @return int
      */
     private function removeIP(): int
     {

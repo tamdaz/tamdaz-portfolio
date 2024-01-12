@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('attachments') && !Schema::hasTable('attachmentable')) {
+        if (! Schema::hasTable('attachments') && ! Schema::hasTable('attachmentable')) {
             Schema::create('attachments', function (Blueprint $table) {
                 $table->increments('id');
                 $table->text('name');

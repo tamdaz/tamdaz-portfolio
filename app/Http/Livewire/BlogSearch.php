@@ -8,7 +8,6 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Orchid\Attachment\Models\Attachment;
 
 class BlogSearch extends Component
 {
@@ -45,20 +44,19 @@ class BlogSearch extends Component
 
     public function toggleButtonDate(): void
     {
-         $this->dateOrder === 'DESC' ? $this->dateOrder = 'ASC' : $this->dateOrder = 'DESC';
+        $this->dateOrder === 'DESC' ? $this->dateOrder = 'ASC' : $this->dateOrder = 'DESC';
     }
 
     private function filterItems(): LengthAwarePaginator
     {
         $query = $this->blog::published()
             ->with(['thumbnail', 'category'])
-            ->where('title', 'like', '%' . $this->search . '%');
+            ->where('title', 'like', '%'.$this->search.'%');
 
-        if ($this->category !== null && $this->category != "0") {
+        if ($this->category !== null && $this->category != '0') {
             $query
                 ->where('category_id', $this->category)
-                ->orderBy('created_at', $this->dateOrder)
-            ;
+                ->orderBy('created_at', $this->dateOrder);
         }
 
         return $query->paginate(6);

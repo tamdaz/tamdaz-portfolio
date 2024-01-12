@@ -22,18 +22,16 @@ class CertificationResource extends Resource
 
     public static function nameWithoutResource(): string
     {
-        return "Certificats";
+        return 'Certificats';
     }
 
     public static function description(): ?string
     {
-        return "Ensemble de certificats obtenus";
+        return 'Ensemble de certificats obtenus';
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @return array
      */
     public function fields(): array
     {
@@ -41,12 +39,11 @@ class CertificationResource extends Resource
             Input::make('primary')->title('Texte primaire'),
             Input::make('secondary')->title('Texte secondaire'),
             Cropper::make('certificate_id')
-                ->title("Image du certificat / preuve")
+                ->title('Image du certificat / preuve')
                 ->width(1280)
                 ->height(720)
-                ->targetId()
-            ,
-            CheckBox::make('has_certificate')->title('A un certificat ?')->sendTrueOrFalse()
+                ->targetId(),
+            CheckBox::make('has_certificate')->title('A un certificat ?')->sendTrueOrFalse(),
         ];
     }
 
@@ -56,7 +53,7 @@ class CertificationResource extends Resource
             'primary' => 'required',
             'secondary' => 'required',
             'certificate_id' => 'required',
-            'has_certificate' => 'required'
+            'has_certificate' => 'required',
         ];
     }
 
@@ -69,9 +66,9 @@ class CertificationResource extends Resource
     {
         return [
             TD::make('id'),
-            TD::make('primary', "Texte primaire"),
-            TD::make('secondary', "Texte secondaire"),
-            TD::make('has_certificate', "A un certificat ?")
+            TD::make('primary', 'Texte primaire'),
+            TD::make('secondary', 'Texte secondaire'),
+            TD::make('has_certificate', 'A un certificat ?'),
         ];
     }
 
@@ -84,16 +81,14 @@ class CertificationResource extends Resource
     {
         return [
             Sight::make('id'),
-            Sight::make('primary', "Texte primaire"),
-            Sight::make('secondary', "Texte secondaire"),
-            Sight::make('has_certificate', "A un certificat ?")
+            Sight::make('primary', 'Texte primaire'),
+            Sight::make('secondary', 'Texte secondaire'),
+            Sight::make('has_certificate', 'A un certificat ?'),
         ];
     }
 
     /**
      * Get the filters available for the resource.
-     *
-     * @return array
      */
     public function filters(): array
     {

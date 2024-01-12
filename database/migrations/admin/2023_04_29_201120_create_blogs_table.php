@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('blogs')) {
+        if (! Schema::hasTable('blogs')) {
             Schema::create('blogs', function (Blueprint $table) {
                 $table->id();
                 $table->boolean('is_published')->default(false);

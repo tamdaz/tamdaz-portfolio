@@ -18,6 +18,12 @@ class PageTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_certifications_page(): void
+    {
+        $response = $this->get(route('pages.certifications'));
+        $response->assertStatus(200);
+    }
+
     public function test_components_page(): void
     {
         $response = $this->get(route('pages.components'));

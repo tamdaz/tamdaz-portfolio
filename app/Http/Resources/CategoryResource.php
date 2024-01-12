@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -22,7 +21,7 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'name' => $this->resource->name,
-            'blogs' => BlogResource::collection($this->resource->blogs()->published()->get())
+            'blogs' => BlogResource::collection($this->resource->blogs()->published()->get()),
         ];
     }
 }

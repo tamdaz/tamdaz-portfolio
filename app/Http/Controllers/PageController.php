@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendEmail;
+use App\Models\Certification;
 use App\Models\Experience;
-use App\Models\Profile;
 use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -34,7 +34,7 @@ class PageController extends Controller
         }
 
         return view('pages.certifications', [
-            'certifications' => [] // Certification::with('certificate')->without('attachment')->get()
+            'certifications' => Certification::with('certificate')->without('attachment')->get(),
         ]);
     }
 
@@ -67,8 +67,7 @@ class PageController extends Controller
 
         return redirect()
             ->route('pages.contact')
-            ->with('success', 'Je vous répondrai dans les plus brefs délais')
-        ;
+            ->with('success', 'Je vous répondrai dans les plus brefs délais');
     }
 
     /**

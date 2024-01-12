@@ -23,7 +23,7 @@ class Blog extends Model
      * @var string[]
      */
     protected $fillable = [
-        'is_published', 'thumbnail_id', 'title', 'description', 'content', 'category_id'
+        'is_published', 'thumbnail_id', 'title', 'description', 'content', 'category_id',
     ];
 
     /**
@@ -34,7 +34,7 @@ class Blog extends Model
     ];
 
     /**
-     * @param Builder<Blog> $query
+     * @param  Builder<Blog>  $query
      */
     public function scopePublished(Builder $query): void
     {

@@ -24,11 +24,11 @@ class BlogResource extends JsonResource
             'description' => $this->resource->description,
             'content' => $this->when($request->routeIs('api.blogs.show'), $this->resource->content),
             'thumbnail' => optional($this->resource->thumbnail)->url,
-            'category' => $this->when(!$request->routeIs('api.categories.index', 'api.categories.show'), [
+            'category' => $this->when(! $request->routeIs('api.categories.index', 'api.categories.show'), [
                 'id' => $this->resource->category->id,
                 'name' => $this->resource->category->name,
             ]),
-            'created_at' => $this->resource->created_at
+            'created_at' => $this->resource->created_at,
         ];
     }
 }

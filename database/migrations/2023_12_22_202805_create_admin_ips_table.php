@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('admin_ips')) {
+        if (! Schema::hasTable('admin_ips')) {
             Schema::create('admin_ips', function (Blueprint $table) {
                 $table->id();
                 $table->ipAddress()->unique();

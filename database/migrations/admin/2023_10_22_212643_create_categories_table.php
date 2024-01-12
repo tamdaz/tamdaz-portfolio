@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('categories') && Schema::hasTable('blogs')) {
+        if (! Schema::hasTable('categories') && Schema::hasTable('blogs')) {
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique()->nullable(false);

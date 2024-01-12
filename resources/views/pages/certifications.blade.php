@@ -14,6 +14,7 @@
 				:src="optional($certification->certificate)->url"
 				:title="$certification->primary"
 				:description="$certification->secondary"
+				:category="$certification->has_certificate ? 'Certificat' : 'Preuve'"
 				:url="optional($certification->certificate)->url"
 			/>
 		@empty

@@ -20,7 +20,7 @@ class AdminTest extends TestCase
     {
         $screen = $this->screen('platform.main')->actingAs(User::first());
 
-        $screen->display()->assertSeeText("Get Started");
+        $screen->display()->assertSeeText('Get Started');
     }
 
     /**
@@ -31,6 +31,6 @@ class AdminTest extends TestCase
     {
         $screen = $this->screen('platform.maintenance')->actingAs(User::first());
 
-        $screen->display()->assertSeeText("Maintenance");
+        $screen->display()->assertSeeText('Maintenance');
     }
 }

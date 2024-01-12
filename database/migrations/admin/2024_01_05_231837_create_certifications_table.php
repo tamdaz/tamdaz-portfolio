@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('certifications')) {
+        if (! Schema::hasTable('certifications')) {
             Schema::create('certifications', function (Blueprint $table) {
                 $table->id();
-                $table->string("primary");
-                $table->string("secondary");
-                $table->integer("certificate_id");
-                $table->boolean("has_certificate");
+                $table->string('primary');
+                $table->string('secondary');
+                $table->integer('certificate_id');
+                $table->boolean('has_certificate');
                 $table->timestamps();
             });
         }
