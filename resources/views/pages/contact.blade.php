@@ -29,7 +29,7 @@
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <div class="flex flex-col">
-                            <label class="mb-2" for="name">Votre nom :</label>
+                            <label class="mb-2" for="name">Votre nom et prénom :</label>
                             <input class="px-4 py-2" id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" />
                         </div>
                         <span class="inline-block py-2 text-red-500">@error('name') {{ $message }} @enderror</span>
