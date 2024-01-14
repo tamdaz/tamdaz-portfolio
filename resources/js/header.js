@@ -20,7 +20,9 @@ btn_close_menu.addEventListener('click', () => {
 })
 
 window.onscroll = () => {
-    if (lastScrollY < window.scrollY) {
+    console.log(lastScrollY, window.scrollY)
+
+    if (lastScrollY + 200 < window.scrollY) {
         isMenuHidden = true;
 
         header.classList.remove('translate-y-0')
@@ -36,6 +38,8 @@ window.onscroll = () => {
     } else {
         header.classList.remove('backdrop-blur-xl')
     }
+}
 
+window.onscrollend = () => {
     lastScrollY = window.scrollY;
 }
