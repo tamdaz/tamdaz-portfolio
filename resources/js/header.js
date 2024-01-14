@@ -32,9 +32,9 @@ window.onscroll = () => {
     }
 
     if (window.scrollY > 100) {
-        header.classList.add('backdrop-blur-xl', 'border-b', 'dark:border-b-neutral-800', 'border-b-neutral-800/10')
+        header.classList.add('backdrop-blur-xl', 'border-b')
     } else {
-        header.classList.remove('backdrop-blur-xl', 'border-b', 'dark:border-b-neutral-800', 'border-b-neutral-800/10')
+        header.classList.remove('backdrop-blur-xl', 'border-b')
     }
 }
 
