@@ -21,7 +21,8 @@ module.exports = {
         'zoom-avatar': 'zoom 500ms ease-out forwards',
         'title-anim': 'titleAnim 250ms ease-out forwards',
         'light': 'light 1.5s ease-out',
-        'rotation-3d': 'rotation3d 2s cubic-bezier(0,0,.72,1.11) forwards'
+        'rotation-3d': 'rotation3d 2s cubic-bezier(0,0,.72,1.11) forwards',
+        'menu-mobile': 'menuMobile 150ms ease-out forwards'
       },
       keyframes: {
         down: {
@@ -89,6 +90,14 @@ module.exports = {
           },
           '100%': {
             transform: 'perspective(50pc) rotateY(360deg)',
+          },
+        },
+        menuMobile: {
+          '0%': {
+            backdropFilter: 'blur(0px)',
+          },
+          '100%': {
+            backdropFilter: 'blur(16px)',
           },
         }
       }
