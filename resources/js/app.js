@@ -26,7 +26,7 @@ new Typed('#name', {
 });
 
 new Typed('#desc', {
-  strings: ['Étudiant de 1ère année de BTS SIO'],
+  strings: ['Étudiant en 1ère année de BTS SIO'],
   typeSpeed: 16,
   cursorChar: '_'
 });
