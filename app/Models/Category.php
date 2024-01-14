@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -14,7 +13,7 @@ use Orchid\Screen\AsSource;
  */
 class Category extends Model
 {
-    use AsSource, Attachable, Filterable, HasFactory;
+    use AsSource, Filterable, HasFactory;
 
     protected $fillable = [
         'name',

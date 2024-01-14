@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -13,7 +12,7 @@ use Orchid\Screen\AsSource;
  */
 class Experience extends Model
 {
-    use AsSource, Attachable, Filterable, HasFactory;
+    use AsSource, Filterable, HasFactory;
 
     protected $fillable = [
         'date_start', 'date_end', 'description',

@@ -10,6 +10,9 @@ use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
+/**
+ * @mixin IdeHelperCertification
+ */
 class Certification extends Model
 {
     use AsSource, Attachable, Filterable, HasFactory;
@@ -22,14 +25,17 @@ class Certification extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'has_certificate' => 'boolean',
     ];
 
+    /**
+     * @return HasOne<Attachment>
+     */
     public function certificate(): HasOne
     {
-        return $this->hasOne(Attachment::class, 'id', 'certificate_id')->withDefault();
+        return $this->hasOne(Attachment::class, 'id', 'certificate_id');
     }
 }
