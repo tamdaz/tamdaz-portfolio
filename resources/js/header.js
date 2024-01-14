@@ -20,8 +20,6 @@ btn_close_menu.addEventListener('click', () => {
 })
 
 window.onscroll = () => {
-    console.log(lastScrollY, window.scrollY)
-
     if (lastScrollY + 200 < window.scrollY) {
         isMenuHidden = true;
 
