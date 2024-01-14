@@ -22,7 +22,10 @@
             }
 
             window.addEventListener('hashchange', () => {
-                window.scrollTo(window.scrollX, window.scrollY - 100);
+                window.scrollTo({
+                    top: window.scrollY - 100,
+                    behavior: "smooth",
+                });
             })
         </script>
     </div>
