@@ -24,6 +24,12 @@ class PageTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_technology_watch_page(): void
+    {
+        $response = $this->get(route('pages.tw'));
+        $response->assertStatus(200);
+    }
+
     public function test_components_page(): void
     {
         $response = $this->get(route('pages.components'));
