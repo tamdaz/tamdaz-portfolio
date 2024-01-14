@@ -6,7 +6,7 @@
     <div class="flex flex-col justify-center items-center h-full">
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.bts-sio') }}">BTS SIO</a>
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.certifications') }}">Certifications</a>
-{{--        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.tw') }}">Veille technologique</a>--}}
+        <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.tw') }}">Veille technologique</a>
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.blogs') }}">Blogs</a>
         <a class="py-2 text-2xl hover:scale-90 transition-transform outline-none px-8" href="{{ route('pages.contact') }}">Contact</a>
     </div>
@@ -22,7 +22,7 @@
     <div class="hidden lg:block">
         <a href="{{ route('pages.bts-sio') }}" class="px-8">BTS SIO</a>
         <a href="{{ route('pages.certifications') }}" class="px-8">Certifications</a>
-{{--        <a href="{{ route('pages.tw') }}" class="px-8">Veille technologique</a>--}}
+        <a href="{{ route('pages.tw') }}" class="px-8">Veille technologique</a>
         <a href="{{ route('pages.blogs') }}" class="px-8">Blogs</a>
         <x-button route="{{ route('pages.contact') }}" type="contained">Contact</x-button>
     </div>
