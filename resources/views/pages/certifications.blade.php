@@ -9,13 +9,14 @@
 	</p>
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		@forelse($certifications as $certification)
+			<iframe src="{{ optional($certification->certificate)->url }}" width="100%" height="100%"></iframe>
 			<x-card
 				type="media"
-				:src="optional($certification->certificate)->url"
 				:title="$certification->primary"
 				:description="$certification->secondary"
-				:category="$certification->has_certificate ? 'Certificat' : 'Preuve'"
+				:src="optional($certification->certificate)->url"
 				:url="optional($certification->certificate)->url"
+				:category="$certification->has_certificate ? 'Certificat' : 'Preuve'"
 			/>
 		@empty
 			<span class="text-center col-span-2">Pas de certificats disponibles pour le moment.</span>
