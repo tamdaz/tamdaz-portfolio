@@ -24,7 +24,7 @@ window.onscroll = () => {
         isMenuHidden = true;
 
         header.classList.remove('translate-y-0')
-        header.classList.add('-translate-y-full')
+        header.classList.add('-translate-y-full', )
     } else {
         header.classList.remove('-translate-y-full')
         header.classList.add('translate-y-0')
@@ -32,9 +32,9 @@ window.onscroll = () => {
     }
 
     if (window.scrollY > 100) {
-        header.classList.add('backdrop-blur-xl')
+        header.classList.add('backdrop-blur-xl', 'border-b', 'dark:border-b-neutral-800', 'border-b-neutral-800/10')
     } else {
-        header.classList.remove('backdrop-blur-xl')
+        header.classList.remove('backdrop-blur-xl', 'border-b', 'dark:border-b-neutral-800', 'border-b-neutral-800/10')
     }
 }
 
