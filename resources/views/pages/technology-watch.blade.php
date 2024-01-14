@@ -13,7 +13,7 @@
 		</div>
 		<div class="w-screen h-[700px] flex flex-col justify-center items-center relative animate-zoom-avatar" style="animation-delay: 1s; opacity: 0">
 			<h1 class="text-3xl md:text-6xl font-bold text-pink-500 inline [text-shadow:_0_4px_10px_rgb(0_0_0_/_20%)]">Veille technologique</h1>
-			<p class="my-4 max-w-[700px] text-center">
+			<p class="my-4 px-8 max-w-[700px] text-center">
 				Le but de la veille technologique est de suivre l'évolution de la thématique choisie.
 				<br />
 				Dans mon cas, ma thématique est sur le Rasberry car il est actuellement utilisé pour faire des IOT,

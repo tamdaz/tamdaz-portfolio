@@ -9,7 +9,7 @@
 	</p>
 	<div class="gap-4">
 		@forelse($certifications as $certification)
-			<iframe src="{{ optional($certification->certificate)->url }}" width="100%" height="500px"></iframe>
+			<embed src="{{ optional($certification->certificate)->url }}#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="700px" />
 		@empty
 			<span class="text-center col-span-2">Pas de certificats disponibles pour le moment.</span>
 		@endforelse

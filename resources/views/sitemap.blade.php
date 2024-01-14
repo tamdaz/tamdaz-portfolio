@@ -16,7 +16,20 @@
 			<a class="underline hover:font-semibold" href="{{ route('pages.bts-sio') }}">BTS SIO</a>
 		</li>
 		<li>
-			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Blogs</a>
+			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Certifications</a>
+		</li>
+		<li>
+			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Veille technologique</a>
+		</li>
+		<ul class="ml-6">
+			@foreach($tw as $new)
+				<li>
+					<a class="underline hover:font-semibold" href="{{ $new->source_url }}">{{ $new->title }}</a>
+				</li>
+			@endforeach
+		</ul>
+		<li>
+		<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Blogs</a>
 		</li>
 		<ul class="ml-6">
 			@foreach($categories as $category)
