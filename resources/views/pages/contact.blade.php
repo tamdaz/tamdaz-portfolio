@@ -4,7 +4,7 @@
 
 @section('container')
     <div class="w-screen h-full lg:h-screen lg:grid md:grid-cols-2 xl:flex xl:flex-row">
-        <div class="flex flex-col justify-center mt-16 lg:mt-0 lg:order-last px-8 w-full">
+        <div class="flex flex-col justify-center mt-16 lg:mt-0 lg:order-last px-8 py-8 w-full">
             <x-alert
                 type="info"
                 primary="Page de contact"
@@ -22,7 +22,7 @@
                     :secondary="session('error')" />
             @endif
         </div>
-        <div class="flex flex-col justify-center lg:bg-neutral-100 dark:lg:bg-black w-full px-8">
+        <div class="flex flex-col justify-center lg:bg-neutral-100 dark:lg:bg-black w-full px-8 pb-8">
             <h1 class="text-4xl md:text-7xl mb-8 animate-title-anim">Contact</h1>
             <form action="{{ route('pages.contact_send') }}" method="post">
                 @csrf
