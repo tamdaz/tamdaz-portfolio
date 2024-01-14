@@ -86,10 +86,10 @@ module.exports = {
         },
         rotation3d: {
           '0%': {
-            transform: 'perspective(50pc) rotateY(0)',
+            transform: 'perspective(25pc) rotateY(0)',
           },
           '100%': {
-            transform: 'perspective(50pc) rotateY(360deg)',
+            transform: 'perspective(25pc) rotateY(360deg)',
           },
         },
         menuMobile: {
