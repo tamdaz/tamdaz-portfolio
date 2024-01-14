@@ -39,7 +39,8 @@ Route::name('pages.')->group(function () {
 
     Route::get('/sitemap', function () {
         $categories = \App\Models\Category::with('blogs')->get();
+        $tw = \App\Models\TW::all();
 
-        return view('sitemap', compact('categories'));
+        return view('sitemap', compact('categories', 'tw'));
     })->name('sitemap');
 });
