@@ -33,7 +33,7 @@
 
             {{-- Linear gradient to hide last line --}}
             @if ($k === count($json) - 1)
-                <div class="absolute m-auto left-0 right-0 bottom-0 w-[100px] h-[150px] z-10 bg-gradient-to-b from-transparent to-white dark:to-neutral-900"></div>
+                <div class="absolute m-auto md:left-0 md:right-0 bottom-0 w-[100px] h-[150px] z-10 bg-gradient-to-b from-transparent to-white dark:to-neutral-900"></div>
             @endif
 
             <div class="md:block w-full {{ $k % 2 === 0 ? 'md:invisible' : null }} translate-x-full intersect:translate-x-0 duration-1000 transition ease-out border dark:border-neutral-700 dark:bg-black md:flex-1 rounded-xl p-4 my-4 h-fit -z-20">
