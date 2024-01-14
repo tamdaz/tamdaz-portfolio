@@ -4,7 +4,7 @@
 			<h2 class="text-4xl sm:text-6xl font-bold pb-4">Présentation</h2>
 			<p class="text-xl leading-9">
 				Actuellement en première année de BTS SIO (Services Informatiques aux Organisations),
-				je me suis spécialisé en autodidacte dans le développement web.
+				je me suis spécialisé dans le développement web en autodidacte.
 			</p>
 			<div class="mt-4">
 				<x-button route="/docs/Tamda Zohir - CV.pdf" type="contained">Consulter mon CV</x-button>
