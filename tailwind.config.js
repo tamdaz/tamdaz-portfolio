@@ -20,7 +20,8 @@ module.exports = {
 		'pickaxe': 'pickaxe 1.5s ease-in-out infinite',
         'zoom-avatar': 'zoom 500ms ease-out forwards',
         'title-anim': 'titleAnim 250ms ease-out forwards',
-        'light': 'light 1.5s ease-out'
+        'light': 'light 1.5s ease-out',
+        'rotation-3d': 'rotation3d 2s cubic-bezier(0,0,.72,1.11) forwards'
       },
       keyframes: {
         down: {
@@ -80,6 +81,14 @@ module.exports = {
             transform: 'scale(2)',
             filter: 'brightness(0) hue-rotate(180deg)',
             opacity: 0
+          },
+        },
+        rotation3d: {
+          '0%': {
+            transform: 'perspective(50pc) rotateY(0)',
+          },
+          '100%': {
+            transform: 'perspective(50pc) rotateY(360deg)',
           },
         }
       }
