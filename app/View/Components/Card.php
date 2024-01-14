@@ -17,8 +17,7 @@ class Card extends Component
         public string $src = '',
         public string $url = '',
         public string $category = ''
-    ) {
-    }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

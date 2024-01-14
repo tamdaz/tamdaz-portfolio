@@ -19,6 +19,15 @@
         <x-button hasIcon="true" type="text">Text</x-button>
     </div>
 
+    {{-- Menus --}}
+    <div class="my-16 h-56">
+        <x-dropdown id="exemple" name="Exemple">
+            <a class="block px-6 py-3 hover:bg-neutral-700">Exemple 1</a>
+            <a class="block px-6 py-3 hover:bg-neutral-700">Exemple 2</a>
+            <a class="block px-6 py-3 hover:bg-neutral-700">Exemple 3</a>
+        </x-dropdown>
+    </div>
+
     {{-- Cards --}}
     <span class="block py-4">Cartes (cards)</span>
     <x-card type="normal" title="Title" description="Desc" />
@@ -34,6 +43,7 @@
         <x-card-skill title="Title" description="description" src="https://via.placeholder.com/512x512.png/212121?text=512x512" />
         <x-card-skill title="Title" description="description" src="https://via.placeholder.com/512x512.png/212121?text=512x512" />
     </div>
+
     <span class="block py-4">Alertes</span>
     <x-alert type="info" primary="Hello world" secondary="hello world" />
     <x-alert type="success" primary="Hello world" secondary="hello world" />

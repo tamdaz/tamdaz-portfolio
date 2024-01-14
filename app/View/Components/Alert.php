@@ -14,7 +14,17 @@ class Alert extends Component
         public string $type = 'info',
         public string $primary = '',
         public string $secondary = ''
-    ) {
+    ) {}
+
+    public function getIcon(string $icon): string
+    {
+        return match ($icon) {
+            'info' => 'info',
+            'success' => 'check',
+            'warn', 'warning' => 'warning',
+            'error' => 'error',
+            'debug' => 'construction'
+        };
     }
 
     /**
