@@ -134,4 +134,10 @@ class BlogResource extends Resource
             $request->input('thumbnail_id', [])
         );
     }
+
+    public function delete(Model|Blog $model): void
+    {
+        $model->attachment()->delete();
+        $model->delete();
+    }
 }

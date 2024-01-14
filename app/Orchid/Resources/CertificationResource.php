@@ -5,8 +5,8 @@ namespace App\Orchid\Resources;
 use App\Models\Certification;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Fields\CheckBox;
-use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Sight;
@@ -39,9 +39,9 @@ class CertificationResource extends Resource
         return [
             Input::make('primary')->title('Texte primaire'),
             Input::make('secondary')->title('Texte secondaire'),
-            Cropper::make('certificate_id')
+            Upload::make('certificate_id')
                 ->title('Image du certificat / preuve')
-                ->targetId(),
+                ->acceptedFiles('application/pdf'),
             CheckBox::make('has_certificate')->title('A un certificat ?')->sendTrueOrFalse(),
         ];
     }
@@ -92,5 +92,25 @@ class CertificationResource extends Resource
     public function filters(): array
     {
         return [];
+    }
+
+    public function save(ResourceRequest $request, Model|Certification $model): void
+    {
+        $model->has_certificate = $request->input('has_certificate');
+        $model->primary = $request->input('primary');
+        $model->secondary = $request->input('secondary');
+        $model->certificate_id = intval($request->input('certificate_id')[0]);
+
+        $model->save();
+
+        $model->attachment()->syncWithoutDetaching(
+            $request->input('certificate_id', [])
+        );
+    }
+
+    public function delete(Model|Certification $model): void
+    {
+        $model->certificate()->delete();
+        $model->delete();
     }
 }
