@@ -15,7 +15,10 @@
 	<div class="flex flex-row">
 		<div>
 			<header>
-				<h1 class="block font-bold text-5xl">{{ $blog['title'] }}</h1>
+				<h1 class="block font-bold text-5xl">
+					<a href="/blogs"><-</a>
+					{{ $blog['title'] }}
+				</h1>
 				<span class="flex flex-cols gap-4 items-center mt-4 mb-6">
 					<span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $blog->category->name }}</span>
 					<span>Publié {{ $blog['created_at']->diffForHumans() }}</span>

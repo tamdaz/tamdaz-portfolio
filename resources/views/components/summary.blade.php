@@ -5,9 +5,9 @@
         <script>
             for (const summary of document.getElementById("{{ $id }}").children) {
                 if (
-                        summary.tagName.toLowerCase().includes("h1") ||
-                        summary.tagName.toLowerCase().includes("h2") ||
-                        summary.tagName.toLowerCase().includes("h3")
+                    summary.tagName.toLowerCase().includes("h1") ||
+                    summary.tagName.toLowerCase().includes("h2") ||
+                    summary.tagName.toLowerCase().includes("h3")
                 ) {
                     const a = document.createElement('a');
 
@@ -20,6 +20,10 @@
                     document.querySelector('#summary').appendChild(li);
                 }
             }
+
+            window.addEventListener('hashchange', () => {
+                window.scrollTo(window.scrollX, window.scrollY - 100);
+            })
         </script>
     </div>
 </aside>
