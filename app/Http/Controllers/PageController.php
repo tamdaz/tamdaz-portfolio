@@ -20,7 +20,7 @@ class PageController extends Controller
     {
         return view('index', [
             'skills' => Skill::with('icon')->without('attachment')->get(),
-            'experiences' => Experience::all(),
+            'experiences' => Experience::orderByDesc('date_start')->get(),
         ]);
     }
 
