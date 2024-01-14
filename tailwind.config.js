@@ -87,9 +87,14 @@ module.exports = {
         rotation3d: {
           '0%': {
             transform: 'perspective(25pc) rotateY(0)',
+            opacity: 1
+          },
+          '80%': {
+            opacity: 1
           },
           '100%': {
             transform: 'perspective(25pc) rotateY(360deg)',
+            opacity: 0.5
           },
         },
         menuMobile: {

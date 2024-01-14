@@ -66,6 +66,41 @@ body {
 	dark:text-white border border-neutral-200 dark:border-neutral-800 text-neutral-800 rounded-lg;
 }
 
+.tz-button-contained {
+	@apply bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2 px-8 rounded-full;
+}
+
+.tz-button-outlined {
+	@apply border dark:border-neutral-700 hover:bg-green-500/20 active:bg-green-600/30 py-2 px-8 rounded-full;
+}
+
+.tz-button-text {
+	@apply hover:bg-green-500/20 active:bg-green-600/30 py-2 px-8 rounded-full;
+}
+
+.tz-card-skill {
+	@apply border dark:border-neutral-800 rounded-lg overflow-hidden relative;
+}
+
+.tz-card-skill > .tz-card-skill-details {
+	@apply absolute w-full h-full z-10 transition opacity-0 hover:opacity-100 p-4 bg-white
+	dark:bg-neutral-900 flex flex-col justify-center items-center;
+}
+
+.tz-timeline {
+	@apply m-auto my-8 overflow-x-hidden md:overflow-x-visible;
+}
+
+.tz-timeline-line-gradient {
+	@apply absolute m-auto md:left-0 md:right-0 bottom-0 w-[100px] h-[150px] z-10
+	bg-gradient-to-b from-transparent to-white dark:to-neutral-900;
+}
+
+.tz-card-timeline {
+	@apply hidden md:block duration-1000 transition ease-out border
+	dark:border-neutral-700 dark:bg-black md:flex-1 rounded-xl p-4 my-4 h-fit -z-20;
+}
+
 pre, code {
 	font-family: 'JetBrains Mono', monospace;
 }

@@ -1,6 +1,6 @@
 @switch($type)
     @case('normal')
-        <div class="border overflow-hidden rounded-lg mb-4">
+        <div class="border dark:border-neutral-800 overflow-hidden rounded-lg mb-4">
             <div class="flex flex-col p-4">
                 <span class="font-bold text-3xl mb-1">{{ $title }}</span>
                 <span>{{ $description }}</span>
