@@ -92,7 +92,7 @@ body {
 }
 
 .tz-timeline-line-gradient {
-	@apply absolute bottom-0 w-[40px] h-[50px] z-10
+	@apply absolute bottom-0 w-[40px] h-[20px] z-10
 	bg-gradient-to-b from-transparent to-white dark:to-neutral-900;
 }
 
