@@ -1,6 +1,6 @@
 .PHONY: migrate ide-helper rollback format check
 migrate:
-	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid
+	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid --path=/database/migrations/updates
 
 ide-helper:
 	@echo "--> Generating documentations for Eloquent, models and meta..."
@@ -30,7 +30,10 @@ build:
 	@npm install --verbose
 	@npm run build
 	@composer install --optimize-autoloader --no-dev
-	@rm -rf node_modules/
+	@rm -rfv node_modules/
+	@cd ..
+	@chown www-data:www-data -Rv tamdaz-portfolio
+	@cd tamdaz-portfolio/
 	@echo "--> Successfully built !"
 
 # PLEASE ROLLBACK ACCORDING TO YOUR NEEDS
