@@ -27,8 +27,8 @@ class TimelineResource extends Resource
         return [
             Input::make('description')->title('Description'),
             Select::make('type')->title('Type')->options([
-                'experience' => "Expérience",
-                'formation' => "Formation"
+                'experience' => 'Expérience',
+                'formation' => 'Formation',
             ]),
             DateTimer::make('date_start')->title('Date de début')->format('Y-m-d'),
             DateTimer::make('date_end')->title('Date de fin')->format('Y-m-d'),

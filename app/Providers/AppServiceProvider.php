@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         JsonResource::withoutWrapping();
         Paginator::useTailwind();
         Vite::useScriptTagAttributes([
-            'defer' => true
+            'defer' => true,
         ]);
 
         if ($this->app->environment('production')) {

@@ -24,7 +24,7 @@ class Timeline extends Model
         'date_start' => 'date',
         'date_end' => 'date',
         'description' => 'string',
-        'type' => 'string'
+        'type' => 'string',
     ];
 
     protected function serializeDate(DateTimeInterface $date): string

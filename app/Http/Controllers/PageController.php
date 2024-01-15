@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendEmail;
 use App\Models\Certification;
-use App\Models\Timeline;
 use App\Models\Skill;
+use App\Models\Timeline;
 use App\Models\TW;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,12 +24,11 @@ class PageController extends Controller
                 'experience' => Timeline::latest('date_start')
                     ->where('type', '=', 'experience')
                     ->get()
-                    ->toArray()
-                ,
+                    ->toArray(),
                 'formation' => Timeline::latest('date_start')
                     ->where('type', '=', 'formation')
                     ->get()
-                    ->toArray()
+                    ->toArray(),
             ],
         ]);
     }
