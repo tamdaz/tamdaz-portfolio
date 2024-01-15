@@ -88,17 +88,16 @@ body {
 }
 
 .tz-timeline {
-	@apply m-auto my-8 overflow-x-hidden md:overflow-x-visible;
+	@apply m-auto my-8 overflow-x-hidden md:overflow-x-visible relative;
 }
 
 .tz-timeline-line-gradient {
-	@apply absolute m-auto md:left-0 md:right-0 bottom-0 w-[100px] h-[150px] z-10
+	@apply absolute bottom-0 w-[40px] h-[50px] z-10
 	bg-gradient-to-b from-transparent to-white dark:to-neutral-900;
 }
 
-.tz-card-timeline {
-	@apply hidden md:block duration-1000 transition ease-out border
-	dark:border-neutral-700 dark:bg-black md:flex-1 rounded-xl p-4 my-4 h-fit -z-20;
+.tz-timeline-details {
+	@apply flex flex-col justify-center items-start;
 }
 
 pre, code {
