@@ -9,7 +9,7 @@
 			<img class="absolute -z-20 scale-0 animate-light user-select-none" src="/img/bg_blur.png" alt="bg_blur" />
 		</div>
 		<div class="w-screen h-[700px] flex justify-center items-center absolute" id="rasberry">
-			<img class="opacity-35 animate-rotation-3d width-[100px] block" src="/img/rasberry-pi.svg" alt="rasberry" width="400px" />
+			<img class="opacity-35 animate-glitch width-[100px] block" src="/img/rasberry-pi.svg" alt="rasberry" width="400px" />
 		</div>
 		<div class="w-screen h-[700px] flex flex-col justify-center items-center relative animate-zoom-avatar" style="animation-delay: 1s; opacity: 0">
 			<h1 class="text-3xl md:text-6xl font-bold text-pink-500 inline [text-shadow:_0_4px_10px_rgb(0_0_0_/_20%)]">Veille technologique</h1>

@@ -27,10 +27,10 @@
             <a href="{{ route('pages.tw') }}" class="tz-dropdown-menu-item">Veille technologique</a>
         </x-dropdown>
         <x-dropdown id="resources" name="Ressources">
-            <a href="{{ route('pages.blogs') }}" class="tz-dropdown-menu-item">Blogs</a>
             <a class="block px-6 py-3 opacity-50">Note de synthèse</a>
             <a class="block px-6 py-3 opacity-50">Comptes-rendus</a>
         </x-dropdown>
+        <a href="{{ route('pages.blogs') }}" class="p-8">Blogs</a>
         <x-button route="{{ route('pages.contact') }}" type="contained">Contact</x-button>
     </div>
     <button class="tz-menu-button" id="btn_open_menu">
