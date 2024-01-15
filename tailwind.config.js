@@ -21,8 +21,9 @@ module.exports = {
         'zoom-avatar': 'zoom 500ms ease-out forwards',
         'title-anim': 'titleAnim 250ms ease-out forwards',
         'light': 'light 1.5s ease-out',
-        'rotation-3d': 'rotation3d 2s cubic-bezier(0,0,.72,1.11) forwards',
-        'menu-mobile': 'menuMobile 150ms ease-out forwards'
+        'glitch': 'glitch 2s ease-out forwards',
+        'menu-mobile': 'menuMobile 150ms ease-out forwards',
+        'dropdown': 'dropdown 100ms ease-out forwards'
       },
       keyframes: {
         down: {
@@ -84,17 +85,19 @@ module.exports = {
             opacity: 0
           },
         },
-        rotation3d: {
+        glitch: {
           '0%': {
-            transform: 'perspective(25pc) rotateY(0)',
+            transform: 'scale(1.1)',
+            filter: 'drop-shadow(0 0 100px #ff00c8)',
             opacity: 1
           },
-          '80%': {
-            opacity: 1
+          '50%': {
+            opacity: 1,
+            filter: 'drop-shadow(0 0 50px #FF1493) brightness(1.5)',
           },
           '100%': {
-            transform: 'perspective(25pc) rotateY(360deg)',
-            opacity: 0.5
+            transform: 'scale(1.0)',
+            opacity: 0.4
           },
         },
         menuMobile: {
@@ -103,6 +106,14 @@ module.exports = {
           },
           '100%': {
             backdropFilter: 'blur(16px)',
+          },
+        },
+        dropdown: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
           },
         }
       }
