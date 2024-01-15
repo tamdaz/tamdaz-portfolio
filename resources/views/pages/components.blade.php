@@ -69,5 +69,5 @@
             ],
         ]
     @endphp
-    <x-timeline periods="{{ json_encode($periods) }}" />
+    <x-timeline :periods="$periods" />
 @endsection
