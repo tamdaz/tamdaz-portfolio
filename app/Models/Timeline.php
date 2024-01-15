@@ -2,30 +2,33 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
 /**
- * @mixin IdeHelperExperience
+ * @mixin IdeHelperTimeline
  */
-class Experience extends Model
+class Timeline extends Model
 {
     use AsSource, Filterable, HasFactory;
 
     protected $fillable = [
-        'date_start', 'date_end', 'description',
+        'date_start', 'date_end', 'description', 'type',
     ];
 
     protected $casts = [
         'date_start' => 'date',
         'date_end' => 'date',
         'description' => 'string',
+        'type' => 'string'
     ];
 
-    public function getFullDateAttribute(): string
+    protected function serializeDate(DateTimeInterface $date): string
     {
-        return $this->date_start->format('M Y').' - '.$this->date_end->format('M Y');
+        return Carbon::parse($date)->translatedFormat('d F Y');
     }
 }
