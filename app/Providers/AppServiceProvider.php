@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale(App::getLocale());
         JsonResource::withoutWrapping();
         Paginator::useTailwind();
+        Vite::useScriptTagAttributes([
+            'defer' => true
+        ]);
 
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
