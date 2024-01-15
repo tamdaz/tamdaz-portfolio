@@ -30,6 +30,8 @@ class GenerateSitemap extends Command
         $sitemap = Sitemap::create();
         $sitemap->add('/');
         $sitemap->add('/bts-sio');
+        $sitemap->add('/certifications');
+        $sitemap->add('/technology-watch');
         $sitemap->add('/blogs');
 
         foreach (Blog::published()->get() as $blog) {
