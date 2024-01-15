@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendEmail;
 use App\Models\Certification;
-use App\Models\Experience;
+use App\Models\Timeline;
 use App\Models\Skill;
 use App\Models\TW;
 use Illuminate\Contracts\View\View;
@@ -20,7 +20,17 @@ class PageController extends Controller
     {
         return view('index', [
             'skills' => Skill::with('icon')->without('attachment')->get(),
-            'experiences' => Experience::orderByDesc('date_start')->get(),
+            'timelines' => [
+                'experience' => Timeline::latest('date_start')
+                    ->where('type', '=', 'experience')
+                    ->get()
+                    ->toArray()
+                ,
+                'formation' => Timeline::latest('date_start')
+                    ->where('type', '=', 'formation')
+                    ->get()
+                    ->toArray()
+            ],
         ]);
     }
 

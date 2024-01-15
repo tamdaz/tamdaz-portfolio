@@ -11,7 +11,9 @@ class CategoryController extends Controller
 {
     public function index(): AnonymousResourceCollection
     {
-        return CategoryResource::collection(Category::with('blogs')->get());
+        return CategoryResource::collection(
+            Category::with('blogs')->get()
+        );
     }
 
     public function show(Category $category): CategoryResource
