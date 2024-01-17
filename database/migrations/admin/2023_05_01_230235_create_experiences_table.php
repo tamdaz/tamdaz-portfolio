@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (! Schema::hasTable('experiences')) {
-            Schema::create('experiences', function (Blueprint $table) {
+        if (! Schema::hasTable('timelines')) {
+            Schema::create('timelines', function (Blueprint $table) {
                 $table->id();
                 $table->date('date_start');
                 $table->date('date_end');
                 $table->string('description');
-
+                $table->enum('type', ['experience', 'formation']);
                 $table->timestamps();
             });
         }
@@ -29,7 +29,7 @@ return new class extends Migration
     public function down(): void
     {
         if (App::isLocal()) {
-            Schema::dropIfExists('experiences');
+            Schema::dropIfExists('timelines');
         }
     }
 };
