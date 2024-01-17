@@ -23,7 +23,7 @@
             @endif
         </div>
         <div class="flex flex-col justify-center lg:bg-neutral-100 dark:lg:bg-black w-full px-8 pb-8">
-            <h1 class="text-4xl md:text-7xl mb-8 animate-title-anim">Contact</h1>
+            <h1 class="text-4xl md:text-7xl mb-8 font-bold animate-title-anim">Contact</h1>
             <form action="{{ route('pages.contact_send') }}" method="post">
                 @csrf
                 <div class="grid grid-cols-2 gap-6">

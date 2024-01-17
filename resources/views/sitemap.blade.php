@@ -3,7 +3,7 @@
 @section('title', "Tamda Zohir - Portfolio BTS SIO SLAM - Plan du site")
 
 @section('container')
-	<h1 class="text-4xl md:text-7xl mt-4 mb-8">Plan du site</h1>
+	<h1 class="text-4xl md:text-7xl font-bold mt-4 mb-8">Plan du site</h1>
 	<p>
 		Le plan du site permet de rendre visible les pages accessibles pour les utilisateurs. Ce qui permet de
 		mieux s'y retrouver.

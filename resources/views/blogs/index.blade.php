@@ -7,7 +7,7 @@
 @endsection
 
 @section('container')
-	<h1 class="text-4xl md:text-7xl mb-6 animate-title-anim">Blogs</h1>
+	<h1 class="text-4xl md:text-7xl mb-6 font-bold animate-title-anim">Blogs</h1>
 
 	@livewire('blog-search')
 

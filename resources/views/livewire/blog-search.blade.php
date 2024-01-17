@@ -13,7 +13,7 @@
                     placeholder="Rechercher..."
                     wire:model="search" type="search"
                     name="search"
-                    class="w-full outline-none px-4 py-2" />
+                    class="w-full outline-none px-4 py-2"/>
             </label>
         </div>
         <div class="flex gap-1">
