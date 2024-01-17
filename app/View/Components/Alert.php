@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Exception;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -9,6 +10,8 @@ class Alert extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  'info'|'success'|'warn'|'error'|'debug'  $type
      */
     public function __construct(
         public string $type = 'info',
@@ -17,14 +20,18 @@ class Alert extends Component
     ) {
     }
 
-    public function getIcon(string $icon): string
+    /**
+     * @throws Exception
+     */
+    public function getIcon(string $type): string|Exception
     {
-        return match ($icon) {
+        return match ($type) {
             'info' => 'info',
             'success' => 'check',
             'warn', 'warning' => 'warning',
             'error' => 'error',
-            'debug' => 'construction'
+            'debug' => 'construction',
+            default => throw new Exception('Type not specified'),
         };
     }
 
