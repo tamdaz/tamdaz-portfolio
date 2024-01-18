@@ -16,10 +16,10 @@
 			<a class="underline hover:font-semibold" href="{{ route('pages.bts-sio') }}">BTS SIO</a>
 		</li>
 		<li>
-			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Certifications</a>
+			<a class="underline hover:font-semibold" href="{{ route('pages.certifications') }}">Certifications</a>
 		</li>
 		<li>
-			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Veille technologique</a>
+			<a class="underline hover:font-semibold" href="{{ route('pages.tw') }}">Veille technologique</a>
 		</li>
 		<ul class="ml-6">
 			@foreach($tw as $new)
@@ -29,13 +29,30 @@
 			@endforeach
 		</ul>
 		<li>
-		<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Blogs</a>
+			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Comptes-rendus</a>
 		</li>
 		<ul class="ml-6">
-			@foreach($categories as $category)
+			@foreach($categories_reports as $category)
 				<li>{{ $category->name }}</li>
 				<ul class="ml-6">
 					@forelse($category->blogs as $blog)
+						<li>
+							<a class="underline hover:font-semibold" href="{{ route('pages.blogs.show', ['blog' => $blog]) }}">{{ $blog->title }}</a>
+						</li>
+					@empty
+						<li>Pas de comptes-rendus liés à cette catégorie</li>
+					@endforelse
+				</ul>
+			@endforeach
+		</ul>
+		<li>
+			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Blogs</a>
+		</li>
+		<ul class="ml-6">
+			@foreach($categories_blogs as $category)
+				<li>{{ $category->name }}</li>
+				<ul class="ml-6">
+					@forelse($category->reports as $blog)
 						<li>
 							<a class="underline hover:font-semibold" href="{{ route('pages.blogs.show', ['blog' => $blog]) }}">{{ $blog->title }}</a>
 						</li>

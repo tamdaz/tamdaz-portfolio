@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendEmail;
+use App\Models\Category;
 use App\Models\Certification;
+use App\Models\Report;
 use App\Models\Skill;
 use App\Models\Timeline;
 use App\Models\TW;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
@@ -36,7 +40,7 @@ class PageController extends Controller
     /**
      * Certifications page
      */
-    public function certifications(): RedirectResponse|View
+    public function certifications(): View
     {
         return view('pages.certifications', [
             'certifications' => Certification::with('certificate')->get(),
@@ -46,10 +50,20 @@ class PageController extends Controller
     /**
      * Technology watch
      */
-    public function technology_watch(): RedirectResponse|View
+    public function technology_watch(): View
     {
         return view('pages.technology-watch', [
             'news' => TW::all(),
+        ]);
+    }
+
+    /**
+     * Reports
+     */
+    public function reports(): View
+    {
+        return view('pages.reports', [
+            'reports' => Report::latestReport()->with('file', 'category')->get()
         ]);
     }
 

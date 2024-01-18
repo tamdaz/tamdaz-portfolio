@@ -36,6 +36,12 @@ class PageTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_reports_page(): void
+    {
+        $response = $this->get(route('pages.reports'));
+        $response->assertStatus(200);
+    }
+
     public function test_blogs_page(): void
     {
         $response = $this->get(route('pages.blogs'));
