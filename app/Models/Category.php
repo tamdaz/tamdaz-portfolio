@@ -16,10 +16,16 @@ class Category extends Model
 {
     use AsSource, Filterable, HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'name',
     ];
 
+    /**
+     * @var array<string, string>
+     */
     protected $casts = [
         'name' => 'string',
     ];
@@ -32,18 +38,26 @@ class Category extends Model
         return $this->hasMany(Blog::class);
     }
 
+    /**
+     * @param  Builder<Category>  $builder
+     * @return Builder<Category>
+     */
     public function scopeUsedForBlogs(Builder $builder): Builder
     {
         return $builder->where('used_for', '=', 'blogs');
     }
 
+    /**
+     * @param  Builder<Category>  $builder
+     * @return Builder<Category>
+     */
     public function scopeUsedForReports(Builder $builder): Builder
     {
         return $builder->where('used_for', '=', 'reports');
     }
 
     /**
-     * @return HasMany<int, Report>
+     * @return HasMany<Report>
      */
     public function reports(): HasMany
     {

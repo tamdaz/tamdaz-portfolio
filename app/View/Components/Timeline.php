@@ -9,6 +9,8 @@ class Timeline extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  array<\App\Models\Timeline>  $periods
      */
     public function __construct(
         public array $periods

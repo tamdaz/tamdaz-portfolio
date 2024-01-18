@@ -27,6 +27,9 @@ class Report extends Model
         'title', 'category_id', 'report_id', 'file_created_at',
     ];
 
+    /**
+     * @return HasOne<Attachment>
+     */
     public function file(): HasOne
     {
         return $this->hasOne(Attachment::class, 'id', 'report_id');
@@ -40,6 +43,10 @@ class Report extends Model
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
+    /**
+     * @param  Builder<Report>  $builder
+     * @return Builder<Report>
+     */
     public function scopeLatestReport(Builder $builder): Builder
     {
         return $builder->orderByDesc('file_created_at');
