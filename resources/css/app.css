@@ -98,6 +98,16 @@ body {
 	@apply flex flex-col justify-center items-start;
 }
 
+.tz-list {
+	@apply border dark:border-neutral-700 bg-white dark:bg-neutral-900 my-4 rounded-md divide-y
+	dark:divide-neutral-700;
+}
+
+.tz-list-item {
+	@apply block px-8 py-6 hover:bg-neutral-100 active:bg-neutral-200 hover:dark:bg-neutral-800
+	active:dark:bg-neutral-700 cursor-pointer;
+}
+
 pre, code {
 	font-family: 'SF Mono', monospace;
 }
