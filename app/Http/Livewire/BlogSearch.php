@@ -51,12 +51,14 @@ class BlogSearch extends Component
     {
         $query = $this->blog::published()
             ->with(['thumbnail', 'category'])
-            ->where('title', 'like', '%'.$this->search.'%');
+            ->where('title', 'like', '%'.$this->search.'%')
+        ;
 
         if ($this->category !== null && $this->category != '0') {
             $query
                 ->where('category_id', $this->category)
-                ->orderBy('created_at', $this->dateOrder);
+                ->orderBy('created_at', $this->dateOrder)
+            ;
         }
 
         return $query->paginate(6);
@@ -66,7 +68,9 @@ class BlogSearch extends Component
     {
         return view('livewire.blog-search', [
             'items' => $this->filterItems(),
-            'categories' => Category::select(['id', 'name'])->get(),
+            'categories' => Category::select(['id', 'name'])
+                ->where('used_for', '=', 'blogs')
+                ->get(),
         ]);
     }
 }
