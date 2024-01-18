@@ -26,6 +26,8 @@ Route::name('pages.')->group(function () {
     Route::get('certifications', [PageController::class, 'certifications'])->name('certifications');
     Route::get('technology-watch', [PageController::class, 'technology_watch'])->name('tw');
 
+    Route::get('reports', [PageController::class, 'reports'])->name('reports');
+
     Route::get('blogs', [BlogController::class, 'index'])->name('blogs');
     Route::get('blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show');
 
@@ -38,9 +40,16 @@ Route::name('pages.')->group(function () {
     Route::get('components', [PageController::class, 'components'])->name('components');
 
     Route::get('/sitemap', function () {
-        $categories = \App\Models\Category::with('blogs')->get();
-        $tw = \App\Models\TW::all();
+        [
+            $categories_blogs,
+            $categories_reports,
+            $tw
+        ] = [
+            App\Models\Category::with('blogs')->usedForBlogs()->get(),
+            App\Models\Category::with('reports')->usedForReports()->get(),
+            App\Models\TW::all()
+        ];
 
-        return view('sitemap', compact('categories', 'tw'));
+        return view('sitemap', compact('categories_blogs','categories_reports', 'tw'));
     })->name('sitemap');
 });
