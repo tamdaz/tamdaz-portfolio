@@ -16,9 +16,14 @@ return new class extends Migration
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique()->nullable(false);
-                $table->enum('used_for', ['blogs', 'reports']);
                 $table->timestamps();
             });
+
+            if (! Schema::hasColumn('categories', 'used_for')) {
+                Schema::table('categories', function (Blueprint $table) {
+                    $table->enum('used_for', ['blogs', 'reports']);
+                });
+            }
 
             // Alter 'blogs' table because it was created before 'categories' table exists.
             Schema::table('blogs', function (Blueprint $table) {
