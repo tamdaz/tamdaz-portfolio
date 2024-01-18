@@ -6,7 +6,7 @@
 	@vite('resources/js/glitch.js')
 
 	<div class="relative">
-		<div class="w-screen h-[700px] flex justify-center items-center absolute">
+		<div class="w-screen h-[700px] flex justify-center items-center -z-10 absolute">
 			<img class="absolute -z-20 scale-0 animate-light user-select-none" src="/img/bg_blur.png" alt="bg_blur" />
 		</div>
 		<div class="w-screen h-[700px] flex justify-center items-center absolute" id="rasberry">
