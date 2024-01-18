@@ -52,7 +52,7 @@ class ManageAdminIP extends Command
 
         AdminIP::create(['ip_address' => $ip]);
 
-        $this->info("IP address {$ip} has been added to the database");
+        $this->info("IP address $ip has been added to the database");
 
         return Command::SUCCESS;
     }
@@ -76,7 +76,7 @@ class ManageAdminIP extends Command
 
         AdminIP::where('ip_address', '=', $ip)->delete();
 
-        $this->info("IP address {$ip} has been deleted from the database");
+        $this->info("IP address $ip has been deleted from the database");
 
         return Command::SUCCESS;
     }
