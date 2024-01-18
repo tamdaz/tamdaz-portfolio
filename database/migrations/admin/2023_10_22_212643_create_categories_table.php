@@ -19,12 +19,6 @@ return new class extends Migration
                 $table->timestamps();
             });
 
-            Schema::table('categories', function (Blueprint $table) {
-                if (!Schema::hasColumn('categories', 'used_for')) {
-                    $table->enum('used_for', ['blogs', 'reports']);
-                }
-            });
-
             // Alter 'blogs' table because it was created before 'categories' table exists.
             Schema::table('blogs', function (Blueprint $table) {
                 $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
