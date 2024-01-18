@@ -4,7 +4,6 @@ namespace App\Orchid\Resources;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
@@ -43,11 +42,11 @@ class CategoryResource extends Resource
     public function fields(): array
     {
         return [
-            Input::make('name')->title("Nom"),
-            Select::make('used_for')->title("Utilisé pour")->options([
-                'reports' => "Comptes rendus",
-                'blogs' => "Blogs"
-            ])
+            Input::make('name')->title('Nom'),
+            Select::make('used_for')->title('Utilisé pour')->options([
+                'reports' => 'Comptes rendus',
+                'blogs' => 'Blogs',
+            ]),
         ];
     }
 

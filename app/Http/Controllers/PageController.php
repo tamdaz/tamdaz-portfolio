@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendEmail;
-use App\Models\Category;
 use App\Models\Certification;
 use App\Models\Report;
 use App\Models\Skill;
 use App\Models\Timeline;
 use App\Models\TW;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
@@ -63,7 +60,7 @@ class PageController extends Controller
     public function reports(): View
     {
         return view('pages.reports', [
-            'reports' => Report::latestReport()->with('file', 'category')->get()
+            'reports' => Report::latestReport()->with('file', 'category')->get(),
         ]);
     }
 

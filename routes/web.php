@@ -47,9 +47,9 @@ Route::name('pages.')->group(function () {
         ] = [
             App\Models\Category::with('blogs')->usedForBlogs()->get(),
             App\Models\Category::with('reports')->usedForReports()->get(),
-            App\Models\TW::all()
+            App\Models\TW::all(),
         ];
 
-        return view('sitemap', compact('categories_blogs','categories_reports', 'tw'));
+        return view('sitemap', compact('categories_blogs', 'categories_reports', 'tw'));
     })->name('sitemap');
 });

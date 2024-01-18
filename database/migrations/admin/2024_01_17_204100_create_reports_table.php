@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->integer('report_id');
-            $table->string("title");
+            $table->string('title');
             $table->date('file_created_at');
             $table->timestamps();
 

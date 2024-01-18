@@ -7,7 +7,6 @@ use App\Models\Report;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
-use Orchid\Screen\Fields\DateRange;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
@@ -49,7 +48,7 @@ class ReportResource extends Resource
                 ->maxFiles(1)
                 ->acceptedFiles('application/pdf'),
             DateTimer::make('file_created_at')
-                ->title('Date de création du compte-rendu')
+                ->title('Date de création du compte-rendu'),
         ];
     }
 
@@ -58,7 +57,7 @@ class ReportResource extends Resource
         return [
             'title' => 'required',
             'category_id' => 'required',
-            'report_id' => 'required'
+            'report_id' => 'required',
         ];
     }
 

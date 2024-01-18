@@ -21,7 +21,7 @@ class Category extends Model
     ];
 
     protected $casts = [
-        'name' => 'string'
+        'name' => 'string',
     ];
 
     /**
@@ -32,21 +32,11 @@ class Category extends Model
         return $this->hasMany(Blog::class);
     }
 
-    /**
-     * @param Builder $builder
-     *
-     * @return Builder
-     */
     public function scopeUsedForBlogs(Builder $builder): Builder
     {
         return $builder->where('used_for', '=', 'blogs');
     }
 
-    /**
-     * @param Builder $builder
-     *
-     * @return Builder
-     */
     public function scopeUsedForReports(Builder $builder): Builder
     {
         return $builder->where('used_for', '=', 'reports');
