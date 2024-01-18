@@ -29,10 +29,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('reports', function (Blueprint $table) {
-            $table->dropForeignIdFor(Category::class);
-        });
+        if (App::isLocal()) {
+            Schema::table('reports', function (Blueprint $table) {
+                $table->dropForeignIdFor(Category::class);
+            });
 
-        Schema::dropIfExists('reports');
+            Schema::dropIfExists('reports');
+        }
     }
 };
