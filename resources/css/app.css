@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: rgba(0, 0, 0, calc(1 - 0.17));
+    color: rgba(0, 0, 0, calc(1 - 0.2));
 }
 
 .tz-header {
@@ -140,7 +140,7 @@ pre, code {
 	.bg-home {
 		background-image:
 			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
-			repeating-radial-gradient(circle at 71.5% center, #f8f8f8, #f8f8f8 12px, transparent 64px);
+			repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 64px);
 		background-blend-mode: multiply;
 		background-color: #eeeeee;
 	}
@@ -148,7 +148,7 @@ pre, code {
 	.bg-home-dark {
 		background-image:
 				radial-gradient(circle at center center, #f8f8f8, #ddd),
-				repeating-radial-gradient(circle at 71.5% center, #f8f8f8, #f8f8f8 12px, transparent 32px);
+				repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 32px);
 		background-blend-mode: multiply;
 		background-color: #222222;
 	}
