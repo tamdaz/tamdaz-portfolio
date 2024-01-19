@@ -15,6 +15,7 @@ return new class extends Migration
         if (! Schema::hasTable('categories') && Schema::hasTable('blogs')) {
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
+                $table->enum('used_for', ['blogs', 'reports']);
                 $table->string('name')->unique()->nullable(false);
                 $table->timestamps();
             });
@@ -32,6 +33,9 @@ return new class extends Migration
     public function down(): void
     {
         if (App::isLocal()) {
+            /**
+             * Drop this foreign before dropping 'categories' table
+             */
             Schema::table('blogs', function (Blueprint $table) {
                 $table->dropForeignIdFor(Category::class);
             });
