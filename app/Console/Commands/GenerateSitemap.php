@@ -28,18 +28,14 @@ class GenerateSitemap extends Command
     public function handle(): void
     {
         $sitemap = Sitemap::create();
-        $sitemap->add('/');
-        $sitemap->add('/bts-sio');
-        $sitemap->add('/certifications');
-        $sitemap->add('/technology-watch');
-        $sitemap->add('/reports');
-        $sitemap->add('/blogs');
 
-        foreach (Blog::published()->get() as $blog) {
-            $sitemap->add("/blogs/$blog->id");
-        }
+        $sitemap->add([
+            '/', '/bts-sio', '/certifications', '/technology-watch',
+            '/reports', '/blogs', '/contact',
+        ]);
 
-        $sitemap->add('/contact');
+        $sitemap->add(Blog::published()->get());
+
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
         $this->info('Sitemap has been successfully updated');
