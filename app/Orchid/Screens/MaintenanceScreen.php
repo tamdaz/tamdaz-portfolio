@@ -65,9 +65,17 @@ class MaintenanceScreen extends Screen
     {
         return [
             \Orchid\Support\Facades\Layout::rows([
-                TextArea::make('message')->title('Motif')->value($this->maintenance->message ?? null),
-                DateTimer::make('end_maintenance')->title('Date et heure de fin')->enableTime()->value($this->maintenance->end_maintenance ?? null),
-                Button::make('Submit')->type(Color::BASIC)->method('submitForm'),
+                TextArea::make('message')->title('Motif')
+                    ->value($this->maintenance->message ?? null),
+                DateTimer::make('start_maintenance')->title('Date et heure de début')
+                    ->enableTime()
+                    ->value($this->maintenance->start_maintenance ?? null),
+                DateTimer::make('end_maintenance')
+                    ->title('Date et heure de fin')->enableTime()
+                    ->value($this->maintenance->end_maintenance ?? null),
+                Button::make('Submit')
+                    ->type(Color::BASIC)
+                    ->method('submitForm'),
             ]),
         ];
     }
@@ -78,6 +86,7 @@ class MaintenanceScreen extends Screen
     public function submitForm(Request $request): void
     {
         $validator = Validator::make($request->all(), [
+            'start_maintenance' => ['required'],
             'end_maintenance' => ['required'],
         ]);
 
