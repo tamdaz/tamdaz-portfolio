@@ -5,6 +5,9 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Orchid\Attachment\Models\Attachment;
 
+/**
+ * Delete unused attachments
+ */
 class AttachmentClearCommand extends Command
 {
     /**
@@ -19,7 +22,7 @@ class AttachmentClearCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Clear unused attachments';
+    protected $description = 'Delete unused attachments';
 
     /**
      * Execute the console command.
