@@ -31,9 +31,7 @@ build:
 	@npm run build
 	@composer install --optimize-autoloader --no-dev
 	@rm -rfv node_modules/
-	@cd ..
-	@chown www-data:www-data -Rv tamdaz-portfolio
-	@cd tamdaz-portfolio/
+	@cd .. && chown www-data:www-data -Rv tamdaz-portfolio && cd tamdaz-portfolio/
 	@echo "--> Successfully built !"
 
 # PLEASE ROLLBACK ACCORDING TO YOUR NEEDS
