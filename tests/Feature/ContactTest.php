@@ -8,6 +8,9 @@ use Tests\TestCase;
 
 class ContactTest extends TestCase
 {
+    /**
+     * @test
+     */
     public function test_send_message(): void
     {
         Mail::fake();
@@ -23,6 +26,9 @@ class ContactTest extends TestCase
         Mail::assertSent(ContactMail::class);
     }
 
+    /**
+     * @test
+     */
     public function test_verify_informations_before_sending(): void
     {
         $this->post(route('pages.contact_send'), [

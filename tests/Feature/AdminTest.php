@@ -13,6 +13,8 @@ class AdminTest extends TestCase
     use ScreenTesting;
 
     /**
+     * @test
+     *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
@@ -24,6 +26,8 @@ class AdminTest extends TestCase
     }
 
     /**
+     * @test
+     *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
