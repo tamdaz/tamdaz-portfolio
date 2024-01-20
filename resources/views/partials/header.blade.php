@@ -7,8 +7,7 @@
         <a class="tz-menu-item" href="{{ route('pages.bts-sio') }}">BTS SIO</a>
         <a class="tz-menu-item" href="{{ route('pages.certifications') }}">Certifications</a>
         <a class="tz-menu-item" href="{{ route('pages.tw') }}">Veille technologique</a>
-        <a class="tz-menu-item-disabled">Notes de synthèse</a>
-        <a class="tz-menu-item-disabled">Comptes-rendus</a>
+        <a class="tz-menu-item" href="{{ route('pages.reports') }}">Comptes-rendus</a>
         <a class="tz-menu-item" href="{{ route('pages.blogs') }}">Blogs</a>
         <a class="tz-menu-item" href="{{ route('pages.contact') }}">Contact</a>
     </div>
@@ -28,7 +27,7 @@
             <a href="{{ route('pages.tw') }}" class="tz-dropdown-menu-item">Veille technologique</a>
         </x-dropdown>
         <x-dropdown id="resources" name="Ressources">
-            <a href="{{ route('pages.reports') }}" class="block px-6 py-3">Comptes-rendus</a>
+            <a href="{{ route('pages.reports') }}" class="tz-dropdown-menu-item">Comptes-rendus</a>
             <a class="block px-6 py-3 opacity-50">Note de synthèse</a>
         </x-dropdown>
         <a href="{{ route('pages.blogs') }}" class="p-8">Blogs</a>

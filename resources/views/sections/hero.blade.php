@@ -1,7 +1,7 @@
 <section class="relative">
 	<div class="bg-home bg-white dark:bg-neutral-900 absolute -z-10 w-screen h-[900px] lg:h-screen"></div>
-	<div class="w-full h-[900px] lg:h-screen lg:grid lg:grid-cols-2 lg:px-16 xl:px-32 select-none flex flex-col justify-center">
-		<div class="flex flex-col justify-center items-center lg:items-start lg:w-full lg:h-full">
+	<div class="w-full h-[900px] lg:h-screen lg:grid lg:grid-cols-2 select-none flex flex-col justify-center">
+		<div class="flex flex-col justify-center items-center lg:items-start lg:w-full lg:h-full lg:pl-16 xl:pl-32">
 			<div class="text-4xl sm:text-7xl">
 				<div id="typed_name">
 					<h1>Tamda Zohir</h1>
