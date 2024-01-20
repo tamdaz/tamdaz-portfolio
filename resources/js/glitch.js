@@ -15,10 +15,10 @@ window.onload = async () => {
             "amplitudeY": 0.004
         },
         "slice": {
-            "count": window.innerWidth > 600 ? 10 : 5,
-            "velocity": window.innerWidth > 600 ? 60 : 30,
-            "minHeight": 5 / 1000,
-            "maxHeight": 6 / 1000,
+            "count": window.innerWidth > 600 ? 5 : 2,
+            "velocity": window.innerWidth > 600 ? 10 : 5,
+            "minHeight": 2 / 1000,
+            "maxHeight": 4 / 1000,
             "hueRotate": true
         }
     })
