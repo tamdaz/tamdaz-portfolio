@@ -14,6 +14,7 @@ return new class extends Migration
         if (! Schema::hasTable('maintenances')) {
             Schema::create('maintenances', function (Blueprint $table) {
                 $table->id();
+                $table->dateTime('start_maintenance');
                 $table->text('message')->nullable();
                 $table->dateTime('end_maintenance');
                 $table->timestamps();
