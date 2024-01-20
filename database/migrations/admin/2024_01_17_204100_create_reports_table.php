@@ -12,16 +12,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports', function (Blueprint $table) {
-            $table->id();
-            $table->integer('report_id');
-            $table->string('title');
-            $table->date('file_created_at');
-            $table->timestamps();
+        if (!Schema::hasTable('reports')) {
+            Schema::create('reports', function (Blueprint $table) {
+                $table->id();
+                $table->integer('report_id');
+                $table->string('title');
+                $table->date('file_created_at');
+                $table->timestamps();
 
-            // Directly create foreign id on 'reports' table because 'categories' table was already created
-            $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
-        });
+                // Directly create foreign id on 'reports' table because 'categories' table was already created
+                $table->foreignIdFor(Category::class)->nullable()->constrained()->restrictOnDelete();
+            });
+        }
     }
 
     /**
