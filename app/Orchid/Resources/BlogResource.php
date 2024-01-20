@@ -56,7 +56,7 @@ class BlogResource extends Resource
                 ->title('Description'),
             Select::make('category_id')
                 ->title('Catégorie')
-                ->fromModel(Category::class, 'name'),
+                ->options(Category::usedForBlogs()->pluck('name', 'id')),
             SimpleMDE::make('content')
                 ->title('Contenu'),
             Cropper::make('thumbnail_id')
@@ -85,10 +85,12 @@ class BlogResource extends Resource
             TD::make('is_published', 'Est publié ?')
                 ->usingComponent(Boolean::class, true: ' Oui', false: ' Non'),
             TD::make('title'),
-            TD::make('category_id', 'Catégorie')
-                ->render(fn (Blog $model) => $model->category->name ?? "<b style='color: red'>Catégorie non associée</b>"),
-            TD::make('created_at', 'Date de création')
-                ->render(fn (Blog $model) => $model->created_at->toDateTimeString()),
+            TD::make('category_id', 'Catégorie')->render(
+                fn (Blog $model) => $model->category->name ?? "<b style='color: red'>Catégorie non associée</b>"
+            ),
+            TD::make('created_at', 'Date de création')->render(
+                fn (Blog $model) => $model->created_at->toDateTimeString()
+            ),
         ];
     }
 
