@@ -34,7 +34,6 @@ class AdminTest extends TestCase
     public function test_maintenance_page()
     {
         $screen = $this->screen('platform.maintenance')->actingAs(User::first());
-
         $screen->display()->assertSeeText('Maintenance');
     }
 }
