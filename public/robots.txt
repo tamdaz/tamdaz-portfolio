@@ -1,8 +1,12 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /admin/*
-Disallow: /components
+Disallow: /components/
 Disallow: /contact-send/
-Disallow: /_debugbar/*
-Disallow: /_ignition/*
+Disallow: /_debugbar/
+Disallow: /_ignition/
 Disallow: /sanctum/
+Disallow: /md/
+Disallow: /docs/
+Disallow: /img/
+Disallow: /.htaccess
+Disallow: /.gitignore
