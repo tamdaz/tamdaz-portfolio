@@ -11,7 +11,7 @@
 				<div>
 					<h2 class="text-2xl font-bold">{{ $report->title }}</h2>
 					<p>Créé le {{ \Carbon\Carbon::parse($report->file_created_at)->translatedFormat('d F Y') }}</p>
-					<span class="inline-block bg-green-700 px-4 py-1 rounded-full mt-2">
+					<span class="inline-block bg-green-700 px-4 py-1 rounded-full mt-2 text-white">
 						{{ $report->category->name }}
 					</span>
 				</div>
