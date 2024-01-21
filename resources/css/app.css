@@ -1,13 +1,13 @@
-@import url('https://fonts.cdnfonts.com/css/sf-mono');
-@import url('https://rsms.me/inter/inter.css');
+@import 'https://fonts.cdnfonts.com/css/sf-mono';
+@import 'https://rsms.me/inter/inter.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: rgba(0, 0, 0, calc(1 - 0.2));
+:root {
+	font-family: Inter, sans-serif;
+	color: rgba(0, 0, 0, calc(1 - 0.2));
 }
 
 .tz-header {
