@@ -1,6 +1,8 @@
-.PHONY: migrate ide-helper rollback format check
+.PHONY: migrate ide-helper rollback format check start-container verify
 migrate:
-	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin --path=/database/migrations/orchid --path=/database/migrations/updates --path=/database/migrations/users
+	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin \
+	--path=/database/migrations/orchid --path=/database/migrations/updates \
+	--path=/database/migrations/users
 
 ide-helper:
 	@echo "--> Generating documentations for Eloquent, models and meta..."
@@ -37,3 +39,10 @@ build:
 # PLEASE ROLLBACK ACCORDING TO YOUR NEEDS
 rollback:
 	@php artisan migrate:rollback --path=/database/migrations --path=/database/migrations/admin
+
+# Only in dev mode
+start-container:
+	@./vendor/bin/sail up -d
+
+verify:
+	@make check && make test
