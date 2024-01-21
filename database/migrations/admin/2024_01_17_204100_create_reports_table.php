@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('reports')) {
+        if (! Schema::hasTable('reports')) {
             Schema::create('reports', function (Blueprint $table) {
                 $table->id();
                 $table->integer('report_id');
