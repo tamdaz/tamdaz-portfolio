@@ -29,6 +29,7 @@ class ManageAdminIP extends Command
     {
         return match ($this->argument('action')) {
             'add' => $this->addIP(),
+            'show' => $this->showIP(),
             'remove' => $this->removeIP()
         };
     }
@@ -53,6 +54,19 @@ class ManageAdminIP extends Command
         AdminIP::create(['ip_address' => $ip]);
 
         $this->info("IP address $ip has been added to the database");
+
+        return Command::SUCCESS;
+    }
+
+    private function showIP(): int
+    {
+        $ips = AdminIP::get(['id', 'ip_address']);
+
+        $this->info("There's {$ips->count()} IP adresses");
+
+        $this->table(
+            ['ID', 'IP address'], $ips
+        );
 
         return Command::SUCCESS;
     }
