@@ -25,8 +25,6 @@
             <a href="{{ route('pages.bts-sio') }}" class="tz-dropdown-menu-item">Présentation</a>
             <a href="{{ route('pages.certifications') }}" class="tz-dropdown-menu-item">Certifications</a>
             <a href="{{ route('pages.tw') }}" class="tz-dropdown-menu-item">Veille technologique</a>
-        </x-dropdown>
-        <x-dropdown id="resources" name="Ressources">
             <a href="{{ route('pages.reports') }}" class="tz-dropdown-menu-item">Comptes-rendus</a>
             <a class="block px-6 py-3 opacity-50">Note de synthèse</a>
         </x-dropdown>

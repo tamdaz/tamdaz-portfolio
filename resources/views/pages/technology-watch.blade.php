@@ -17,7 +17,7 @@
 			<p class="my-4 px-8 max-w-[700px] text-center">
 				Le but de la veille technologique est de suivre l'évolution de la thématique choisie.
 				<br />
-				Dans mon cas, ma thématique est sur le Rasberry car il est actuellement utilisé pour faire des IOT,
+				Dans mon cas, ma thématique est sur le Raspberry car il est actuellement utilisé pour faire des IOT,
 				pour un poste informatique et pour l'analyse de données.
 			</p>
 		</div>
