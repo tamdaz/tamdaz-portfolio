@@ -83,8 +83,8 @@ class PageController extends Controller
     public function sitemap(): View
     {
         [$categories_blogs, $categories_reports, $tw] = [
-            Category::with('blogs')->usedForBlogs()->get(),
-            Category::with('reports')->usedForReports()->get(),
+            Category::usedFor('blogs')->with('blogs')->get(),
+            Category::usedFor('reports')->with('reports')->get(),
             TW::all(),
         ];
 

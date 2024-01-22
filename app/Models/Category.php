@@ -39,28 +39,19 @@ class Category extends Model
     }
 
     /**
-     * @param  Builder<Category>  $builder
-     * @return Builder<Category>
-     */
-    public function scopeUsedForBlogs(Builder $builder): Builder
-    {
-        return $builder->where('used_for', '=', 'blogs');
-    }
-
-    /**
-     * @param  Builder<Category>  $builder
-     * @return Builder<Category>
-     */
-    public function scopeUsedForReports(Builder $builder): Builder
-    {
-        return $builder->where('used_for', '=', 'reports');
-    }
-
-    /**
      * @return HasMany<Report>
      */
     public function reports(): HasMany
     {
-        return $this->hasMany(Report::class, 'report_id', 'id');
+        return $this->hasMany(Report::class);
+    }
+
+    /**
+     * @param  Builder<Category>  $builder
+     * @return Builder<Category>
+     */
+    public function scopeUsedFor(Builder $builder, string $name): Builder
+    {
+        return $builder->where('used_for', '=', $name);
     }
 }

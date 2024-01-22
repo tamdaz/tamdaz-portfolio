@@ -29,15 +29,17 @@
 			@endforeach
 		</ul>
 		<li>
-			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Comptes-rendus</a>
+			<a class="underline hover:font-semibold" href="{{ route('pages.reports') }}">Comptes-rendus</a>
 		</li>
 		<ul class="ml-6">
 			@foreach($categories_reports as $category)
 				<li>{{ $category->name }}</li>
 				<ul class="ml-6">
-					@forelse($category->blogs as $blog)
+					@forelse($category->reports as $report)
 						<li>
-							<a class="underline hover:font-semibold" href="{{ route('pages.blogs.show', ['blog' => $blog]) }}">{{ $blog->title }}</a>
+							<a class="underline hover:font-semibold" href="{{ $report->file->url }}">
+								{{ $report->title }}
+							</a>
 						</li>
 					@empty
 						<li>Pas de comptes-rendus liés à cette catégorie</li>
@@ -52,9 +54,11 @@
 			@foreach($categories_blogs as $category)
 				<li>{{ $category->name }}</li>
 				<ul class="ml-6">
-					@forelse($category->reports as $blog)
+					@forelse($category->blogs as $blog)
 						<li>
-							<a class="underline hover:font-semibold" href="{{ route('pages.blogs.show', ['blog' => $blog]) }}">{{ $blog->title }}</a>
+							<a class="underline hover:font-semibold" href="{{ route('pages.blogs.show', compact('blog')) }}">
+								{{ $blog->title }}
+							</a>
 						</li>
 					@empty
 						<li>Pas de blogs liés à cette catégorie</li>
