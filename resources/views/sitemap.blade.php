@@ -37,7 +37,7 @@
 				<ul class="ml-6">
 					@forelse($category->reports as $report)
 						<li>
-							<a class="underline hover:font-semibold" href="{{ $report->file->url }}">
+							<a class="underline hover:font-semibold" href="{{ $report->title }}">
 								{{ $report->title }}
 							</a>
 						</li>
