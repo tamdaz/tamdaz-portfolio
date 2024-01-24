@@ -82,14 +82,12 @@ class PageController extends Controller
     #[Get('/sitemap', name: 'pages.sitemap')]
     public function sitemap(): View
     {
-        [$categories_blogs, $categories_reports, $tw] = [
+        [$blogs, $reports, $tw] = [
             Category::usedFor('blogs')->with('blogs')->latest('created_at')->get(),
-            Category::usedFor('reports')->with('reports')->get(),
+            Category::usedFor('reports')->with('reports.file')->get(),
             TW::all(),
         ];
 
-        return view('sitemap',
-            compact('categories_blogs', 'categories_reports', 'tw')
-        );
+        return view('sitemap', compact('blogs', 'reports', 'tw'));
     }
 }
