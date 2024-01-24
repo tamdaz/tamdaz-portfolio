@@ -25,38 +25,59 @@ class BlogSearch extends Component
      */
     public $category;
 
+    /**
+     * @var string
+     */
     public string $dateOrder = 'DESC';
 
+    /**
+     * @var array<string, array<string, string>>
+     */
     protected $queryString = [
         'search' => ['except' => ''],
         'category' => ['except' => '0'],
     ];
 
+    /**
+     * @return void
+     */
     public function updatingSearch(): void
     {
         $this->resetPage();
     }
 
+    /**
+     * @return void
+     */
     public function updatingCategory(): void
     {
         $this->resetPage();
     }
 
+    /**
+     * @return void
+     */
     public function toggleButtonDate(): void
     {
         $this->dateOrder === 'DESC' ? $this->dateOrder = 'ASC' : $this->dateOrder = 'DESC';
     }
 
+    /**
+     * @return LengthAwarePaginator
+     */
     private function filterItems(): LengthAwarePaginator
     {
         $query = $this->blog::published()
             ->with(['thumbnail', 'category'])
-            ->where('title', 'like', '%'.$this->search.'%');
+            ->where('title', 'like', '%'.$this->search.'%')
+            ->orderBy('created_at', $this->dateOrder)
+        ;
 
         if ($this->category !== null && $this->category != '0') {
             $query
                 ->where('category_id', $this->category)
-                ->orderBy('created_at', $this->dateOrder);
+                ->orderBy('created_at', $this->dateOrder)
+            ;
         }
 
         return $query->paginate(6);
@@ -68,7 +89,8 @@ class BlogSearch extends Component
             'items' => $this->filterItems(),
             'categories' => Category::select(['id', 'name'])
                 ->where('used_for', '=', 'blogs')
-                ->get(),
+                ->get()
+            ,
         ]);
     }
 }
