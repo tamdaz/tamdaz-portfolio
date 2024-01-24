@@ -56,7 +56,7 @@ class BlogResource extends Resource
                 ->title('Description'),
             Select::make('category_id')
                 ->title('Catégorie')
-                ->options(Category::usedForBlogs()->pluck('name', 'id')),
+                ->options(Category::usedFor('blogs')->pluck('name', 'id')),
             SimpleMDE::make('content')
                 ->title('Contenu'),
             Cropper::make('thumbnail_id')

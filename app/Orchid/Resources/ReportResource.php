@@ -42,7 +42,7 @@ class ReportResource extends Resource
             Input::make('title')->title('Titre'),
             Select::make('category_id')
                 ->title('Catégorie')
-                ->options(Category::usedForReports()->pluck('name', 'id')),
+                ->options(Category::usedFor('reports')->pluck('name', 'id')),
             Upload::make('report_id')
                 ->title('Document')
                 ->maxFiles(1)
