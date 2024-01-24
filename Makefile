@@ -1,4 +1,4 @@
-.PHONY: migrate ide-helper rollback format check start-container verify
+.PHONY: migrate ide-helper rollback format check start-container verify pull
 migrate:
 	@php artisan migrate --path=/database/migrations --path=/database/migrations/admin \
 	--path=/database/migrations/orchid --path=/database/migrations/updates \
@@ -35,6 +35,9 @@ build:
 	@rm -rfv node_modules/
 	@cd .. && chown www-data:www-data -Rv tamdaz-portfolio && cd tamdaz-portfolio/
 	@echo "--> Successfully built !"
+
+pull:
+	@git pull origin main
 
 # PLEASE ROLLBACK ACCORDING TO YOUR NEEDS
 rollback:
