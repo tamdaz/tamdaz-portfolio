@@ -4,6 +4,7 @@ Disallow: /components/
 Disallow: /contact-send/
 Disallow: /_debugbar/
 Disallow: /_ignition/
+Disallow: /livewire/
 Disallow: /sanctum/
 Disallow: /md/
 Disallow: /docs/
