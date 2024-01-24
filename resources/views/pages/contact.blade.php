@@ -1,6 +1,6 @@
 @extends('layouts.classic-full')
 
-@section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM - Contact')
+@section('title', 'Contact - Tamda Zohir - Portfolio BTS SIO SLAM')
 
 @section('container')
     <div class="w-screen h-full lg:h-screen lg:grid md:grid-cols-2 xl:flex xl:flex-row">

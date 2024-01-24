@@ -1,6 +1,6 @@
 @extends('layouts.classic-full')
 
-@section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM - Veille technologique')
+@section('title', 'Veille technologique - Tamda Zohir - Portfolio BTS SIO SLAM')
 
 @section('container')
 	@vite('resources/js/glitch.js')
