@@ -2,7 +2,7 @@
 
 <div class="tz-timeline">
     @foreach ($periods as $k => $v)
-        <div class="flex flex-row m-auto h-[120px] transition-all">
+        <div class="flex flex-row m-auto h-[150px] transition-all">
             {{-- Line SVG --}}
             <svg class="flex-none stroke-green-500" width="50px">
                 @if ($k === count($periods) - 1)
