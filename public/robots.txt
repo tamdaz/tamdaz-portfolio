@@ -8,6 +8,10 @@ Disallow: /livewire/
 Disallow: /sanctum/
 Disallow: /md/
 Disallow: /docs/
+Disallow: /storage/
+Disallow: /vendor/
 Disallow: /img/
+
 Disallow: /.htaccess
 Disallow: /.gitignore
+Disallow: /sitemap.xml
