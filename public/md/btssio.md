@@ -14,17 +14,16 @@ sur le développement de sites web.
 
 # Examens
 
-| Examens                                                      | Coefficient | Durée | Forme          |
-|--------------------------------------------------------------|-------------|-------|----------------|
-| Culture générale et expression                               | 2           | 4h    | Ecrite         |
-| Communication anglaise                                       | 2           | 2h30  | Ecrite + Orale |
-| Culture économique juridique et managériale                  | 3           | 4h    | Ecrite         |
-| Support et mise à disposition de services informatiques      | 4           | 40min | Orale          |
-| Administration des systèmes et des réseaux (option **SISR**) | 4           | 40min | Orale          |
-| Cybersécurité des services informatiques (option **SISR**)   | 4           | 4h    | Ecrite         |
-| Conception et développement d'applications (option **SLAM**) | 4           | 40min | Orale          |
-| Cybersécurité des services informatiques (option **SLAM**)   | 4           | 4h    | Ecrite         |
-| Culture économique juridique et managériale                  | 4           | 4h    | Ecrite         |
+| Examens                                                      | Coef. | Durée | Forme          |
+|--------------------------------------------------------------|-------|-------|----------------|
+| Culture générale et expression                               | 2     | 4h    | Ecrite         |
+| Communication anglaise                                       | 2     | 2h30  | Ecrite + Orale |
+| Culture économique juridique et managériale                  | 3     | 4h    | Ecrite         |
+| Support et mise à disposition de services informatiques      | 4     | 40min | Orale          |
+| Administration des systèmes et des réseaux (option **SISR**) | 4     | 40min | Orale          |
+| Conception et développement d'applications (option **SLAM**) | 4     | 40min | Orale          |
+| Cybersécurité des services informatiques                     | 4     | 4h    | Ecrite         |
+| Culture économique juridique et managériale                  | 4     | 4h    | Ecrite         |
 
 
 # Les débouchés
