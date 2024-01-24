@@ -32,12 +32,12 @@
 			<a class="underline hover:font-semibold" href="{{ route('pages.reports') }}">Comptes-rendus</a>
 		</li>
 		<ul class="ml-6">
-			@foreach($categories_reports as $category)
+			@foreach($reports as $category)
 				<li>{{ $category->name }}</li>
 				<ul class="ml-6">
 					@forelse($category->reports as $report)
 						<li>
-							<a class="underline hover:font-semibold" href="{{ $report->title }}">
+							<a class="underline hover:font-semibold" href="{{ $report->file->url }}">
 								{{ $report->title }}
 							</a>
 						</li>
@@ -51,7 +51,7 @@
 			<a class="underline hover:font-semibold" href="{{ route('pages.blogs') }}">Blogs</a>
 		</li>
 		<ul class="ml-6">
-			@foreach($categories_blogs as $category)
+			@foreach($blogs as $category)
 				<li>{{ $category->name }}</li>
 				<ul class="ml-6">
 					@forelse($category->blogs as $blog)
