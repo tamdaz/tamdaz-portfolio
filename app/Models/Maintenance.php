@@ -14,10 +14,11 @@ class Maintenance extends Model
     use AsSource, HasFactory;
 
     protected $fillable = [
-        'message', 'end_maintenance',
+        'message', 'start_maintenance', 'end_maintenance',
     ];
 
     protected $casts = [
+        'start_maintenance' => 'datetime',
         'end_maintenance' => 'datetime',
     ];
 }
