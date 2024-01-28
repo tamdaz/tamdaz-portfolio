@@ -13,7 +13,7 @@
             <div class="flex flex-row px-6 py-4 relative">
                 <div class="flex flex-col w-full">
                     <span class="font-bold text-xl mb-1">{{ htmlspecialchars_decode($title) }}</span>
-                    <span>{{ htmlspecialchars_decode($description) }}</span>
+                    <span>{{ Str::limit(htmlspecialchars_decode($description), 42) }}</span>
                     @if($category !== "")
                         <div class="pt-4 mb-2">
                             <span class="py-2 px-4 bg-green-700 text-white rounded-full">{{ $category }}</span>
