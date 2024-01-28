@@ -53,7 +53,7 @@ class PlatformScreen extends Screen
     public function layout(): iterable
     {
         return [
-            Layout::view('platform::partials.update-assets')
+            Layout::view('platform::partials.update-assets'),
         ];
     }
 }
