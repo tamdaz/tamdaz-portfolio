@@ -25,12 +25,12 @@
 		&#8595; Glisser vers le haut pour descendre
 	</div>
 
-	@if(App::isLocal() && App::hasDebugModeEnabled())
+	@if($maintenance->start_maintenance->diffInHours() <= 10)
 		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
 			<x-alert
 				type="warn"
-				primary="Site portfolio en développement"
-				secondary="Pour le moment, le site portfolio est en cours de développement, il sera bientôt opérationnel."
+				primary="Maintenance {{ $maintenance->start_maintenance->diffForHumans(null) }}."
+				secondary="{{ $maintenance->message }}"
 			/>
 		</div>
 	@endif
