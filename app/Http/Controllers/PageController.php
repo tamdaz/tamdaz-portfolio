@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Certification;
+use App\Models\Maintenance;
 use App\Models\Report;
 use App\Models\Skill;
 use App\Models\Timeline;
@@ -25,6 +26,7 @@ class PageController extends Controller
                 'experience' => Timeline::filterByType('experience')->toArray(),
                 'formation' => Timeline::filterByType('formation')->toArray(),
             ],
+            'maintenance' => Maintenance::first(),
         ]);
     }
 
@@ -83,7 +85,7 @@ class PageController extends Controller
     public function sitemap(): View
     {
         [$blogs, $reports, $tw] = [
-            Category::usedFor('blogs')->with('blogs')->latest('created_at')->get(),
+            Category::usedFor('blogs')->with('blogs')->get(),
             Category::usedFor('reports')->with('reports.file')->get(),
             TW::all(),
         ];
