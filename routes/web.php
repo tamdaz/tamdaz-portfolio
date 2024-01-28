@@ -1,5 +1,6 @@
 <?php
 
 /**
- * Routes are no longer registered in this file, those are now on all methods as attribute.
+ * Web Routes are no longer registered in this file. Those are located
+ * on all methods as attributes.
  */
