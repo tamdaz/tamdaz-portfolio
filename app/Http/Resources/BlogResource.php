@@ -18,16 +18,19 @@ class BlogResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $displayContent = $this->when($request->routeIs('api.blogs.show'), $this->resource->content);
+        $displayCategory = $this->when(! $request->routeIs('api.categories.index', 'api.categories.show'), [
+            'id' => $this->resource->category->id,
+            'name' => $this->resource->category->name,
+        ]);
+
         return [
             'id' => $this->resource->id,
             'title' => $this->resource->title,
             'description' => $this->resource->description,
-            'content' => $this->when($request->routeIs('api.blogs.show'), $this->resource->content),
-            'thumbnail' => optional($this->resource->thumbnail)->url,
-            'category' => $this->when(! $request->routeIs('api.categories.index', 'api.categories.show'), [
-                'id' => $this->resource->category->id,
-                'name' => $this->resource->category->name,
-            ]),
+            'content' => $displayContent,
+            'thumbnail' => $this->resource->thumbnail->url,
+            'category' => $displayCategory,
             'created_at' => $this->resource->created_at,
         ];
     }
