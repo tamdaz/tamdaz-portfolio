@@ -20,12 +20,12 @@ class TWResource extends Resource
 
     public static function nameWithoutResource(): string
     {
-        return 'Veilles technologiques';
+        return 'Veille technologique';
     }
 
-    public static function description(): ?string
+    public static function singularLabel(): string
     {
-        return 'Ensemble de veilles technologiques';
+        return 'Veille technologique';
     }
 
     public function rules(Model $model): array

@@ -61,9 +61,6 @@ class CategoryResource extends Resource
             TD::make('id'),
             TD::make('name', 'Nom'),
             TD::make('used_for', 'Utilisé pour'),
-            TD::make('created_at', 'Date of creation')->render(
-                fn ($model) => $model->created_at->toDateTimeString()
-            ),
         ];
     }
 
@@ -82,9 +79,6 @@ class CategoryResource extends Resource
             ),
             Sight::make('blogs', 'Nombre de blogs')->render(
                 fn (Category $category) => $category->blogs->count()
-            ),
-            Sight::make('created_at', 'Date de création')->render(
-                fn (Category $category) => $category->created_at
             ),
         ];
     }

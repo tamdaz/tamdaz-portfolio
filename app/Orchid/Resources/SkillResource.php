@@ -64,8 +64,6 @@ class SkillResource extends Resource
             TD::make('text_primary', 'Texte primaire'),
             TD::make('text_secondary', 'Texte secondary'),
             TD::make('has_no_colors', "N'a pas de couleurs"),
-            TD::make('created_at', 'Date de création')
-                ->render(fn ($model) => $model->created_at->toDateTimeString()),
         ];
     }
 
@@ -86,8 +84,6 @@ class SkillResource extends Resource
             Sight::make('text_primary', 'Texte primaire'),
             Sight::make('text_secondary', 'Texte secondary'),
             Sight::make('has_no_colors', "N'a pas de couleurs ?"),
-            Sight::make('created_at', 'Date de création')
-                ->render(fn (Skill $skill) => $skill->created_at->toDateTimeString()),
         ];
     }
 
