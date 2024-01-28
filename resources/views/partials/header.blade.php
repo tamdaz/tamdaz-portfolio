@@ -21,6 +21,9 @@
         <input type="checkbox" id="changeThemeHeader" class="slideon slideon-auto mx-4" />
     </label>
     <div class="hidden lg:block">
+        @if(\App\Models\AdminIP::where('ip_address', Request::getClientIp())->exists())
+            <a href="{{ route('platform.main') }}" class="cursor-pointer p-8 text-yellow-500">Administration</a>
+        @endif
         <x-dropdown id="btssio" name="BTS SIO">
             <a href="{{ route('pages.bts-sio') }}" class="tz-dropdown-menu-item">Présentation</a>
             <a href="{{ route('pages.certifications') }}" class="tz-dropdown-menu-item">Certifications</a>
