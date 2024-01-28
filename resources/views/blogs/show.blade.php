@@ -27,7 +27,7 @@
 			</header>
 			<div class="flex flex-row">
 				<article class="blocks w-full mt-2 mb-6 text-justify leading-relaxed markdown" id="article">
-					@php echo (new ParsedownExtra())->text($blog['content']) @endphp
+					{!! Blade::render((new ParsedownExtra())->text($blog['content'])) !!}
 				</article>
 			</div>
 		</div>
