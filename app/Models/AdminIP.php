@@ -12,6 +12,8 @@ class AdminIP extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     /**
      * @var string
      */

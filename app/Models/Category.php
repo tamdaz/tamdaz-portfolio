@@ -16,6 +16,8 @@ class Category extends Model
 {
     use AsSource, Filterable, HasFactory;
 
+    public $timestamps = false;
+
     /**
      * @var string[]
      */

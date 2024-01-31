@@ -21,6 +21,8 @@ class Report extends Model
 {
     use AsSource, Attachable, Filterable, HasFactory;
 
+    public $timestamps = false;
+
     /**
      * @var string[]
      */
