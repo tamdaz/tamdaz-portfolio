@@ -186,7 +186,7 @@ return [
 
     'attachment' => [
         'disk' => env('DASHBOARD_FILESYSTEM_DISK', 'public'),
-        'generator' => \Orchid\Attachment\Engines\Generator::class,
+        'generator' => \App\Services\CustomGenerator::class,
     ],
 
     /*
