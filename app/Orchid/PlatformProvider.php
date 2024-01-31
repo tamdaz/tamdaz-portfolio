@@ -30,8 +30,7 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Maintenance')
                 ->icon('bs.clock')
                 ->route('platform.maintenance')
-                ->divider()
-            ,
+                ->divider(),
         ];
     }
 
