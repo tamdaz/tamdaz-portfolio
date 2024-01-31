@@ -27,7 +27,7 @@
 
             <div class="tz-timeline-details">
                 <span class="font-bold text-xl">{{ $v['date_start'] . " - " . $v['date_end'] }}</span>
-                <p class="mt-1">{{ $v['description'] }}</p>
+                <p class="mt-1 italic">{{ $v['description'] }}</p>
             </div>
         </div>
     @endforeach

@@ -17,7 +17,9 @@
 				</div>
 			</a>
 		@empty
-			<h2 class="text-center text-2xl my-8 grid-cols-2">Pas de comptes-rendus publiés pour le moment...</h2>
+			<h2 class="text-center italic text-2xl my-8 grid-cols-2">
+				Pas de comptes-rendus publiés pour le moment...
+			</h2>
 		@endforelse
 	</div>
 @endsection
