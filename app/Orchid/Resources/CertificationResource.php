@@ -91,7 +91,9 @@ class CertificationResource extends Resource
      */
     public function filters(): array
     {
-        return [];
+        return [
+
+        ];
     }
 
     public function save(ResourceRequest $request, Model|Certification $model): void

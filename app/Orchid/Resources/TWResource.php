@@ -4,6 +4,7 @@ namespace App\Orchid\Resources;
 
 use App\Models\TW;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Sight;
@@ -96,6 +97,8 @@ class TWResource extends Resource
      */
     public function filters(): array
     {
-        return [];
+        return [
+            new DefaultSorted('created_at', 'desc'),
+        ];
     }
 }

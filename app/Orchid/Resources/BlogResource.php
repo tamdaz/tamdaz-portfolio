@@ -5,6 +5,7 @@ namespace App\Orchid\Resources;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Components\Cells\Boolean;
@@ -84,12 +85,12 @@ class BlogResource extends Resource
             TD::make('id', 'ID'),
             TD::make('is_published', 'Est publié ?')
                 ->usingComponent(Boolean::class, true: ' Oui', false: ' Non'),
-            TD::make('title'),
+            TD::make('title', 'Titre'),
             TD::make('category_id', 'Catégorie')->render(
                 fn (Blog $model) => $model->category->name ?? "<b style='color: red'>Catégorie non associée</b>"
             ),
             TD::make('created_at', 'Date de création')->render(
-                fn (Blog $model) => $model->created_at->toDateTimeString()
+                fn (Blog $model) => $model->created_at->diffForHumans()
             ),
         ];
     }
@@ -115,8 +116,9 @@ class BlogResource extends Resource
                     <img src="{$blog->attachment()->first()}" alt='img' width='100%' />
                 HTML;
             }),
-            Sight::make('created_at', 'Date de création')
-                ->render(fn (Blog $blog) => $blog->created_at->toDateTimeString()),
+            Sight::make('created_at', 'Date de création')->render(
+                fn (Blog $blog) => $blog->created_at->diffForHumans()
+            ),
         ];
     }
 
@@ -125,7 +127,9 @@ class BlogResource extends Resource
      */
     public function filters(): array
     {
-        return [];
+        return [
+            new DefaultSorted('created_at', 'desc'),
+        ];
     }
 
     public function save(ResourceRequest $request, Model|Blog $model): void
