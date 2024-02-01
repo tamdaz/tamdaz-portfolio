@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Certification;
 use App\Models\Maintenance;
-use App\Models\Report;
 use App\Models\Skill;
 use App\Models\Timeline;
 use App\Models\TW;
@@ -67,9 +66,7 @@ class PageController extends Controller
     #[Get('/reports', name: 'pages.reports')]
     public function reports(): View
     {
-        return view('pages.reports', [
-            'reports' => Report::latestReport()->with('file', 'category')->get(),
-        ]);
+        return view('pages.reports');
     }
 
     /**
