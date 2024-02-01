@@ -5,10 +5,6 @@
 @section('container')
     <div class="w-screen h-full lg:h-screen lg:grid md:grid-cols-2 xl:flex xl:flex-row">
         <div class="flex flex-col justify-center mt-16 lg:mt-0 lg:order-last px-8 py-8 w-full">
-            <x-alert
-                type="info"
-                primary="Page de contact"
-                secondary="Si la page de contact ne fonctionne pas, vous pouvez envoyer votre message via mon adresse email : tamda.zohir.pro@gmail.com" />
             @if (session()->has('success'))
                 <x-alert
                     type="success"
