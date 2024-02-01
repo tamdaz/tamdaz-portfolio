@@ -1,7 +1,7 @@
 <footer class="bg-neutral-50 dark:bg-neutral-950 border-t dark:border-neutral-800 py-6">
     <div class="items-center justify-end dark:divide-neutral-700 px-16 lg:w-[1100px] m-auto">
         <div class="flex flex-row items-center">
-            <span>Tamda Zohir - {{ date("Y") }}</span>
+            <span>&copy; Tamda Zohir - {{ date("Y") }}</span>
             <div class="flex-grow"></div>
             <label>
                 <input type="checkbox" id="changeThemeFooter" class="slideon slideon-auto">
