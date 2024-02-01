@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Blog;
 use App\Models\Category;
@@ -63,15 +63,15 @@ class BlogSearch extends Component
                 ->orderBy('created_at', $this->dateOrder);
         }
 
-        return $query->paginate(6);
+        return $query->paginate(1);
     }
 
     public function render(): View
     {
         return view('livewire.blog-search', [
             'items' => $this->filterItems(),
-            'categories' => Category::select(['id', 'name'])
-                ->where('used_for', '=', 'blogs')
+            'categories' => Category::usedFor('blogs')
+                ->select(['id', 'name'])
                 ->get(),
         ]);
     }

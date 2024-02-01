@@ -11,14 +11,14 @@
             <label>
                 <input
                     placeholder="Rechercher..."
-                    wire:model="search" type="search"
+                    wire:model.live="search" type="search"
                     name="search"
                     class="w-full outline-none px-4 py-2"/>
             </label>
         </div>
         <div class="flex gap-1">
             <label class="flex-grow">
-                <select name="category" class="w-full" wire:model="category">
+                <select name="category" class="w-full" wire:model.live="category">
                     <option value="0">Tous les catégories</option>
                     @if(count($categories) !== 0)
                         @if (!empty($categories))
