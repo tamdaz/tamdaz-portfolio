@@ -6,7 +6,9 @@
 	<h1 class="text-4xl md:text-7xl font-bold mt-4 mb-8">Plan du site</h1>
 	<p>
 		Le plan du site permet de rendre visible les pages accessibles pour les utilisateurs. Ce qui permet de
-		mieux s'y retrouver.
+		mieux s'y retrouver. <br />
+		Il y a également le fichier <a class="underline hover:font-semibold" href="/sitemap.xml">sitemap.xml</a>
+		qui permet de référencer ce site portfolio par les moteurs de recherche comme Google.
 	</p>
 	<ul>
 		<li>
@@ -52,7 +54,11 @@
 		</li>
 		<ul class="ml-6">
 			@foreach($blogs as $category)
-				<li>{{ $category->name }}</li>
+				<li>
+					<a class="underline hover:font-semibold" href="{{ route('pages.blogs', ['category' => $category->id]) }}">
+						{{ $category->name }}
+					</a>
+				</li>
 				<ul class="ml-6">
 					@forelse($category->blogs as $blog)
 						<li>

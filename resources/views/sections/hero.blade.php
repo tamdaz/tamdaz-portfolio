@@ -25,13 +25,20 @@
 		&#8595; Glisser vers le haut pour descendre
 	</div>
 
-	@if($maintenance->start_maintenance->diffInHours() <= 10)
-		<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
+	<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
+		@if($maintenance->start_maintenance->diffInHours() <= 10)
 			<x-alert
 				type="warn"
 				primary="Maintenance {{ $maintenance->start_maintenance->diffForHumans(null) }}."
 				secondary="{{ $maintenance->message }}"
 			/>
-		</div>
-	@endif
+		@else
+			<x-alert
+				type="warning"
+				primary="Site portfolio non finalisé"
+				secondary="Actuellement, ce site portfolio est en train d'être amélioré,
+				il ne s'agit pas encore d'une version finale."
+			/>
+		@endif
+	</div>
 </section>

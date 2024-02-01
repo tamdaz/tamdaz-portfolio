@@ -23,6 +23,19 @@
 		</div>
 	</div>
 	<div class="max-w-[1050px] m-auto mb-12 p-8">
+		<h1 class="text-5xl font-bold mb-8">Méthode de veille ?</h1>
+		<div class="grid grid-cols-4 gap-8">
+			<img src="/img/feedly.svg" alt="feedly" />
+			<p class="col-span-3 flex items-center">
+				Pour recueillir de nouvelles informations, la méthode de veille automatique est utilisée.
+				Pour cela, j'utilise Feedly qui est un site web permettant de récupérer
+				automatiquement les nouveaux articles sur l'évolution du Raspberry.
+				<br/>
+				Les sites publiant les articles sur le Raspberry et possédant le flux RSS sont choisis.
+			</p>
+		</div>
+	</div>
+	<div class="max-w-[1050px] m-auto mb-12 p-8">
 		<h1 class="text-5xl font-bold mb-8">Derniers articles</h1>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			@forelse ($news as $new)
