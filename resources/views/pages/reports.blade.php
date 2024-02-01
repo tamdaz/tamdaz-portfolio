@@ -2,24 +2,24 @@
 
 @section('title', 'Comptes-rendus - Tamda Zohir - Portfolio BTS SIO SLAM')
 
+@section('head')
+	@livewireStyles
+@endsection
+
 @section('container')
 	<h1 class="text-4xl md:text-7xl mb-8 font-bold animate-title-anim">Comptes-rendus</h1>
-	<p>Voici l'ensemble de comptes-rendus effectués.</p>
-	<div class="tz-list">
-		@forelse($reports as $report)
-			<a href="{{ $report->file->url }}" class="tz-list-item">
-				<div>
-					<h2 class="text-2xl font-bold">{{ $report->title }}</h2>
-					<p>Créé le {{ \Carbon\Carbon::parse($report->file_created_at)->translatedFormat('d F Y') }}</p>
-					<span class="inline-block bg-green-700 px-4 py-1 rounded-full mt-2 text-white">
-						{{ $report->category->name }}
-					</span>
-				</div>
-			</a>
-		@empty
-			<h2 class="text-center italic text-2xl my-8 grid-cols-2">
-				Pas de comptes-rendus publiés pour le moment...
-			</h2>
-		@endforelse
-	</div>
+	<p class="mb-6">
+		Les comptes-rendus sont publiés, mis à jour et accessibles pour tout lecteur.
+		Elles sont triées par date de création du plus récent au plus ancien.
+		Également, elles sont catégorisées par les 3 blocs en lien avec le BTS SIO: Bloc 1 <i>(Mise à disposition des
+		services informatiques)</i>, Bloc 2 <i>(SLAM)</i> et Bloc 3 <i>(Cybersécurité)</i>.
+	</p>
+
+	<x-alert
+		type="info"
+		secondary="Si vous constatez qu'il y a des erreurs ou des incohérences dans mes comptes-rendus,
+		n'hésitez pas à me prévenir en envoyant un message dans la page de contact." />
+
+	@livewire('report-search')
+	@livewireScripts
 @endsection
