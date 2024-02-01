@@ -39,7 +39,7 @@ class ReportSearch extends Component
                 ->where('category_id', '=', $this->category);
         }
 
-        return $query->paginate(1);
+        return $query->paginate(6);
     }
 
     public function render(): View

@@ -63,7 +63,7 @@ class BlogSearch extends Component
                 ->orderBy('created_at', $this->dateOrder);
         }
 
-        return $query->paginate(1);
+        return $query->paginate(6);
     }
 
     public function render(): View
