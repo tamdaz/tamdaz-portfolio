@@ -3,18 +3,16 @@
 @section('title', "Maintenance - Tamda Zohir")
 
 @section('body')
-    <div class="w-screen h-screen flex flex-col justify-center items-center bg-black text-white z-0">
-        <h1 class="animate-pickaxe text-7xl font-bold my-8">⛏️</h1>
-        <span class="animate-zoom text-3xl">Arrive bientôt...</span>
-		<div class="absolute w-[500px] h-[350px] -z-10 border"></div>
+    <div class="w-screen h-screen flex flex-row justify-center items-center bg-black text-white scale-150">
+        <h1 class="animate-pickaxe text-7xl font-bold mr-16">⛏️</h1>
 	</div>
 
-	<div class="absolute animate-zoom animate-pulse border px-5 py-4 bottom-16 left-0 right-0 w-[800px] m-auto border-yellow-500 text-yellow-500">
+	<div class="absolute animate-zoom border px-5 py-4 bottom-16 left-0 right-0 w-[800px] m-auto border-yellow-500 text-yellow-500">
 		@if(\App\Models\Maintenance::find(1)->message !== null)
 			Raison de la maintenance : {{ \App\Models\Maintenance::find(1)->message }}
 			<br/>
 		@endif
-		Fin de la maintenance dans <span id="demo"></span>
+		Fin de la maintenance dans : <span id="demo"></span>
 	</div>
 
 	<script>
