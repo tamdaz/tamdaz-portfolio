@@ -19,6 +19,9 @@ format:
 	@./vendor/bin/pint
 	@echo "--> Successfully formatted codes"
 
+.PHONY: api
+	@php artisan openapi:generate > ./public/docs.json
+
 .PHONY: check
 check:
 	@echo "--> Checking documentations..."
