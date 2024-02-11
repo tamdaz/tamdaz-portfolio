@@ -26,10 +26,10 @@
 	</div>
 
 	<div class="absolute top-24 left-0 right-0 w-1/2 m-auto animate-zoom invisible lg:visible">
-		@if($maintenance->start_maintenance->diffInHours() <= 10)
+		@if($maintenance->start_maintenance->diffInHours() <= 10 && $maintenance->start_maintenance->isFuture())
 			<x-alert
-				type="warn"
-				primary="Maintenance {{ $maintenance->start_maintenance->diffForHumans(null) }}."
+				type="debug"
+				primary="Maintenance {{ $maintenance->start_maintenance->diffForHumans() }}."
 				secondary="{{ $maintenance->message }}"
 			/>
 		@else
