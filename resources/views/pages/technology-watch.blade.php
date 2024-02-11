@@ -6,9 +6,6 @@
 	@vite('resources/js/glitch.js')
 
 	<div class="relative">
-		<div class="w-screen h-[700px] flex justify-center items-center -z-10 absolute">
-			<img class="absolute -z-20 scale-0 animate-light user-select-none" src="/img/bg_blur.png" alt="bg_blur" />
-		</div>
 		<div class="w-screen h-[700px] flex justify-center items-center absolute" id="rasberry">
 			<img class="opacity-35 width-[100px] block" src="/img/rasberry-pi.svg" id="rasberry_img" alt="rasberry" width="400px" />
 		</div>
