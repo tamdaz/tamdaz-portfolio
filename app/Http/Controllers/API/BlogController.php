@@ -11,7 +11,9 @@ use Spatie\RouteAttributes\Attributes\Get;
 class BlogController extends Controller
 {
     /**
-     * Get all blogs with specified category
+     * Get all blogs with category.
+     *
+     * Get all blogs with the specified category.
      */
     #[Get('/blogs', name: 'api.blogs.index')]
     public function index(): AnonymousResourceCollection
