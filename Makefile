@@ -4,6 +4,12 @@ migrate:
 	--path=/database/migrations/orchid --path=/database/migrations/updates \
 	--path=/database/migrations/users
 
+.PHONY: sail-migrate
+sail-migrate:
+	@./vendor/bin/sail artisan migrate --path=/database/migrations --path=/database/migrations/admin \
+	--path=/database/migrations/orchid --path=/database/migrations/updates \
+	--path=/database/migrations/users
+
 .PHONY: ide-helper
 ide-helper:
 	@echo "--> Generating documentations for Eloquent, models and meta..."
@@ -62,6 +68,10 @@ production:
 .PHONY: rollback
 rollback:
 	@php artisan migrate:rollback --path=/database/migrations --path=/database/migrations/admin
+
+.PHONY: sail-rollback
+sail-rollback:
+	@./vendor/bin/sail artisan migrate:rollback --path=/database/migrations --path=/database/migrations/admin
 
 # Only in dev mode
 .PHONY: start-container
