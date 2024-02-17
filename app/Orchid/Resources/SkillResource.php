@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Fields\CheckBox;
-use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Sight;
 use Orchid\Screen\TD;
 
@@ -39,10 +39,9 @@ class SkillResource extends Resource
             Input::make('text_primary')->title('Texte primaire'),
             Input::make('text_secondary')->title('Texte secondaire'),
             CheckBox::make('has_no_colors')->title("N'a pas de couleur ?")->sendTrueOrFalse(),
-            Cropper::make('skill_id')
+            Picture::make('skill_id')
                 ->title('Image')
-                ->width(512)
-                ->height(512)
+                ->acceptedFiles('.svg')
                 ->targetId(),
         ];
     }
@@ -58,7 +57,7 @@ class SkillResource extends Resource
             TD::make('id', 'ID'),
             TD::make('skill_id', 'Image (ratio: 1/1)')->render(function (Skill $skill) {
                 return <<<HTML
-                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />                
+                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />
                 HTML;
             }),
             TD::make('text_primary', 'Texte primaire'),
@@ -78,7 +77,7 @@ class SkillResource extends Resource
             Sight::make('id', 'ID'),
             Sight::make('skill_id', 'Image')->render(function (Skill $skill) {
                 return <<<HTML
-                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />                
+                    <img src="{$skill->attachment()->first()->url}" alt="skill_id" width="64px" />
                 HTML;
             }),
             Sight::make('text_primary', 'Texte primaire'),
