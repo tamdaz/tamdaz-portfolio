@@ -35,7 +35,9 @@
 		</li>
 		<ul class="ml-6">
 			@foreach($reports as $category)
-				<li>{{ $category->name }}</li>
+				<li>
+					<a class="underline hover:font-semibold" href="{{ route('pages.reports') }}?category={{ $category->id }}">{{ $category->name }}</a>
+				</li>
 				<ul class="ml-6">
 					@forelse($category->reports as $report)
 						<li>
