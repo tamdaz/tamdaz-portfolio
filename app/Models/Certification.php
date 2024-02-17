@@ -38,6 +38,6 @@ class Certification extends Model
      */
     public function certificate(): HasOne
     {
-        return $this->hasOne(Attachment::class, 'id', 'certificate_id');
+        return $this->hasOne(Attachment::class, 'id', 'certificate_id')->withDefault();
     }
 }
