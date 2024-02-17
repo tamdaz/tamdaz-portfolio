@@ -18,6 +18,9 @@ class ReportSearch extends Component
      */
     public $report = Report::class;
 
+	/**
+	 * @var string
+	 */
     public string $search = '';
 
     /**
@@ -25,10 +28,24 @@ class ReportSearch extends Component
      */
     public $category;
 
+    /**
+     * @var array<string, string[]>
+     */
     protected $queryString = [
         'category' => ['except' => '0'],
     ];
 
+	/**
+	 * @return void
+	 */
+    public function updatingCategory(): void
+    {
+        $this->resetPage();
+    }
+
+	/**
+	 * @return LengthAwarePaginator
+	 */
     private function filterItems(): LengthAwarePaginator
     {
         $query = $this->report::latestReport()
@@ -42,6 +59,9 @@ class ReportSearch extends Component
         return $query->paginate(6);
     }
 
+	/**
+	 * @return View
+	 */
     public function render(): View
     {
         return view('livewire.report-search', [
