@@ -77,4 +77,13 @@ class PageTest extends TestCase
         $response = $this->get(route('pages.contact'));
         $response->assertStatus(200);
     }
+
+    /**
+     * @test
+     */
+    public function test_sitemap_page(): void
+    {
+        $response = $this->get(route('pages.sitemap'));
+        $response->assertStatus(200);
+    }
 }
