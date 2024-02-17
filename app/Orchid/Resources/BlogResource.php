@@ -10,8 +10,8 @@ use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\Components\Cells\Boolean;
 use Orchid\Screen\Fields\CheckBox;
-use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\SimpleMDE;
 use Orchid\Screen\Sight;
@@ -60,10 +60,9 @@ class BlogResource extends Resource
                 ->options(Category::usedFor('blogs')->pluck('name', 'id')),
             SimpleMDE::make('content')
                 ->title('Contenu'),
-            Cropper::make('thumbnail_id')
+            Picture::make('thumbnail_id')
                 ->title('Miniature')
-                ->width(1280)
-                ->height(720)
+                ->acceptedFiles('.jpg, .png')
                 ->maxFileSize(2)
                 ->targetId(),
             CheckBox::make('is_published')
@@ -134,7 +133,14 @@ class BlogResource extends Resource
 
     public function save(ResourceRequest $request, Model|Blog $model): void
     {
-        $model->fill($request->all())->save();
+        $model->title = $request->get('title');
+        $model->description = $request->get('description');
+        $model->content = $request->get('content');
+        $model->category_id = $request->integer('category_id');
+        $model->thumbnail_id = $request->integer('thumbnail_id');
+        $model->is_published = $request->boolean('is_published');
+
+        $model->save();
 
         $model->attachment()->syncWithoutDetaching(
             $request->input('thumbnail_id', [])
@@ -143,7 +149,7 @@ class BlogResource extends Resource
 
     public function delete(Model|Blog $model): void
     {
-        $model->attachment()->delete();
+        $model->thumbnail()->delete();
         $model->delete();
     }
 }
