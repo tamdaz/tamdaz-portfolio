@@ -2,7 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Mail\ContactMail;
+use App\Mail\Contact\ContactMail;
+use App\Mail\Contact\SuccessfullySentMail;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
@@ -24,6 +25,8 @@ class ContactTest extends TestCase
         $response->assertRedirectToRoute('pages.contact');
 
         Mail::assertSent(ContactMail::class);
+        Mail::assertSent(SuccessfullySentMail::class);
+        Mail::assertSentCount(2);
     }
 
     /**

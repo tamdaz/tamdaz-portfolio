@@ -2,7 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Mail\ContactMail;
+use App\Mail\Contact\ContactMail;
+use App\Mail\Contact\SuccessfullySentMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -29,6 +30,7 @@ class SendEmail implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::to($this->form['email'])->send(new ContactMail($this->form));
+        Mail::to(getenv('MAIL_FROM_ADDRESS'))->send(new ContactMail($this->form));
+        Mail::to($this->form['email'])->send(new SuccessfullySentMail($this->form));
     }
 }

@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Mail;
+namespace App\Mail\Contact;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
-use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class SuccessfullySentMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,11 +30,7 @@ class ContactMail extends Mailable
     {
         return new Envelope(
             from: new Address(getenv('MAIL_FROM_ADDRESS')),
-            to: [
-                new Address($this->request['email']),
-                new Address(getenv('MAIL_FROM_ADDRESS')),
-            ],
-            subject: 'Envoi de message'
+            subject: 'Message envoyé avec succès'
         );
     }
 
@@ -45,7 +40,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact',
+            markdown: 'emails.successfully_sent',
             with: [
                 'email' => $this->request['email'],
                 'name' => $this->request['name'],
@@ -57,7 +52,7 @@ class ContactMail extends Mailable
     /**
      * Get the attachments for the message.
      *
-     * @return array<int, Attachment>
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
     public function attachments(): array
     {
