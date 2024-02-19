@@ -1,0 +1,12 @@
+.tz-timeline {
+	@apply m-auto my-8 overflow-x-hidden md:overflow-x-visible relative;
+}
+
+.tz-timeline-line-gradient {
+	@apply absolute bottom-0 w-[40px] h-[20px] z-10
+	bg-gradient-to-b from-transparent to-white dark:to-neutral-900;
+}
+
+.tz-timeline-details {
+	@apply flex flex-col justify-center items-start;
+}

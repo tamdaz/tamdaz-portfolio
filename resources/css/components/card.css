@@ -1,0 +1,8 @@
+.tz-card-skill {
+	@apply border dark:border-neutral-800 rounded-lg overflow-hidden relative;
+}
+
+.tz-card-skill > .tz-card-skill-details {
+	@apply absolute w-full h-full z-10 transition opacity-0 hover:opacity-100 p-4 bg-white
+	dark:bg-neutral-900 flex flex-col justify-center items-center;
+}

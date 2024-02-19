@@ -1,6 +1,17 @@
 @import 'https://fonts.cdnfonts.com/css/sf-mono';
 @import 'https://rsms.me/inter/inter.css';
 
+@import "./components/alert.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/header.css";
+@import "./components/list.css";
+@import "./components/menu.css";
+@import "./components/timeline.css";
+
+@import "./layouts/home.css";
+@import "./layouts/markdown.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,155 +21,8 @@
 	color: rgba(0, 0, 0, calc(1 - 0.2));
 }
 
-.tz-header {
-	@apply w-screen transition-all duration-200 px-10 md:px-12 py-2 md:py-5 flex
-	flex-row items-center fixed z-20 dark:border-b-neutral-800 border-b-neutral-800/10;
-}
-
-.tz-menu-button {
-	@apply lg:hidden border dark:border-neutral-800 active:border-neutral-200
-	dark:active:border-neutral-900 p-1;
-}
-
-.tz-menu {
-	@apply absolute mt-6 border dark:border-neutral-700 rounded-lg min-w-52 bg-white
-	border-neutral-200 dark:bg-neutral-900 divide-y dark:divide-neutral-700
-	overflow-hidden;
-}
-
-.tz-menu-item {
-	@apply py-2 text-2xl hover:scale-90 transition-transform outline-none px-8;
-}
-
-.tz-menu-item-disabled {
-	@apply py-2 text-2xl outline-none px-8 opacity-50;
-}
-
-.tz-dropdown-menu-item {
-	@apply block px-6 py-3 hover:bg-neutral-200 active:bg-neutral-300
-	dark:hover:bg-neutral-800 dark:active:bg-neutral-900;
-}
-
-.tz-alert-info {
-	@apply w-full my-4 flex flex-row items-center p-4 bg-blue-100 dark:bg-blue-950 border
-	border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-100 rounded-lg;
-}
-
-.tz-alert-success {
-	@apply w-full my-4 flex flex-row items-center p-4 bg-green-100 dark:bg-green-950 border
-	border-green-200 dark:border-green-800 text-green-800 dark:text-green-100 rounded-lg;
-}
-
-.tz-alert-warning, .tz-alert-warn {
-	@apply w-full my-4 flex flex-row items-center p-4 bg-yellow-100 dark:bg-yellow-950 border
-	border-yellow-200 dark:border-yellow-800 text-yellow-800 dark:text-yellow-100 rounded-lg;
-}
-
-.tz-alert-error {
-	@apply w-full my-4 flex flex-row items-center p-4 bg-red-100 dark:bg-red-950 border
-	border-red-200 dark:border-red-800 text-red-800 dark:text-red-100 rounded-lg;
-}
-
-.tz-alert-debug {
-	@apply w-full my-4 flex flex-row items-center p-4 bg-neutral-100 dark:bg-black
-	dark:text-white border border-neutral-200 dark:border-neutral-800 text-neutral-800 rounded-lg;
-}
-
-.tz-button-contained {
-	@apply bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2 px-8 rounded-full;
-}
-
-.tz-button-outlined {
-	@apply border dark:border-neutral-700 hover:bg-green-500/20 active:bg-green-600/30 py-2 px-8 rounded-full;
-}
-
-.tz-button-text {
-	@apply hover:bg-green-500/20 active:bg-green-600/30 py-2 px-8 rounded-full;
-}
-
-.tz-card-skill {
-	@apply border dark:border-neutral-800 rounded-lg overflow-hidden relative;
-}
-
-.tz-card-skill > .tz-card-skill-details {
-	@apply absolute w-full h-full z-10 transition opacity-0 hover:opacity-100 p-4 bg-white
-	dark:bg-neutral-900 flex flex-col justify-center items-center;
-}
-
-.tz-timeline {
-	@apply m-auto my-8 overflow-x-hidden md:overflow-x-visible relative;
-}
-
-.tz-timeline-line-gradient {
-	@apply absolute bottom-0 w-[40px] h-[20px] z-10
-	bg-gradient-to-b from-transparent to-white dark:to-neutral-900;
-}
-
-.tz-timeline-details {
-	@apply flex flex-col justify-center items-start;
-}
-
-.tz-list {
-	@apply border dark:border-neutral-700 bg-white dark:bg-neutral-900 my-4 rounded-md divide-y
-	dark:divide-neutral-700;
-}
-
-.tz-list-item {
-	@apply block px-8 py-6 hover:bg-neutral-100 active:bg-neutral-200 hover:dark:bg-neutral-800
-	active:dark:bg-neutral-700 cursor-pointer;
-}
-
 pre, code {
 	font-family: 'SF Mono', monospace;
-}
-
-::-webkit-scrollbar {
-	@apply absolute bg-black/20 w-3;
-}
-
-::-webkit-scrollbar-thumb {
-	@apply absolute bg-black/70;
-}
-
-@media screen and (max-width: 1024px) {
-	.bg-home {
-		background-image:
-			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
-			repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
-		background-blend-mode: multiply;
-	}
-
-	.bg-home-dark {
-		background-image:
-				radial-gradient(circle at center center, #f8f8f8, #ddd),
-				repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
-		background-blend-mode: multiply;
-	}
-}
-
-@media screen and (min-width: 1024px) {
-	.bg-home {
-		background-image:
-			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
-			repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 64px);
-		background-blend-mode: multiply;
-		background-color: #eeeeee;
-	}
-
-	.bg-home-dark {
-		background-image:
-				radial-gradient(circle at center center, #f8f8f8, #ddd),
-				repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 32px);
-		background-blend-mode: multiply;
-		background-color: #222222;
-	}
-}
-
-.bgi {
-	background-color: #e4f6e6;
-	opacity: 0.8;
-	background-image: radial-gradient(#216f39 0.8500000000000001px, #e4f6e6 0.8500000000000001px);
-	background-size: 17px 17px;
 }
 
 @layer components {
@@ -184,75 +48,5 @@ pre, code {
 	ul {
 		list-style-type: inherit;
 		list-style-position: inside;
-	}
-
-	.markdown > h1 {
-		@apply text-4xl py-2 font-bold;
-	}
-
-	.markdown > h2 {
-		@apply text-3xl py-2 font-bold;
-	}
-
-	.markdown > h3 {
-		@apply text-2xl font-bold;
-	}
-
-	.markdown > h4 {
-		@apply text-xl font-bold;
-	}
-
-	.markdown > h5 {
-		@apply text-lg font-bold;
-	}
-
-	.markdown > h6 {
-		@apply font-bold;
-	}
-
-	.markdown table {
-		@apply w-full mt-3 mb-4;
-	}
-
-	.markdown blockquote {
-		@apply border-l-4 pl-4 py-3 my-4 dark:border-neutral-600 italic;
-	}
-
-	.markdown table > thead > tr > th, td {
-		@apply px-4 py-2 border dark:border-neutral-700;
-	}
-
-	.markdown table > thead > tr > th {
-		@apply border-b-2 dark:border-b-neutral-600;
-	}
-
-	.markdown pre {
-		@apply my-4 rounded-lg overflow-hidden;
-	}
-
-	.markdown ol {
-		list-style-type: decimal;
-		list-style-position: inside;
-	}
-
-	.markdown ul {
-		list-style-type: inherit;
-		list-style-position: inside;
-	}
-
-	.markdown i, em {
-		font-style: oblique 5deg;
-	}
-
-	.markdown p, ol, ul {
-		@apply py-2
-	}
-
-	.markdown a {
-		@apply text-green-500 hover:underline;
-	}
-
-	.markdown hr {
-		@apply dark:border-neutral-700 my-4;
 	}
 }

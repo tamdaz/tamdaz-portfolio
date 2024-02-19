@@ -1,0 +1,7 @@
+::-webkit-scrollbar {
+	@apply absolute bg-black/20 w-3;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply absolute bg-black/70;
+}

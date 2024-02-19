@@ -1,0 +1,40 @@
+@media screen and (max-width: 1024px) {
+	.bg-home {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
+			repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+	}
+
+	.bg-home-dark {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #ddd),
+			repeating-radial-gradient(circle at center 57%, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.bg-home {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #eeeeee),
+			repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 64px);
+		background-blend-mode: multiply;
+		background-color: #eeeeee;
+	}
+
+	.bg-home-dark {
+		background-image:
+			radial-gradient(circle at center center, #f8f8f8, #ddd),
+			repeating-radial-gradient(circle at 75% center, #f8f8f8, #f8f8f8 12px, transparent 32px);
+		background-blend-mode: multiply;
+		background-color: #222222;
+	}
+}
+
+.bgi {
+	background-color: #e4f6e6;
+	opacity: 0.8;
+	background-image: radial-gradient(#216f39 0.8500000000000001px, #e4f6e6 0.8500000000000001px);
+	background-size: 17px 17px;
+}
