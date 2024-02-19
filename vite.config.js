@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/typer.js',
                 'resources/js/bootstrap.js',
                 'resources/js/header.js',
                 'resources/js/observer.js',
