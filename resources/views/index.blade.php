@@ -3,7 +3,7 @@
 @section('title', 'Tamda Zohir - Portfolio BTS SIO SLAM')
 
 @section('head')
-	@vite('resources/js/app.js')
+	@vite('resources/js/typer.js')
 @endsection
 
 @section('body')
