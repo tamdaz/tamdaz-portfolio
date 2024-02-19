@@ -8,14 +8,18 @@
 		Les parcours de certifications complémentaires <i>(PCC)</i> permettent de valider l'acquisition
 		des compétences supplémentaires.
 	</p>
-	<div class="gap-4">
+	<div class="tz-list">
 		@forelse($certifications as $certification)
-			<embed
-				src="{{ optional($certification->certificate)->url }}#toolbar=0&navpanes=0&scrollbar=0"
-				width="100%"
-				height="700px" />
+			<a href="{{ $certification->certificate->url }}" class="tz-list-item">
+				<div>
+					<h2 class="text-2xl font-bold">{{ $certification->primary }}</h2>
+					<p>{{ $certification->secondary }}</p>
+				</div>
+			</a>
 		@empty
-			<span class="text-center col-span-2">Pas de certificats disponibles pour le moment.</span>
+			<h2 class="text-center italic text-2xl my-8 grid-cols-2">
+				Pas de certificats disponibles pour le moment...
+			</h2>
 		@endforelse
 	</div>
 @endsection
