@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
@@ -15,4 +16,10 @@ class TW extends Model
     use AsSource, Filterable, HasFactory;
 
     protected $table = 'tw';
+
+	public $timestamps = false;
+
+	protected $casts = [
+		'published_at' => 'date:d/m/Y'
+	];
 }

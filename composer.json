@@ -8,7 +8,6 @@
         "php": "^8.2",
         "davidbadura/faker-markdown-generator": "^1.1",
         "davmixcool/laravel-meta-manager": "^1.2",
-        "doctrine/dbal": "^3.8",
         "erusev/parsedown": "^1.7",
         "erusev/parsedown-extra": "^0.8.1",
         "guzzlehttp/guzzle": "^7.2",
