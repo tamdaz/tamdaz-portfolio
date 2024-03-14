@@ -56,7 +56,7 @@ class PageController extends Controller
     public function technology_watch(): View
     {
         return view('pages.technology-watch', [
-            'news' => TW::all(),
+            'news' => TW::orderBy('published_at', 'DESC')->get(),
         ]);
     }
 
